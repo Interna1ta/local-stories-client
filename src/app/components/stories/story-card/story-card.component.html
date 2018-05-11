@@ -1,13 +1,9 @@
 <div class="card" *ngIf="story">
-  <h3>{{story.text}}</h3>
-  <h3>{{story.user.username}}</h3>
-  <!-- <img [src]="movie.posterUrl" alt=""> -->
-  <!-- <p>Date: {{story.created_at | date [ : 'shortTime' [ : string [ : string ] ] ] ] ]}}</p> -->
-  <p>Date: {{story.created_at | date : shortTime }}</p>
-  <p>Date: {{story.created_at | date : longTime }}</p>
-  <p>Date: {{story.created_at | date : short }}</p>
-  <!-- <p>Date: {{story.created_at | Date, format: string, locale: string, timezone?: string}}</p> -->
-
+  <strong><p>{{story.text}}</p></strong>
+  <a [routerLink]="['/users', story.user._id]">
+    <p>@{{story.user.username}}</p>
+  </a>
+  <p>Date: {{story.created_at | date : 'shortTime' }}</p>
 </div>
 
 <!-- {{story.user | json}} -->

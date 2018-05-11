@@ -25,6 +25,7 @@ import { LoginPageComponent } from './pages/users/login-page/login-page.componen
 import { SignupPageComponent } from './pages/users/signup-page/signup-page.component';
 import { StoryCreatePageComponent } from './pages/stories/story-create-page/story-create-page.component';
 import { ProfilePageComponent } from './pages/users/profile-page/profile-page.component';
+import { UserPageComponent } from './pages/users/user-page/user-page.component';
 
 // -- Services
 
@@ -36,6 +37,7 @@ import { StoriesService } from './services/stories.service';
 import { InitAuthGuardService } from './guards/init-auth-guard.service';
 import { RequireAnonGuardService } from './guards/require-anon-guard.service';
 import { RequireUserGuardService } from './guards/require-user-guard.service';
+import { UsersService } from './services/users.service';
 
 // -- Routes
 
@@ -48,7 +50,8 @@ const routes: Routes = [
   { path: 'errors/500', component: Error500Component },
   { path: 'stories', component: IndexComponent, canActivate: [RequireUserGuardService] },
   { path: 'stories/create', component: StoryCreatePageComponent, canActivate: [RequireUserGuardService] },
-  { path: 'profile', component: ProfilePageComponent, canActivate: [RequireUserGuardService] }
+  { path: 'profile', component: ProfilePageComponent, canActivate: [RequireUserGuardService] },
+  { path: 'users/:id', component: UserPageComponent, canActivate: [RequireUserGuardService] }
 ];
 
 @NgModule({
@@ -66,7 +69,8 @@ const routes: Routes = [
     TopNavCreateComponent,
     StoryCreatePageComponent,
     StoryCardComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    UserPageComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +83,8 @@ const routes: Routes = [
     AuthService,
     InitAuthGuardService,
     RequireAnonGuardService,
-    RequireUserGuardService
+    RequireUserGuardService,
+    UsersService
   ],
   bootstrap: [AppComponent]
 })
