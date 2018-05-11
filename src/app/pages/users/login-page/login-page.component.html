@@ -1,0 +1,43 @@
+<!-- <app-top-nav-feed></app-top-nav-feed> -->
+
+<div class="container">
+  <h2>login</h2>
+  <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
+      <label>username</label>
+      <input type="text" placeholder="username" name="username" [(ngModel)]="username" #usernameField="ngModel" [disabled]="processing"
+      />
+      <div *ngIf="feedbackEnabled && usernameField.errors">
+        <p *ngIf="usernameField.errors.required" class="validation">username required</p>
+      </div>
+    </div>
+
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
+      <label>password</label>
+      <input type="text" placeholder="password" name="password" [(ngModel)]="password" #passwordField="ngModel" [disabled]="processing"
+      />
+      <div *ngIf="feedbackEnabled && passwordField.errors">
+        <p *ngIf="passwordField.errors.required" class="validation">password required</p>
+      </div>
+    </div>
+
+    <div class="field submit">
+      <button type="submit" [disabled]="processing" class="btn btn-primary">Login</button>
+      <div *ngIf="error">
+        <p class="validation">{{error}}</p>
+      </div>
+      <div *ngIf="feedbackEnabled && form.invalid">
+        <p class="validation">there are errors in the form, please review the fields</p>
+      </div>
+    </div>
+  </form>
+  <div class="link">
+    <p>You don't have an account? </p>
+    <a [routerLink]="['/signup']">Sign up</a>
+  </div>
+</div>
+
+
+
+<!-- <app-bottom-nav></app-bottom-nav> -->

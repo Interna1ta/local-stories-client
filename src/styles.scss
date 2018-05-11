@@ -1,0 +1,226 @@
+@import './app/scss/variables.scss';
+
+/* ---- RESET ---- */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ---- TYPOGRAPHY ---- */
+
+body {
+  color: #111;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 147%;
+  background-color: white;
+  font-family: 'Lato', sans-serif;
+}
+
+h1 {
+  margin: 0;
+  /* font-weight: 700; */
+  font-size: 30px;
+  line-height: 40px;
+  color: $color-title;
+}
+
+h2 {
+  margin: 0;
+  margin-bottom: 15px;
+  font-size: 28px;
+}
+
+h3 {
+  margin: 0;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+h4 {
+  margin: 0;
+  font-size: 18px;
+}
+
+h5 {
+  margin: 0;
+  font-size: 14px;
+  color: #585858;
+  margin-bottom: 5px;
+}
+
+p {
+  font-size: 14px;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  p {
+    font-size: 16px;
+  }
+}
+
+/* ---- LAYOUT ---- */
+
+.container {
+  margin: 50px 20px 80px 20px;
+  background-color: lightgray;
+}
+
+.section {
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+
+.site-nav {
+  padding: 10px 0;
+  color: #111;
+  background: white;
+
+  position:fixed;
+  top:0;
+  width: 100%;
+  z-index: 10;
+  margin: 1px solid black;
+}
+
+#site-footer {
+  color: #111;
+  background: white;
+  padding: 10px 0;
+
+  position:fixed;
+  bottom:0;
+  width: 100%;
+  z-index: 10;
+  margin-top: 1px solid black;
+}
+
+.footer,
+.site-nav {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: space-around;
+}
+ svg {
+   height: 30px;
+ }
+
+/* @media (min-width: 768px) {
+  .container {
+    max-width: 728px;
+    margin: 0 auto;
+  }
+}  */
+
+/* ---- components ---- */
+
+
+/* ---- homepage ---- */
+
+.main-title {
+  padding-top: 20px;
+  margin-bottom: 60px;
+  // text-align: center;
+}
+
+.instructions {
+  display: flex;
+  flex-direction: row;
+  padding-top: 40px;
+}
+
+.instructions .icons {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.fa-edit,
+.fa-user-plus,
+.fa-beer {
+  padding-top: 20px;
+  font-size: 50px;
+}
+
+.instructions .list{
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  justify-content: space-around;
+}
+
+.instructions .list-title {
+  font-weight: 700;
+  padding-top: 20px;
+}
+
+/* ---- Buttons ---- */
+
+.btn {
+  background-color: #1487fe;
+  padding: 3px 10px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.btn-primary {
+  padding: 10px;
+  width: 100%;
+  border: none;
+  line-height: 20px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.btn-navbar {
+  background-color: white;
+  color: #1487fe;
+  font-weight: 400;
+  border-radius: 50px;
+}
+.color-red {
+  color:red;
+}
+
+// -- forms
+
+.link {
+  display: flex;
+  justify-content: center;
+}
+
+.link p {
+  margin-right: 10px;
+}
+
+// -- create page
+
+.textarea {
+  // position: relative;
+  background: yellow;
+  padding-top: 100px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 100vh;
+  resize: none;
+}
+
+.top-nav-create {
+  // position: absolute;
+}

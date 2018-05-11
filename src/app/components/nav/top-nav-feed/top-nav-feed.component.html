@@ -1,0 +1,32 @@
+<nav class="site-nav">
+  <a [routerLink]="['/stories/create']">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+      <path d="M352 240v32c0 6.6-5.4 12-12 12h-88v88c0 6.6-5.4 12-12 12h-32c-6.6 0-12-5.4-12-12v-88h-88c-6.6 0-12-5.4-12-12v-32c0-6.6 5.4-12 12-12h88v-88c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v88h88c6.6 0 12 5.4 12 12zm96-160v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-48 346V86c0-3.3-2.7-6-6-6H54c-3.3 0-6 2.7-6 6v340c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"
+      />
+    </svg>
+  </a>
+  <span>Local Stories</span>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+    <path d="M624 208h-64v-64c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v64h-64c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h64v64c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-64h64c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400 48c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
+    />
+  </svg>
+
+  <!-- <div [ngClass]="{'is-user': user, 'is-anon': anon}">
+    <div *ngIf="loading">
+      <span class="username text">loading...</span>
+    </div>
+    <div *ngIf="!loading && !!user">
+      <a [routerLink]="['/profile']">{{user.username}}</a>
+      <a (click)="logout()">logout</a>
+    </div>
+    <div *ngIf="!loading && anon">
+      <a [routerLink]="['/login']">login</a>
+      <a [routerLink]="['/signup']">signup</a>
+    </div>
+  </div> -->
+
+</nav>
+<hr>
+<!-- 
+{{user | json}}
+anon: {{anon}} -->

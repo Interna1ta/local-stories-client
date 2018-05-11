@@ -1,0 +1,15 @@
+<app-top-nav-feed></app-top-nav-feed>
+
+<div class="container">
+  <p>index stories works!</p>
+  <p>index stories works!</p>
+
+  <ul *ngFor="let story of stories">
+    <li>
+      <app-story-card [story]="story"></app-story-card>
+      <!-- <a [routerLink]="['/movies', movie._id]">Detail</a> -->
+    </li>
+  </ul>
+</div>
+
+<app-bottom-nav></app-bottom-nav>
