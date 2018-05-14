@@ -7,6 +7,9 @@
 
   <div class="profile-actions">
     <button (click)="listAllStories()">Stories</button>
+    <a [routerLink]="['/users', user._id, 'followers']">
+      FFFF
+    </a>
     <button (click)="listAllFollowers()">Followers</button>
     <button (click)="listAllFollowing()">Following</button>
   </div>

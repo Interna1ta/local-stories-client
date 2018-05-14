@@ -103,10 +103,14 @@ export class UserPageComponent implements OnInit {
   }
 
   listAllFollowing() {
-
   }
-
+  
   listAllFollowers() {
+    console.log(this.idUser);
+    this.usersService.userFollowers(this.idUser)
+      .then((data) => {
+        console.log('followOne yeah!');
+      })
 
   }
 

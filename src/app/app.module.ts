@@ -26,6 +26,7 @@ import { SignupPageComponent } from './pages/users/signup-page/signup-page.compo
 import { StoryCreatePageComponent } from './pages/stories/story-create-page/story-create-page.component';
 import { ProfilePageComponent } from './pages/users/profile-page/profile-page.component';
 import { UserPageComponent } from './pages/users/user-page/user-page.component';
+import { FollowersPageComponent } from './pages/users/followers-page/followers-page.component';
 
 // -- Services
 
@@ -51,7 +52,8 @@ const routes: Routes = [
   { path: 'stories', component: IndexComponent, canActivate: [RequireUserGuardService] },
   { path: 'stories/create', component: StoryCreatePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'profile', component: ProfilePageComponent, canActivate: [RequireUserGuardService] },
-  { path: 'users/:id', component: UserPageComponent, canActivate: [RequireUserGuardService] }
+  { path: 'users/:id/followers', component: FollowersPageComponent, canActivate: [RequireUserGuardService] }
+  { path: 'users/:id', component: UserPageComponent, canActivate: [RequireUserGuardService] },
 ];
 
 @NgModule({
@@ -70,7 +72,8 @@ const routes: Routes = [
     StoryCreatePageComponent,
     StoryCardComponent,
     ProfilePageComponent,
-    UserPageComponent
+    UserPageComponent,
+    FollowersPageComponent
   ],
   imports: [
     BrowserModule,
