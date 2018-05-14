@@ -1,9 +1,10 @@
 
 <nav class="site-nav">
   <div class="nav icons">
-    <a [routerLink]="['/stories/create']" class="fa-plus-square-top">
-      <i class="far fa-plus-square"></i>
-    </a>
+    <!-- <a [routerLink]="['/auth/logout']">
+      <span>Logout</span>
+    </a> -->
+    <button (click)="logout()">Logout</button>
     <span>Profile</span>
     <a [routerLink]="['/profile/addFollowers']">
       <i class="fas fa-user-plus"></i>

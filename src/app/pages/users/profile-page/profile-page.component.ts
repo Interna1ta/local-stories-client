@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AuthService } from '../../../services/auth.service';
 import { StoriesService } from '../../../services/stories.service';
@@ -15,7 +16,11 @@ export class ProfilePageComponent implements OnInit {
   id: any;
   stories: Array<any>;
 
-  constructor(private authService: AuthService, private storiesService: StoriesService) { }
+  constructor(
+    private authService: AuthService, 
+    private storiesService: StoriesService, 
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.listAllStories();
@@ -31,6 +36,13 @@ export class ProfilePageComponent implements OnInit {
             this.stories = data;
           })
       }) 
+  }
+
+  logout() {
+    this.authService.logout()
+      .then(()=>{
+        this.router.navigate(['/']);
+      })
   }
 
   editProfile() {}
