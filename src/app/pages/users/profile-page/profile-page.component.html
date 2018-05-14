@@ -12,32 +12,33 @@
   </div>
 </nav>
 
-<div class="container">
+<div class="container" *ngIf="user">
   <div class="profile-information">
-      <!-- <div *ngIf=!user.profile_image_url>
-        <img src="https://thenounproject.com/term/avatar/72032/" class="avatar" alt="">
-      </div>
-      <div *ngIf=user.profile_image_url>
-        <img [src]="user.profile_image_url" class="avatar" alt="">
-      </div> -->
-      <!-- <h3>name: {{user.name}}</h3> -->
-      <p *ngIf="user">@{{user.username}}</p>
-      <!-- <p>{{user.description}}</p> -->
+    <p *ngIf="user">@{{user.username}}</p>
+
+    <button *ngIf="iFollow == false" (click)="followUser()">Follow</button>
+    <button *ngIf="iFollow == true" (click)="unfollowUser()">Not follow</button>
   </div>
 
-    <div class="profile-actions">
-      <button (click)="listAllStories()">Stories</button>
-      <button (click)="listAllFollowers()">Followers</button>
-      <button (click)="listAllFollowing()">Following</button>
-    </div>
+  <div class="profile-actions">
+    <button (click)="listAllStories()">Stories</button>
+    <a [routerLink]="['/users', user._id, 'followers']">
+      Followers
+    </a>
+    <a [routerLink]="['/users', user._id, 'following']">
+      Following
+    </a>
+    <!-- <button (click)="listAllFollowers()">Followers</button> -->
+    <!-- <button (click)="listAllFollowing()">Following</button> -->
+  </div>
 
-    <ul *ngFor="let story of stories">
-      <li>
-        <!-- <a [routerLink]="['/stories', story._id]"> -->
-        <app-story-card [story]="story"></app-story-card>
-        <!-- </a> -->
-      </li>
-    </ul>
+  <ul *ngFor="let story of stories">
+    <li>
+      <!-- <a [routerLink]="['/stories', story._id]"> -->
+      <app-story-card [story]="story"></app-story-card>
+      <!-- </a> -->
+    </li>
+  </ul>
 </div>
 
 <!-- {{ user | json}} -->

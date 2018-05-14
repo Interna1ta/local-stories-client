@@ -42,13 +42,7 @@ export class UserPageComponent implements OnInit {
         .then((data) => {
           this.user = data;
           this.idUser = data._id;
-
-          this.storiesService.userStories(this.idUser)
-            .then((data) => {
-              this.stories = data;
-              this.checkFollowUser();
-            })
-
+          this.checkFollowUser();
         })
     })
   }
@@ -58,6 +52,9 @@ export class UserPageComponent implements OnInit {
       .then((data) => {
         this.userMe = data;
         this.idMe = data._id;
+        if (this.idMe == this.idUser) {
+          return this.router.navigate(['/profile']);
+        }
         this.bothId = {
           idUser: this.idUser,
           idMe: this.idMe
@@ -65,11 +62,18 @@ export class UserPageComponent implements OnInit {
         this.usersService.checkFollow(this.bothId)
           .then((data) => {
             (data == true) ? this.iFollow = true : this.iFollow = false;
-            // this.iFollow = true;
             console.log('PUTA BIDAAAAAAA');
             console.log(data);
+            this.findUserStories();
           })
       }) 
+  }
+
+  findUserStories() {
+    this.storiesService.userStories(this.idUser)
+      .then((data) => {
+        this.stories = data;
+      })
   }
 
   followUser() {
