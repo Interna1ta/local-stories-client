@@ -26,14 +26,14 @@ export class ProfilePageComponent implements OnInit {
       .then((data) => {
         this.user = data;
         this.id = data._id;
-        // console.log(this.id);
-        // console.log(this.user);
         this.storiesService.userStories(this.id)
           .then((data) => {
             this.stories = data;
           })
       }) 
   }
+
+  editProfile() {}
 
   listAllFollowing() {
 

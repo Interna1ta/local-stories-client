@@ -28,4 +28,20 @@ export class UsersService {
       .toPromise();
   }
 
+  followOne(bothId: any): Promise<any> {
+    const options = {
+      withCredentials: true
+    }
+    return this.httpClient.put(`${this.baseUrl}/users/${bothId.idUser}/follow`, bothId, options)
+      .toPromise();
+  }
+
+  unfollowOne(bothId: any): Promise<any> {
+    const options = {
+      withCredentials: true
+    }
+    return this.httpClient.put(`${this.baseUrl}/users/${bothId.idUser}/unfollow`, bothId, options)
+      .toPromise();
+  }
+
 }
