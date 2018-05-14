@@ -104,12 +104,30 @@ p {
   margin-top: 1px solid black;
 }
 
-.footer,
-.site-nav {
+#site-nav {
+  color: #111;
+  background: white;
+  padding: 10px 0;
+
+  position:fixed;
+  top:0;
+  width: 100%;
+  z-index: 10;
+  margin-top: 1px solid black;
+}
+
+.footer {
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
   justify-content: space-around;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 15px;
+  padding-right: 15px;
 }
  svg {
    height: 30px;
@@ -223,4 +241,64 @@ p {
 
 .top-nav-create {
   // position: absolute;
+}
+
+
+// icons
+
+.fa-home,
+.fa-list-alt,
+.fa-plus-square,
+.fa-user-circle,
+.fa-list-alt {
+  font-size: 28px;
+  fill: grey;
+  color: #2E2E2E;
+}
+
+.fa-plus-square-top:first-child,
+.fa-plus-square-top,
+.fa-user-plus {
+  padding-top: 0px;
+  font-size: 24px;
+  line-height: 24px;
+  fill: grey;
+  color: #2E2E2E;
+}
+
+svg {
+  height: 28px;
+}
+
+.fa-map-marker {
+  font-size: 60px;
+  color: black;
+}
+
+.user-inputs {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.instructions {
+  background-color: #A9E2F3;
+}
+// instructions
+//   icons
+//     fas fa-search
+//     fas fa-users
+//     far fa-comment
+
+
+// -- profile
+
+.profile-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.fa-plus-square-top:first-child {
+
 }

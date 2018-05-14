@@ -20,4 +20,12 @@ export class UsersService {
       .toPromise();
   }
 
+  userFollowers(id): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl}/users/${id}/followers`, options)
+      .toPromise();
+  }
+
 }

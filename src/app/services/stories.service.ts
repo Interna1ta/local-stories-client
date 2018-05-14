@@ -33,11 +33,11 @@ export class StoriesService {
       .toPromise();
   }
 
-  listAllUser(id): Promise<any> {
+  userStories(id): Promise<any> {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}/stories/${id}`, options)
+    return this.httpClient.get(`${this.baseUrl}/stories/users/${id}`, options)
       .toPromise();
   }
 

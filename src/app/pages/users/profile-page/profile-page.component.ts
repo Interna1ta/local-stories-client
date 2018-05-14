@@ -11,18 +11,36 @@ import { StoriesService } from '../../../services/stories.service';
 export class ProfilePageComponent implements OnInit {
   
   // @Input() user: Object;
-  user: Array<any>;
-  id: String;
+  user: any;
+  id: any;
+  stories: Array<any>;
 
   constructor(private authService: AuthService, private storiesService: StoriesService) { }
 
   ngOnInit() {
+    this.listAllStories();
+  }
+
+  listAllStories() {
     this.authService.me()
       .then((data) => {
         this.user = data;
-        // this.id = data
-      })
-    this.storiesService.listAllUser(this.id)
+        this.id = data._id;
+        // console.log(this.id);
+        // console.log(this.user);
+        this.storiesService.userStories(this.id)
+          .then((data) => {
+            this.stories = data;
+          })
+      }) 
+  }
+
+  listAllFollowing() {
+
+  }
+
+  listAllFollowers() {
+
   }
 
 }

@@ -14,7 +14,7 @@ export class StoryCreatePageComponent implements OnInit {
   textEntered: String;
   countRemaining: Number;
   counter: Number;
-  user: Object;
+  user: any;
 
   @Input() error: String;
   @Input() processing: Boolean;
@@ -46,7 +46,7 @@ export class StoryCreatePageComponent implements OnInit {
       const story = {
         text: form.value.story,
         // user: this.user.username,
-        user: this.user,
+        userId: this.user._id,
         coordinates: null,
         enabled: true
       }
