@@ -1,6 +1,16 @@
-<p>
-  followers-page works!
-</p>
+<nav class="site-nav">
+  <div class="nav icons">
+    <h3>Followers</h3>
+  </div>
+</nav>
+
+<div class="container" *ngIf="user">
+  <ul *ngFor="let follower of user.following">
+    <li>
+      <app-single-user [follower]="follower"></app-single-user>
+    </li>
+  </ul>
+</div>
 
 <footer id="site-footer">
   <div class="footer icons">

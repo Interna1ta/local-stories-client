@@ -44,4 +44,12 @@ export class UsersService {
     return this.httpClient.get(`${this.baseUrl}/users/${id}/followers`, options)
       .toPromise();
   }
+
+  checkFollow(bothId: any): Promise<any> {
+    const options = {
+      withCredentials: true
+    }
+    return this.httpClient.post(`${this.baseUrl}/users/${bothId.idUser}/checkFollow`, bothId, options)
+      .toPromise();
+  }
 }

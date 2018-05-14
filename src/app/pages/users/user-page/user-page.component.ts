@@ -18,8 +18,8 @@ export class UserPageComponent implements OnInit {
   idUser: string;
   idMe: string;
   bothId: object;
-  // bothId: any;
   stories: Array<any>;
+  iFollow: boolean;
 
   constructor(
     private usersService: UsersService, 
@@ -30,6 +30,7 @@ export class UserPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.iFollow = false;
     this.listAllStories();
     
   }
@@ -45,30 +46,31 @@ export class UserPageComponent implements OnInit {
           this.storiesService.userStories(this.idUser)
             .then((data) => {
               this.stories = data;
-              // this.checkfollowUser();
+              this.checkFollowUser();
             })
 
         })
     })
   }
 
-  // checkfollowUser() {
-  //   this.authService.me()
-  //     .then((data) => {
-  //       this.userMe = data;
-  //       this.idMe = data._id;
-  //       // this.bothId = [this.idUser, this.idMe]
-  //       this.bothId = {
-  //         idUser: this.idUser,
-  //         idMe: this.idMe
-  //       }
-  //       console.log(this.bothId);
-  //       this.usersService.checkAuthFollowing(this.bothId)
-  //         .then((data) => {
-  //           console.log('followOne yeah!');
-  //         })
-  //     }) 
-  // }
+  checkFollowUser() {
+    this.authService.me()
+      .then((data) => {
+        this.userMe = data;
+        this.idMe = data._id;
+        this.bothId = {
+          idUser: this.idUser,
+          idMe: this.idMe
+        }
+        this.usersService.checkFollow(this.bothId)
+          .then((data) => {
+            (data == true) ? this.iFollow = true : this.iFollow = false;
+            // this.iFollow = true;
+            console.log('PUTA BIDAAAAAAA');
+            console.log(data);
+          })
+      }) 
+  }
 
   followUser() {
     this.authService.me()
@@ -79,6 +81,7 @@ export class UserPageComponent implements OnInit {
           idUser: this.idUser,
           idMe: this.idMe
         }
+        this.iFollow = true;
         this.usersService.followOne(this.bothId)
           .then((data) => {
             console.log('followOne yeah!');
@@ -95,6 +98,7 @@ export class UserPageComponent implements OnInit {
           idUser: this.idUser,
           idMe: this.idMe
         }
+        this.iFollow = false;
         this.usersService.unfollowOne(this.bothId)
           .then((data) => {
             console.log('unfollowOne yeah!');

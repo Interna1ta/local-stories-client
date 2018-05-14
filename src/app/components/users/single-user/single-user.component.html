@@ -1,0 +1,18 @@
+<p>
+  single-user works!
+</p>
+
+<div *ngIf="!follower">
+  <p> You don't have followers!!! </p>
+</div>
+
+<div class="card" *ngIf="follower">
+  <strong>
+   {{follower.username | json}}
+  </strong>
+  <!-- <button class="btn" (click)="handleDeleteClick()">Follow</button> -->
+
+</div>
+
+
+<!-- {{follower | json}} -->

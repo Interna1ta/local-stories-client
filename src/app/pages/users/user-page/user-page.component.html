@@ -1,17 +1,21 @@
 <div class="container" *ngIf="user">
   <div class="profile-information">
     <p *ngIf="user">@{{user.username}}</p>
-    <button *ngIf="user" (click)="followUser()">Follow</button>
-    <button *ngIf="user" (click)="unfollowUser()">Not follow</button>
+    
+    <button *ngIf="iFollow == false" (click)="followUser()">Follow</button>
+    <button *ngIf="iFollow == true" (click)="unfollowUser()">Not follow</button>
   </div>
 
   <div class="profile-actions">
     <button (click)="listAllStories()">Stories</button>
     <a [routerLink]="['/users', user._id, 'followers']">
-      FFFF
+      Followers
     </a>
-    <button (click)="listAllFollowers()">Followers</button>
-    <button (click)="listAllFollowing()">Following</button>
+    <a [routerLink]="['/users', user._id, 'following']">
+      Following
+    </a>
+    <!-- <button (click)="listAllFollowers()">Followers</button> -->
+    <!-- <button (click)="listAllFollowing()">Following</button> -->
   </div>
 
   <ul *ngFor="let story of stories">

@@ -39,6 +39,7 @@ import { InitAuthGuardService } from './guards/init-auth-guard.service';
 import { RequireAnonGuardService } from './guards/require-anon-guard.service';
 import { RequireUserGuardService } from './guards/require-user-guard.service';
 import { UsersService } from './services/users.service';
+import { SingleUserComponent } from './components/users/single-user/single-user.component';
 
 // -- Routes
 
@@ -52,8 +53,8 @@ const routes: Routes = [
   { path: 'stories', component: IndexComponent, canActivate: [RequireUserGuardService] },
   { path: 'stories/create', component: StoryCreatePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'profile', component: ProfilePageComponent, canActivate: [RequireUserGuardService] },
-  { path: 'users/:id/followers', component: FollowersPageComponent, canActivate: [RequireUserGuardService] }
-  { path: 'users/:id', component: UserPageComponent, canActivate: [RequireUserGuardService] },
+  { path: 'users/:id/followers', component: FollowersPageComponent, canActivate: [RequireUserGuardService] },
+  { path: 'users/:id', component: UserPageComponent, canActivate: [RequireUserGuardService] }
 ];
 
 @NgModule({
@@ -73,7 +74,8 @@ const routes: Routes = [
     StoryCardComponent,
     ProfilePageComponent,
     UserPageComponent,
-    FollowersPageComponent
+    FollowersPageComponent,
+    SingleUserComponent
   ],
   imports: [
     BrowserModule,
