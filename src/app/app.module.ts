@@ -27,6 +27,7 @@ import { StoryCreatePageComponent } from './pages/stories/story-create-page/stor
 import { ProfilePageComponent } from './pages/users/profile-page/profile-page.component';
 import { UserPageComponent } from './pages/users/user-page/user-page.component';
 import { FollowersPageComponent } from './pages/users/followers-page/followers-page.component';
+import { FollowingPageComponent } from './pages/users/following-page/following-page.component';
 
 // -- Services
 
@@ -54,6 +55,7 @@ const routes: Routes = [
   { path: 'stories/create', component: StoryCreatePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'profile', component: ProfilePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'users/:id/followers', component: FollowersPageComponent, canActivate: [RequireUserGuardService] },
+  { path: 'users/:id/following', component: FollowingPageComponent, canActivate: [RequireUserGuardService] },
   { path: 'users/:id', component: UserPageComponent, canActivate: [RequireUserGuardService] }
 ];
 
@@ -75,7 +77,8 @@ const routes: Routes = [
     ProfilePageComponent,
     UserPageComponent,
     FollowersPageComponent,
-    SingleUserComponent
+    SingleUserComponent,
+    FollowingPageComponent
   ],
   imports: [
     BrowserModule,

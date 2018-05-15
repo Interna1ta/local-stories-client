@@ -45,6 +45,14 @@ export class UsersService {
       .toPromise();
   }
 
+  userFollowing(id): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl}/users/${id}/following`, options)
+      .toPromise();
+  }
+
   checkFollow(bothId: any): Promise<any> {
     const options = {
       withCredentials: true

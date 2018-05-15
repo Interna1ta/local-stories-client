@@ -33,10 +33,10 @@ export class FollowersPageComponent implements OnInit {
     for (let i = 0; i < this.usersData.length; i++) {
       this.user = this.usersData[i];
 
-      console.log(this.usersData.length);
-      console.log('hello');
-      console.log(this.user);
-      console.log(this.users);
+      // console.log(this.usersData.length);
+      // console.log('hello');
+      // console.log(this.user);
+      // console.log(this.users);
     }
   }
 
