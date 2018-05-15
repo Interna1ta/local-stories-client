@@ -2,9 +2,10 @@
 
 <nav class="site-nav">
   <div class="nav icons">
-    <a [routerLink]="['/stories/create']" class="fa-plus-square-top">
+    <a [routerLink]="['/stories/create']">
       <!-- <i class="far fa-plus-square"></i> -->
-      <span>AZ</span>
+      <!-- <p>Abc</p> -->
+      <i class="far fa-edit"></i>
     </a>
     <span>Local Stories</span>
     <a [routerLink]="['/profile/addFollowers']">
@@ -13,7 +14,7 @@
   </div>
 </nav>
 
-<div class="container">
+<div class="container stories-list">
   <ul *ngFor="let story of stories">
     <li>
       <!-- <a [routerLink]="['/stories', story._id]"> -->
@@ -45,5 +46,5 @@
   </div>
 </footer>
 
-
+ 
 <!-- <app-bottom-nav></app-bottom-nav> -->

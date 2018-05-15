@@ -1,9 +1,12 @@
 <div class="card" *ngIf="story">
-  <strong><p>{{story.text}}</p></strong>
-  <a [routerLink]="['/users', story.user._id]">
-    <p>@{{story.user.username}}</p>
-  </a>
-  <p>Date: {{story.created_at | date : 'shortTime' }}</p>
+  <div class="story-information">
+    <a class="story-username" [routerLink]="['/users', story.user._id]">
+      <p>@{{story.user.username}}</p>
+    </a>
+    <p class="story-time">{{story.created_at | date : 'shortTime' }}</p>
+    <!-- <p>{{story.created_at | date : 'shortTime' }}</p> -->
+  </div>
+      <p class="tweet">{{story.text}}</p>
 </div>
 
 

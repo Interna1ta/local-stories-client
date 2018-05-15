@@ -40,7 +40,7 @@ export class ProfilePageComponent implements OnInit {
             this.checkFollowMe();
           })
       }) 
-  }
+  } 
   
   checkFollowMe() {
     this.authService.me()

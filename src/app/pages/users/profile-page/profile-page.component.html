@@ -1,10 +1,7 @@
 
 <nav class="site-nav">
   <div class="nav icons">
-    <!-- <a [routerLink]="['/auth/logout']">
-      <span>Logout</span>
-    </a> -->
-    <button (click)="logout()">Logout</button>
+    <button (click)="logout()" class="btn-secondary">Logout</button>
     <span>Profile</span>
     <a [routerLink]="['/profile/addFollowers']">
       <i class="fas fa-user-plus"></i>
@@ -12,24 +9,22 @@
   </div>
 </nav>
 
-<div class="container" *ngIf="user">
-  <div class="profile-information">
-    <p *ngIf="user">@{{user.username}}</p>
-
-    <button *ngIf="iFollow == false" (click)="followUser()">Follow</button>
-    <button *ngIf="iFollow == true" (click)="unfollowUser()">Not follow</button>
+<div class="container profile" *ngIf="user">
+  <div class="profile__information">
+    <p class="profile__username" *ngIf="user">@{{user.username}}</p>
+    <div class="profile__follow-btn">
+      <!-- <button class="btn-terciary" (click)="editUser()">Edit</button> -->
+    </div>
   </div>
 
   <div class="profile-actions">
-    <button (click)="listAllStories()">Stories</button>
-    <a [routerLink]="['/users', user._id, 'followers']">
+    <button (click)="listAllStories()" class="btn-secondary">Stories</button>
+    <a [routerLink]="['/users', user._id, 'followers']" class="btn-secondary">
       Followers
     </a>
-    <a [routerLink]="['/users', user._id, 'following']">
+    <a [routerLink]="['/users', user._id, 'following']" class="btn-secondary">
       Following
     </a>
-    <!-- <button (click)="listAllFollowers()">Followers</button> -->
-    <!-- <button (click)="listAllFollowing()">Following</button> -->
   </div>
 
   <ul *ngFor="let story of stories">
@@ -39,7 +34,7 @@
       <!-- </a> -->
     </li>
   </ul>
-</div>
+</div> 
 
 <!-- {{ user | json}} -->
 

@@ -1,29 +1,27 @@
-<!-- <app-top-nav-feed></app-top-nav-feed> -->
-
-<div class="container">
-  <h1>signup</h1>
+<div class="container__home auth">
+  <h2>signup</h2>
   <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+    <div class="field_inputs">
+      <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
+        <!-- <label>username</label> -->
+        <input type="text" class="field__input" placeholder="username" name="username" [(ngModel)]="username" #usernameField="ngModel" required minlength="6" [disabled]="processing"
+        />
+        <div *ngIf="feedbackEnabled && usernameField.errors">
+          <p *ngIf="usernameField.errors.required" class="validation">username required</p>
+          <p *ngIf="usernameField.errors.minlength" class="validation">username is too short</p>
+        </div>
+      </div>
 
-    <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
-      <label>username</label>
-      <input type="text" placeholder="username" name="username" [(ngModel)]="username" #usernameField="ngModel" required minlength="6" [disabled]="processing"
-      />
-      <div *ngIf="feedbackEnabled && usernameField.errors">
-        <p *ngIf="usernameField.errors.required" class="validation">username required</p>
-        <p *ngIf="usernameField.errors.minlength" class="validation">username is too short</p>
+      <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
+        <!-- <label>password</label> -->
+        <input type="text" class="field__input" placeholder="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required minlength="6" [disabled]="processing"
+        />
+        <div *ngIf="feedbackEnabled && passwordField.errors">
+          <p *ngIf="passwordField.errors.required" class="validation">password required</p>
+          <p *ngIf="passwordField.errors.minlength" class="validation">password is too short</p>
+        </div>
       </div>
     </div>
-
-    <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
-      <label>password</label>
-      <input type="text" placeholder="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required minlength="6" [disabled]="processing"
-      />
-      <div *ngIf="feedbackEnabled && passwordField.errors">
-        <p *ngIf="passwordField.errors.required" class="validation">password required</p>
-        <p *ngIf="passwordField.errors.minlength" class="validation">password is too short</p>
-      </div>
-    </div>
-
     <div class="field submit">
       <button type="submit" [disabled]="processing" class="btn btn-primary">Sign Up</button>
       <div *ngIf="error">
@@ -36,10 +34,6 @@
   </form>
   <div class="link">
     <p>You already have an account? </p>
-    <a [routerLink]="['/login']">Login</a>
+    <a [routerLink]="['/login']" class="btn-secondary">Login</a>
   </div>
 </div>
-
-
-
-<!-- <app-bottom-nav></app-bottom-nav> -->

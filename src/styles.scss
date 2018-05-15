@@ -1,6 +1,6 @@
 @import './app/scss/variables.scss';
 
-/* ---- RESET ---- */
+// -- RESET
 
 html {
   box-sizing: border-box;
@@ -14,14 +14,14 @@ body {
   padding: 0;
 }
 
-/* ---- TYPOGRAPHY ---- */
+// -- TYPOGRAPHY
 
 body {
   color: #111;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 147%;
-  background-color: white;
+  background-color: $color-white;
   font-family: 'Lato', sans-serif;
 }
 
@@ -35,7 +35,7 @@ h1 {
 
 h2 {
   margin: 0;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
   font-size: 28px;
 }
 
@@ -50,13 +50,6 @@ h4 {
   font-size: 18px;
 }
 
-h5 {
-  margin: 0;
-  font-size: 14px;
-  color: #585858;
-  margin-bottom: 5px;
-}
-
 p {
   font-size: 14px;
   margin: 0;
@@ -68,11 +61,15 @@ p {
   }
 }
 
-/* ---- LAYOUT ---- */
+// -- LAYOUT
 
 .container {
-  margin: 50px 20px 80px 20px;
-  background-color: lightgray;
+  margin: 48px 0px 80px 0px;
+  // background-color: #E6E6E6;
+
+  &__home {
+    margin: 0 20px;
+  }
 }
 
 .section {
@@ -83,37 +80,34 @@ p {
 .site-nav {
   padding: 10px 0;
   color: #111;
-  background: white;
+  background: $color-white;
 
   position:fixed;
   top:0;
   width: 100%;
   z-index: 10;
-  margin: 1px solid black;
+  border-bottom: 1px solid $color-border;
 }
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 
 #site-footer {
   color: #111;
-  background: white;
+  background: $color-white;
   padding: 10px 0;
 
   position:fixed;
   bottom:0;
   width: 100%;
   z-index: 10;
-  margin-top: 1px solid black;
-}
+  border-top: 1px solid $color-border;
 
-#site-nav {
-  color: #111;
-  background: white;
-  padding: 10px 0;
-
-  position:fixed;
-  top:0;
-  width: 100%;
-  z-index: 10;
-  margin-top: 1px solid black;
 }
 
 .footer {
@@ -122,13 +116,7 @@ p {
   justify-content: space-around;
 }
 
-.nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-left: 15px;
-  padding-right: 15px;
-}
+
  svg {
    height: 30px;
  }
@@ -140,29 +128,100 @@ p {
   }
 }  */
 
-/* ---- components ---- */
+// -- COMPONENTS
 
+// -- authorisation
+
+.auth {
+  margin-top: 20px;
+
+  .field_inputs {
+    margin-bottom: 20px;
+
+    .field {
+      margin-bottom: 10px;
+
+      &__input {
+        width: 100%;
+        font-size: 12px;
+        font-weight: 400;
+        border: 1px solid grey;
+        padding: 10px 15px;
+        line-height: 20px;
+        border-radius: 20px;
+      }
+    }
+  }
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0px 0px 2px $color-btn-primary;
+}
+
+// -- create page
+
+.create-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .characters-title {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+#tweet {
+  width: 100%;
+  font-size: 12px;
+  font-weight: 400;
+  border: 1px solid grey;
+  padding: 10px 15px;
+  line-height: 20px;
+  border-radius: 20px;
+}
 
 /* ---- homepage ---- */
 
 .main-title {
   padding-top: 20px;
   margin-bottom: 60px;
-  // text-align: center;
 }
 
 .instructions {
   display: flex;
   flex-direction: row;
-  padding-top: 40px;
-}
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #f2d51dff;
+  
+  .icons {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px 0 10px;
+    align-items: center;
+    justify-content: space-around;
+    color: $color-white;
+    
+    .fa-search,
+    .fa-users,
+    .fa-comment {
+      font-size: 20px;
+      padding-top: 2px;
+    }
+  }
 
-.instructions .icons {
-  display: flex;
-  flex-direction: column;
-  padding: 0 20px;
-  align-items: center;
-  justify-content: space-around;
+  .list {
+    margin-left: 0px;
+    padding-left: 0px;
+
+    .element {
+      font-size: 16px;
+      line-height: 40px;
+      color: $color-white;
+    }
+  }
 }
 
 .fa-edit,
@@ -184,7 +243,13 @@ p {
   padding-top: 20px;
 }
 
-/* ---- Buttons ---- */
+// -- stories index
+
+.stories-list {
+  padding-top: 1px;
+}
+
+// -- BUTTONS
 
 .btn {
   background-color: #1487fe;
@@ -206,8 +271,21 @@ p {
   margin-bottom: 20px;
 }
 
+.btn-secondary {
+  text-decoration: none;
+  color: $color-btn-primary;
+  font-size: 14px;
+}
+
+.btn-terciary {
+  padding: 3px 10px;
+  border: 1px solid $color-border;
+  border-radius: 3px;
+  background-color: $color-white;
+}
+
 .btn-navbar {
-  background-color: white;
+  background-color: $color-white;
   color: #1487fe;
   font-weight: 400;
   border-radius: 50px;
@@ -227,26 +305,12 @@ p {
   margin-right: 10px;
 }
 
-// -- create page
-
-.textarea {
-  // position: relative;
-  background: yellow;
-  padding-top: 100px;
-  margin-bottom: 20px;
-  width: 100%;
-  height: 100vh;
-  resize: none;
+span {
+  line-height: 28px;
 }
-
-.top-nav-create {
-  // position: absolute;
-}
-
 
 // icons
 
-.fa-home,
 .fa-list-alt,
 .fa-plus-square,
 .fa-user-circle,
@@ -258,7 +322,8 @@ p {
 
 .fa-plus-square-top:first-child,
 .fa-plus-square-top,
-.fa-user-plus {
+.fa-user-plus,
+.fa-edit {
   padding-top: 0px;
   font-size: 24px;
   line-height: 24px;
@@ -281,24 +346,75 @@ svg {
   text-align: center;
 }
 
-.instructions {
-  background-color: #A9E2F3;
-}
-// instructions
-//   icons
-//     fas fa-search
-//     fas fa-users
-//     far fa-comment
-
-
 // -- profile
 
+.profile-nav {
+  text-align: center;
+}
+.profile {
+
+  &__information {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+    &__follow-btn{
+      padding-top: 15px;
+    }
+  }
+}
+
 .profile-actions {
+  padding-top: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+
+  border-bottom: 1px solid #1487fe;
 }
 
-.fa-plus-square-top:first-child {
+// -- story card
 
+ul {
+  list-style-type: none;
+  border-bottom: 1px solid $color-border;
+  padding-left: 0px;
+
+  li {
+    margin-left: 0px;
+  }
+}
+
+// -- card
+
+.card {
+
+  padding-left: 20px;
+  padding-right: 20px;
+
+  .story-information {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .story-username {
+      margin-right: 10px;
+      text-decoration: none;
+      font-weight: lighter;
+      color: black;
+    }
+
+    .story-time {
+      color: grey;
+      font-weight: lighter;
+      font-size: 12px;
+    }
+  }
+
+  .tweet {
+    margin-bottom: 20px;
+  }
+
+  
 }

@@ -1,17 +1,22 @@
 
-<div class="container">
-  <h2>Create Story</h2>
-  <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
-    <div>
-      <div id="charactersRemaining">140</div>
-      <p>/140</p>
+<div class="container__home auth">
+  
+  <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">    
+    <div class="create-title">
+      <h2>Create Story</h2>
+      <div class="characters-title">
+        <div id="charactersRemaining">140</div>
+        <p>/140</p>
+      </div>
     </div>
     
-    <div class="field" [ngClass]="{'has-error': feedbackEnabled && storyField.errors}">
-      <input type="text" id="tweet" placeholder="Write a story" name="story" [(ngModel)]="story.text" #storyField="ngModel" maxlength="120" [disabled]="processing"
-      />
-      <div *ngIf="feedbackEnabled && storyField.errors">
-      <p *ngIf="storyField.errors.minlength" class="validation">story is too long</p>
+    <div class="field_inputs">
+      <div class="field" [ngClass]="{'has-error': feedbackEnabled && storyField.errors}">
+        <input type="text" id="tweet" placeholder="Write a story" name="story" [(ngModel)]="story.text" #storyField="ngModel" maxlength="120" [disabled]="processing"
+        />
+        <div *ngIf="feedbackEnabled && storyField.errors">
+        <p *ngIf="storyField.errors.minlength" class="validation">story is too long</p>
+        </div>
       </div>
     </div>
 
@@ -29,7 +34,6 @@
 </div>
 
 <footer id="site-footer">
-  <hr>
   <div class="footer">
     <!-- <a [routerLink]="['/stories']">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

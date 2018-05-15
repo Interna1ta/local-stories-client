@@ -1,27 +1,25 @@
-<!-- <app-top-nav-feed></app-top-nav-feed> -->
-
-<div class="container">
+<div class="container__home auth">
   <h2>login</h2>
   <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+    <div class="field_inputs">
+      <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
+        <!-- <label>username</label> -->
+        <input type="text" class="field__input" placeholder="username" name="username" [(ngModel)]="username" #usernameField="ngModel" [disabled]="processing"
+        />
+        <div *ngIf="feedbackEnabled && usernameField.errors">
+          <p *ngIf="usernameField.errors.required" class="validation">username required</p>
+        </div>
+      </div>
 
-    <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
-      <label>username</label>
-      <input type="text" placeholder="username" name="username" [(ngModel)]="username" #usernameField="ngModel" [disabled]="processing"
-      />
-      <div *ngIf="feedbackEnabled && usernameField.errors">
-        <p *ngIf="usernameField.errors.required" class="validation">username required</p>
+      <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
+        <!-- <label>password</label> -->
+        <input type="text" class="field__input" placeholder="password" name="password" [(ngModel)]="password" #passwordField="ngModel" [disabled]="processing"
+        />
+        <div *ngIf="feedbackEnabled && passwordField.errors">
+          <p *ngIf="passwordField.errors.required" class="validation">password required</p>
+        </div>
       </div>
     </div>
-
-    <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
-      <label>password</label>
-      <input type="text" placeholder="password" name="password" [(ngModel)]="password" #passwordField="ngModel" [disabled]="processing"
-      />
-      <div *ngIf="feedbackEnabled && passwordField.errors">
-        <p *ngIf="passwordField.errors.required" class="validation">password required</p>
-      </div>
-    </div>
-
     <div class="field submit">
       <button type="submit" [disabled]="processing" class="btn btn-primary">Login</button>
       <div *ngIf="error">
@@ -34,10 +32,6 @@
   </form>
   <div class="link">
     <p>You don't have an account? </p>
-    <a [routerLink]="['/signup']">Sign up</a>
+    <a [routerLink]="['/signup']" class="btn-secondary">Sign up</a>
   </div>
 </div>
-
-
-
-<!-- <app-bottom-nav></app-bottom-nav> -->

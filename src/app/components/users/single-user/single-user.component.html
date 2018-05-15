@@ -5,7 +5,7 @@
 <div class="card" *ngIf="follower">
   <a [routerLink]="['/users', follower._id]">
     <strong>{{follower.username}}</strong>
-    <input type="hidden" id="myField" value="{{follower._id}}" />
+    <!-- <input type="hidden" id="myField" value="{{follower._id}}" /> -->
   </a>
   <button *ngIf="iFollow == false" (click)="followUser()">Follow</button>
   <button *ngIf="iFollow == true" (click)="unfollowUser()">Not follow</button>

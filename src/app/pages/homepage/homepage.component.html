@@ -1,5 +1,5 @@
 
-<div class="container text-center">
+<div class="container__home">
   <div class="main-title">
     <i class="fas fa-map-marker"></i>
     <h1>Look at what's up in your city now?</h1>
@@ -9,18 +9,19 @@
     <a [routerLink]="['/login']" class="btn btn-primary">Login</a>
     <a [routerLink]="['/signup']" class="btn btn-primary">Sign Up</a>
   </div>
-  <div class="instructions">
-    <div class="icons">
-      <i class="fas fa-search"></i>
-      <i class="fas fa-users"></i>
-      <i class="far fa-comment"></i>
-    </div>
-    <div class="list">
-      <p>Follow what interest you</p>
-      <p>Find out what people are talking about</p>
-      <p>Join the conversation</p>
-    </div>
-  </div>
+</div>
+
+<div class="instructions">
+  <ul class="icons">
+    <li><i class="fas fa-search"></i></li>
+    <li><i class="fas fa-users"></i></li>
+    <li><i class="far fa-comment"></i></li>
+  </ul>
+  <ul class="list">
+    <li><p class="element">Follow what interest you</p></li>
+    <li><p class="element">Find out what people are talking about</p></li>
+    <li><p class="element">Join the conversation</p></li>
+  </ul>
 </div>
 <!-- user: {{user | json}}
 loading: {{loading}} -->
