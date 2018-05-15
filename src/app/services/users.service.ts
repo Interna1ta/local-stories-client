@@ -25,7 +25,7 @@ export class UsersService {
     const options = {
       withCredentials: true
     }
-    return this.httpClient.put(`${this.baseUrl}/users/${bothId.idUser}/follow`, bothId, options)
+    return this.httpClient.put(`${this.baseUrl}/users/${bothId.idMe}/follow`, bothId, options)
     .toPromise();
   }
   
@@ -33,7 +33,7 @@ export class UsersService {
     const options = {
       withCredentials: true
     }
-    return this.httpClient.put(`${this.baseUrl}/users/${bothId.idUser}/unfollow`, bothId, options)
+    return this.httpClient.put(`${this.baseUrl}/users/${bothId.idMe}/unfollow`, bothId, options)
     .toPromise();
   }
   
@@ -50,6 +50,14 @@ export class UsersService {
       withCredentials: true
     }
     return this.httpClient.post(`${this.baseUrl}/users/${bothId.idUser}/checkFollow`, bothId, options)
+      .toPromise();
+  }
+
+  checkFollowMe(id: any): Promise<any> {
+    const options = {
+      withCredentials: true
+    }
+    return this.httpClient.post(`${this.baseUrl}/users/${id}/checkFollowMe`, id, options)
       .toPromise();
   }
 }

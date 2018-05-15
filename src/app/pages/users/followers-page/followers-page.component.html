@@ -1,11 +1,11 @@
 <nav class="site-nav">
   <div class="nav icons">
-    <h3>Followers</h3>
+    <h3>Who's following?</h3>
   </div>
 </nav>
 
 <div class="container" *ngIf="user">
-  <ul *ngFor="let follower of user.following">
+  <ul *ngFor="let follower of usersData">
     <li>
       <app-single-user [follower]="follower"></app-single-user>
     </li>

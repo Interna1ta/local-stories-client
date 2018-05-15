@@ -13,6 +13,7 @@ export class FollowersPageComponent implements OnInit {
   users: Array<any>;
   user: any;
   idUser: string;
+  usersData: any;
 
   constructor(private usersService: UsersService, private activateRoute: ActivatedRoute) { }
 
@@ -21,10 +22,42 @@ export class FollowersPageComponent implements OnInit {
       this.idUser = params.id;
       this.usersService.userFollowers(this.idUser)
         .then((data) => {
-          this.user = data;
-          console.log(this.user);
+          this.usersData = data;
+          console.log(this.usersData);
+          this.getEveryFollower();
         })
     })
   }
+
+  getEveryFollower() {
+    for (let i = 0; i < this.usersData.length; i++) {
+      this.user = this.usersData[i];
+
+      console.log(this.usersData.length);
+      console.log('hello');
+      console.log(this.user);
+      console.log(this.users);
+    }
+  }
+
+
+
+
+  // getEveryFollower() {
+  //   for (let i = 0; i < this.usersData.length; i++) {
+  //     this.usersService.getOne(this.usersData[i])
+  //       .then((data)=>{
+  //         this.user = [];
+  //         this.user.push(data);
+
+  //         // this.user = data;
+
+  //         console.log(this.usersData.length);
+  //         console.log('hello');
+  //         console.log(this.user);
+  //         console.log(this.users);
+  //       })
+  //   }
+  // }
 
 }

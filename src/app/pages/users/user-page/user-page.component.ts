@@ -86,6 +86,7 @@ export class UserPageComponent implements OnInit {
           idMe: this.idMe
         }
         this.iFollow = true;
+        console.log(this.bothId);
         this.usersService.followOne(this.bothId)
           .then((data) => {
             console.log('followOne yeah!');
