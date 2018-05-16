@@ -14,6 +14,7 @@ export class FollowingPageComponent implements OnInit {
   user: any;
   idUser: string;
   usersData: any;
+  followBoolean: boolean;
 
   constructor(private usersService: UsersService, private activateRoute: ActivatedRoute) { }
 
@@ -23,6 +24,10 @@ export class FollowingPageComponent implements OnInit {
       this.usersService.userFollowing(this.idUser)
         .then((data) => {
           this.user = data;
+          this.followBoolean = true;
+          if (this.user.following.length === 0) {
+            this.followBoolean = false;
+          }
           console.log('im here');
           console.log(this.user);
         })
@@ -30,3 +35,4 @@ export class FollowingPageComponent implements OnInit {
   }
 
 }
+

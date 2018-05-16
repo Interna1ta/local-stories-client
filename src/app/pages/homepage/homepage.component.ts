@@ -32,4 +32,8 @@ export class HomepageComponent implements OnInit {
     this.authService.logout()
       .then(() => this.router.navigate(['/login']));
   }
+
+  twitterLogin(){
+    this.authService.twitterLogin();
+  }
 }

@@ -1,13 +1,16 @@
 <nav class="site-nav">
   <div class="nav profile-nav">
-    <span>Profile</span>
+      <span>Profile</span>
   </div>
 </nav>
 
 <div class="container profile" *ngIf="user">
   <div class="profile__information">
+    <div class="profile__information__image">
+      <img src="../../../../assets/images/male-icon.png" alt="male-icon">
+    </div>
     <p class="profile__username" *ngIf="user">@{{user.username}}</p>
-    <div class="profile__follow-btn">
+    <div class="profile__information__follow-btn">
       <button class="btn-terciary" *ngIf="iFollow == false" (click)="followUser()">Follow</button>
       <button class="btn-terciary" *ngIf="iFollow == true" (click)="unfollowUser()">Not follow</button>
     </div>

@@ -68,4 +68,8 @@ export class AuthService {
   getUser(): any {
     return this.user;
   }
+
+  twitterLogin() {
+    window.location.href = `${this.API_URL}/twitter/login`;
+  }
 }

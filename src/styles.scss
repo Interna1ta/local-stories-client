@@ -42,7 +42,7 @@ h2 {
 h3 {
   margin: 0;
   font-size: 20px;
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
 }
 
 h4 {
@@ -81,13 +81,13 @@ p {
   padding: 10px 0;
   color: #111;
   background: $color-white;
-
   position:fixed;
   top:0;
   width: 100%;
   z-index: 10;
   border-bottom: 1px solid $color-border;
 }
+
 .nav {
   display: flex;
   flex-direction: row;
@@ -96,6 +96,10 @@ p {
   padding-right: 15px;
 }
 
+.profile-nav {
+  flex-direction: column;
+  color: $color-icon;
+}
 
 #site-footer {
   color: #111;
@@ -115,7 +119,6 @@ p {
   flex-direction: row;
   justify-content: space-around;
 }
-
 
  svg {
    height: 30px;
@@ -282,6 +285,7 @@ input:focus {
   border: 1px solid $color-border;
   border-radius: 3px;
   background-color: $color-white;
+  color: $color-icon;
 }
 
 .btn-navbar {
@@ -289,9 +293,6 @@ input:focus {
   color: #1487fe;
   font-weight: 400;
   border-radius: 50px;
-}
-.color-red {
-  color:red;
 }
 
 // -- forms
@@ -316,19 +317,18 @@ span {
 .fa-user-circle,
 .fa-list-alt {
   font-size: 28px;
-  fill: grey;
-  color: #2E2E2E;
+  fill: $color-icon;
+  color: $color-icon;
 }
 
-.fa-plus-square-top:first-child,
-.fa-plus-square-top,
 .fa-user-plus,
-.fa-edit {
+.fa-edit,
+svg {
   padding-top: 0px;
   font-size: 24px;
   line-height: 24px;
-  fill: grey;
-  color: #2E2E2E;
+  fill: $color-icon;
+  color: $color-icon;
 }
 
 svg {
@@ -348,9 +348,7 @@ svg {
 
 // -- profile
 
-.profile-nav {
-  text-align: center;
-}
+
 .profile {
 
   &__information {
@@ -360,9 +358,18 @@ svg {
     text-align: center;
     
     &__follow-btn{
-      padding-top: 15px;
+      padding-top: 5px;
+    }
+
+    img {
+      width: 100px;
     }
   }
+}
+
+.profile-nav {
+  text-align: center;
+  align-items: center;
 }
 
 .profile-actions {
@@ -378,7 +385,7 @@ svg {
 
 ul {
   list-style-type: none;
-  border-bottom: 1px solid $color-border;
+  border-bottom: 1px solid $color-border-soft;
   padding-left: 0px;
 
   li {
@@ -388,10 +395,14 @@ ul {
 
 // -- card
 
-.card {
-
+.card,
+.card-follow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   padding-left: 20px;
   padding-right: 20px;
+  margin-bottom: 20px;
 
   .story-information {
     display: flex;
@@ -402,7 +413,7 @@ ul {
       margin-right: 10px;
       text-decoration: none;
       font-weight: lighter;
-      color: black;
+      color: $color-black;
     }
 
     .story-time {
@@ -411,10 +422,19 @@ ul {
       font-size: 12px;
     }
   }
+}
 
-  .tweet {
-    margin-bottom: 20px;
+.card-follow {
+  padding-top: 15px;
+
+  .card-username {
+    text-decoration: none;
+    font-weight: lighter;
+    color: $color-black;
   }
+}
 
-  
+.follow-no-card {
+  padding: 15px;
+  font-weight: lighter;
 }
