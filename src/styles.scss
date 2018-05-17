@@ -30,7 +30,7 @@ h1 {
   /* font-weight: 700; */
   font-size: 30px;
   line-height: 40px;
-  color: $color-title;
+  color: $color-icon;
 }
 
 h2 {
@@ -53,6 +53,11 @@ h4 {
 p {
   font-size: 14px;
   margin: 0;
+}
+
+a,
+button {
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {
@@ -111,7 +116,6 @@ p {
   width: 100%;
   z-index: 10;
   border-top: 1px solid $color-border;
-
 }
 
 .footer {
@@ -120,16 +124,16 @@ p {
   justify-content: space-around;
 }
 
- svg {
-   height: 30px;
- }
+svg {
+  height: 30px;
+}
 
-/* @media (min-width: 768px) {
-  .container {
-    max-width: 728px;
-    margin: 0 auto;
-  }
-}  */
+// @media (min-width: 768px) {
+//   .wrapper {
+//     max-width: 728px;
+//     margin: 0 auto;
+//   }
+// }
 
 // -- COMPONENTS
 
@@ -197,16 +201,20 @@ input:focus {
   flex-direction: row;
   padding: 15px;
   margin-bottom: 15px;
-  background-color: #f2d51dff;
+  background-color: #F2F2F2;
   
   .icons {
     display: flex;
     flex-direction: column;
+    flex: 1;
     padding: 0 20px 0 10px;
     align-items: center;
     justify-content: space-around;
     color: $color-white;
-    
+
+    .col-3 {
+          width: 33%;
+    }
     .fa-search,
     .fa-users,
     .fa-comment {
@@ -271,12 +279,27 @@ input:focus {
   border-radius: 25px;
   font-size: 16px;
   font-weight: 400;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+
+  &__alt {
+    padding: 5px;
+    border: 2px solid $color-btn-primary;
+    border-radius: 25px;
+    color: $color-btn-primary;
+    background-color: $color-white;
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+}
+.user-inputs {
+  padding-top: 5px;
+  margin-bottom: 15px;
 }
 
 .btn-secondary {
   text-decoration: none;
   color: $color-btn-primary;
+  background-color: $color-white;
   font-size: 14px;
 }
 
@@ -348,6 +371,9 @@ svg {
 
 // -- profile
 
+.profile-span {
+  margin-right: 20px;
+}
 
 .profile {
 
@@ -377,15 +403,21 @@ svg {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  border-bottom: 2px solid #1487fe;
+  // border-bottom: 2px solid $color-icon;
+}
 
-  border-bottom: 1px solid #1487fe;
+.btn-profile {
+  font-size: 14px;
+  text-decoration: none;
+  color: $color-icon;
 }
 
 // -- story card
 
 ul {
   list-style-type: none;
-  border-bottom: 1px solid $color-border-soft;
+  // border-bottom: 1px solid $color-border-soft;
   padding-left: 0px;
 
   li {
@@ -413,7 +445,8 @@ ul {
       margin-right: 10px;
       text-decoration: none;
       font-weight: lighter;
-      color: $color-black;
+      color: $color-btn-secondary;
+      
     }
 
     .story-time {
@@ -431,6 +464,10 @@ ul {
     text-decoration: none;
     font-weight: lighter;
     color: $color-black;
+
+    &:hover {
+      color: $color-btn-primary;
+    }
   }
 }
 

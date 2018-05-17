@@ -1,17 +1,17 @@
-
 <div class="container__home">
   <div class="main-title">
     <i class="fas fa-map-marker"></i>
     <h1>Look at what's up in your city now?</h1>
   </div>
-  <p>Become a user today</p>
+  <strong><p>Become a user today</p></strong>
   <div class="user-inputs">
-    <a [routerLink]="['/login']" class="btn btn-primary">Login</a>
     <a [routerLink]="['/signup']" class="btn btn-primary">Sign Up</a>
+    <a [routerLink]="['/login']" class="btn btn-primary__alt">Login</a>
+    <p>or</p>
+    <button (click)="twitterLogin()" class="btn btn-primary__alt">Login with Twitter</button>
   </div>
 </div>
 
-<button (click)="twitterLogin()" class="btn-secondary">Twitter Login</button>
 
 <!-- <a [routerLink]="['/twitter/login']" class="btn btn-primary">Twitter Login</a> -->
 
@@ -27,5 +27,3 @@
     <li><p class="element">Join the conversation</p></li>
   </ul>
 </div>
-<!-- user: {{user | json}}
-loading: {{loading}} -->

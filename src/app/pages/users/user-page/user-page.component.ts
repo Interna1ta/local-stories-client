@@ -118,7 +118,6 @@ export class UserPageComponent implements OnInit {
     console.log(this.idUser);
     this.usersService.userFollowers(this.idUser)
       .then((data) => {
-        console.log('followOne yeah!');
       })
 
   }

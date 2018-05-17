@@ -1,16 +1,18 @@
-
 <nav class="site-nav">
-  <div class="nav icons">
-    <button (click)="logout()" class="btn-secondary">Logout</button>
-    <span>Profile</span>
+  <div class="wrapper nav icons">
+    <button (click)="logout()" class="btn-terciary">Logout</button>
+    <span class="profile-span">Profile</span>
     <a [routerLink]="['/profile/addFollowers']">
       <i class="fas fa-user-plus"></i>
     </a>
   </div>
 </nav>
-
-<div class="container profile" *ngIf="user">
+  
+<div class="wrapper container profile" *ngIf="user">
   <div class="profile__information">
+    <div class="profile__information__image">
+      <img src="../../../../assets/images/male-icon.png" alt="male-icon">
+    </div>
     <p class="profile__username" *ngIf="user">@{{user.username}}</p>
     <div class="profile__follow-btn">
       <!-- <button class="btn-terciary" (click)="editUser()">Edit</button> -->
@@ -18,11 +20,11 @@
   </div>
 
   <div class="profile-actions">
-    <button (click)="listAllStories()" class="btn-secondary">Stories</button>
-    <a [routerLink]="['/users', user._id, 'followers']" class="btn-secondary">
+    <button (click)="listAllStories()" class="btn-profile"><strong>Stories</strong></button>
+    <a [routerLink]="['/users', user._id, 'followers']" class="btn-profile">
       Followers
     </a>
-    <a [routerLink]="['/users', user._id, 'following']" class="btn-secondary">
+    <a [routerLink]="['/users', user._id, 'following']" class="btn-profile">
       Following
     </a>
   </div>
@@ -36,10 +38,8 @@
   </ul>
 </div> 
 
-<!-- {{ user | json}} -->
-
 <footer id="site-footer">
-  <div class="footer icons">
+  <div class="wrapper footer icons">
     <a [routerLink]="['/stories']">
       <i class="far fa-list-alt"></i>
     </a>
@@ -47,7 +47,6 @@
       <i class="far fa-plus-square"></i>
     </a>
     <a [routerLink]="['/profile']">
-      <!-- <i class="far fa-user-circle"></i> -->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
         <path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
         />
@@ -55,6 +54,3 @@
     </a>
   </div>
 </footer>
-
-
-<!-- <app-bottom-nav></app-bottom-nav> -->

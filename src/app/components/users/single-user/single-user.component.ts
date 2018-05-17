@@ -106,7 +106,6 @@ export class SingleUserComponent implements OnInit {
       .then((data) => {
         this.userMe = data;
         this.idMe = data._id;
-        console.log('user user');
         console.log(this.follower._id);
         this.bothId = {
           idUser: this.follower._id,

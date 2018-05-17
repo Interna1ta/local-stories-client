@@ -3,7 +3,6 @@
   <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
     <div class="field_inputs">
       <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
-        <!-- <label>username</label> -->
         <input type="text" class="field__input" placeholder="username" name="username" [(ngModel)]="username" #usernameField="ngModel" required minlength="6" [disabled]="processing"
         />
         <div *ngIf="feedbackEnabled && usernameField.errors">
@@ -13,7 +12,6 @@
       </div>
 
       <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
-        <!-- <label>password</label> -->
         <input type="text" class="field__input" placeholder="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required minlength="6" [disabled]="processing"
         />
         <div *ngIf="feedbackEnabled && passwordField.errors">

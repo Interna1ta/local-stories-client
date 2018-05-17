@@ -7,6 +7,9 @@ import { environment } from '../../environments/environment';
 export class UsersService {
 
   private baseUrl = environment.apiUrl;
+  private options = {
+    withCredentials: true
+  };
 
   constructor(private httpClient: HttpClient) { }
   
@@ -14,59 +17,37 @@ export class UsersService {
   }
 
   getOne(id: string): Promise<any> {
-    const options = {
-      withCredentials: true
-    }
-    return this.httpClient.get(`${this.baseUrl}/users/${id}`, options)
+    return this.httpClient.get(`${this.baseUrl}/users/${id}`, this.options)
       .toPromise();
   }
-
   
   followOne(bothId: any): Promise<any> {
-    const options = {
-      withCredentials: true
-    }
-    return this.httpClient.put(`${this.baseUrl}/users/${bothId.idMe}/follow`, bothId, options)
+    return this.httpClient.put(`${this.baseUrl}/users/${bothId.idMe}/follow`, bothId, this.options)
     .toPromise();
   }
   
   unfollowOne(bothId: any): Promise<any> {
-    const options = {
-      withCredentials: true
-    }
-    return this.httpClient.put(`${this.baseUrl}/users/${bothId.idMe}/unfollow`, bothId, options)
+    return this.httpClient.put(`${this.baseUrl}/users/${bothId.idMe}/unfollow`, bothId, this.options)
     .toPromise();
   }
   
   userFollowers(id): Promise<any> {
-    const options = {
-      withCredentials: true
-    };
-    return this.httpClient.get(`${this.baseUrl}/users/${id}/followers`, options)
+    return this.httpClient.get(`${this.baseUrl}/users/${id}/followers`, this.options)
       .toPromise();
   }
 
   userFollowing(id): Promise<any> {
-    const options = {
-      withCredentials: true
-    };
-    return this.httpClient.get(`${this.baseUrl}/users/${id}/following`, options)
+    return this.httpClient.get(`${this.baseUrl}/users/${id}/following`, this.options)
       .toPromise();
   }
 
   checkFollow(bothId: any): Promise<any> {
-    const options = {
-      withCredentials: true
-    }
-    return this.httpClient.post(`${this.baseUrl}/users/${bothId.idUser}/checkFollow`, bothId, options)
+    return this.httpClient.post(`${this.baseUrl}/users/${bothId.idUser}/checkFollow`, bothId, this.options)
       .toPromise();
   }
 
   checkFollowMe(id: any): Promise<any> {
-    const options = {
-      withCredentials: true
-    }
-    return this.httpClient.post(`${this.baseUrl}/users/${id}/checkFollowMe`, id, options)
+    return this.httpClient.post(`${this.baseUrl}/users/${id}/checkFollowMe`, id, this.options)
       .toPromise();
   }
 }

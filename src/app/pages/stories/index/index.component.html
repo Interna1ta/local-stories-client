@@ -7,7 +7,7 @@
       <!-- <p>Abc</p> -->
       <i class="far fa-edit"></i>
     </a>
-    <span>Local Stories</span>
+    <span>LocalTwitter</span>
     <a [routerLink]="['/profile/addFollowers']">
       <i class="fas fa-user-plus"></i>
     </a>
@@ -15,6 +15,9 @@
 </nav>
 
 <div class="container stories-list">
+    <div class="profile-actions">
+      <button class="btn-profile"><strong>Stories</strong></button>
+    </div>
   <ul *ngFor="let story of stories">
     <li>
       <!-- <a [routerLink]="['/stories', story._id]"> -->

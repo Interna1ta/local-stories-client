@@ -7,39 +7,29 @@ import { environment } from '../../environments/environment';
 export class StoriesService {
 
   private baseUrl = environment.apiUrl;
+  private options = {
+    withCredentials: true
+  };
 
   constructor(private httpClient: HttpClient) { }
 
   listAll(): Promise<any> {
-    const options = {
-      withCredentials: true
-    };
-    return this.httpClient.get(`${this.baseUrl}/stories`, options)
+    return this.httpClient.get(`${this.baseUrl}/stories`, this.options)
       .toPromise();
   }
 
   create(story) {
-    const options = {
-      withCredentials: true
-    }
-    return this.httpClient.post(`${this.baseUrl}/stories`, story, options)
+    return this.httpClient.post(`${this.baseUrl}/stories`, story, this.options)
       .toPromise();
   }
 
   tweet(story) {
-    const options = {
-      withCredentials: true
-    }
-    return this.httpClient.post(`${this.baseUrl}/twitter`, story, options)
+    return this.httpClient.post(`${this.baseUrl}/twitter`, story, this.options)
       .toPromise();
   }
 
   userStories(id): Promise<any> {
-    const options = {
-      withCredentials: true
-    };
-    return this.httpClient.get(`${this.baseUrl}/stories/users/${id}`, options)
+    return this.httpClient.get(`${this.baseUrl}/stories/users/${id}`, this.options)
       .toPromise();
   }
-
 }
