@@ -200,6 +200,7 @@ input:focus {
 .instructions {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   padding: 15px;
   margin-bottom: 15px;
   background-color: $color-btn-primary;
@@ -207,7 +208,6 @@ input:focus {
   .icons {
     display: flex;
     flex-direction: column;
-    flex: 1;
     padding: 0 20px 0 10px;
     align-items: center;
     justify-content: space-around;
@@ -268,7 +268,7 @@ input:focus {
   display: flex;
   flex-direction: column;
   text-align: justify;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .instructions .list-title {
@@ -311,10 +311,13 @@ input:focus {
     background-color: $color-white;
     font-size: 16px;
     margin-bottom: 15px;
+    
+    .login-with-twitter {
+      padding: 3px;
+    }
 
     p {
       font-size: 16px;
-      // padding: 5px;
     }
   }
 }
