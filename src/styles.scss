@@ -74,6 +74,7 @@ button {
 
   &__home {
     margin: 0 20px;
+    background-color: $color-white;
   }
 }
 
@@ -193,7 +194,7 @@ input:focus {
 
 .main-title {
   padding-top: 20px;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
 
 .instructions {
@@ -201,7 +202,7 @@ input:focus {
   flex-direction: row;
   padding: 15px;
   margin-bottom: 15px;
-  background-color: #F2F2F2;
+  background-color: $color-btn-primary;
   
   .icons {
     display: flex;
@@ -213,24 +214,45 @@ input:focus {
     color: $color-white;
 
     .col-3 {
-          width: 33%;
+      width: 33%;
     }
     .fa-search,
     .fa-users,
     .fa-comment {
       font-size: 20px;
       padding-top: 2px;
+      color: $color-white;
     }
   }
 
   .list {
     margin-left: 0px;
     padding-left: 0px;
+    text-align: left;
 
     .element {
       font-size: 16px;
       line-height: 40px;
-      color: $color-btn-primary;
+      color: $color-white;
+    }
+  }
+}
+
+.company {
+  // background-color: #54A3FF;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: #54A3FF;
+    font-weight: lighter;
+    font-size: 10px;
+    padding-top: 5px; 
+    
+    element {
+      margin-bottom: 45px;
     }
   }
 }
@@ -289,6 +311,11 @@ input:focus {
     background-color: $color-white;
     font-size: 16px;
     margin-bottom: 15px;
+
+    p {
+      font-size: 16px;
+      // padding: 5px;
+    }
   }
 }
 .user-inputs {
@@ -369,10 +396,15 @@ svg {
   text-align: center;
 }
 
+.element-2 {
+  margin-bottom: 5px;
+  color: $color-icon;
+}
+
 // -- profile
 
 .profile-span {
-  margin-right: 20px;
+  margin-right: 25px;
 }
 
 .profile {
@@ -411,6 +443,8 @@ svg {
   font-size: 14px;
   text-decoration: none;
   color: $color-icon;
+  background-color: $color-white;
+  border: none;
 }
 
 // -- story card

@@ -3,12 +3,12 @@
     <!-- <i class="fas fa-map-marker"></i> -->
     <h1>Look at what's up in your city now?</h1>
   </div>
-  <strong><p>Become a user today</p></strong>
+  <strong><p class="element-2">Become a user today</p></strong>
   <div class="user-inputs">
     <a [routerLink]="['/signup']" class="btn btn-primary">Sign Up</a>
-    <a [routerLink]="['/login']" class="btn btn-primary__alt">Login</a>
-    <p>or</p>
-    <button (click)="twitterLogin()" class="btn btn-primary__alt">Login with Twitter</button>
+    <a [routerLink]="['/login']" class="btn btn-primary__alt"><p>Login</p></a>
+    <p class="element-2">or</p>
+    <button (click)="twitterLogin()" class="btn btn-primary__alt"><p>Login with Twitter</p></button>
   </div>
 </div>
 
@@ -26,3 +26,10 @@
 </div>
 
 <!-- {{req.session.user | json}} -->
+
+<div class="company">
+  <ul class="company__list">
+    <li><p class="element">@2018 Ironhack</p></li>
+    <li><p class="element">by Pere Serra Bosch</p></li>
+  </ul>
+</div>
