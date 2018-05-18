@@ -19,7 +19,6 @@ import { StoryCardComponent } from './components/stories/story-card/story-card.c
 
 import { IndexComponent } from './pages/stories/index/index.component';
 import { Error404Component } from './pages/errors/error404/error404.component';
-import { Error500Component } from './pages/errors/error500/error500.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { LoginPageComponent } from './pages/users/login-page/login-page.component';
 import { SignupPageComponent } from './pages/users/signup-page/signup-page.component';
@@ -45,18 +44,16 @@ import { SingleUserComponent } from './components/users/single-user/single-user.
 // -- Routes
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/movies', pathMatch: 'full' },
   { path: '', component: HomepageComponent, canActivate: [RequireAnonGuardService]},
   { path: 'login', component: LoginPageComponent, canActivate: [RequireAnonGuardService] },
   { path: 'signup', component: SignupPageComponent, canActivate: [RequireAnonGuardService] },
-  { path: 'errors/404', component: Error404Component },
-  { path: 'errors/500', component: Error500Component },
   { path: 'stories', component: IndexComponent, canActivate: [RequireUserGuardService] },
   { path: 'stories/create', component: StoryCreatePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'profile', component: ProfilePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'users/:id/followers', component: FollowersPageComponent, canActivate: [RequireUserGuardService] },
   { path: 'users/:id/following', component: FollowingPageComponent, canActivate: [RequireUserGuardService] },
-  { path: 'users/:id', component: UserPageComponent, canActivate: [RequireUserGuardService] }
+  { path: 'users/:id', component: UserPageComponent, canActivate: [RequireUserGuardService] },
+  { path: '**', component: Error404Component }
 ];
 
 @NgModule({
@@ -64,7 +61,6 @@ const routes: Routes = [
     AppComponent,
     HomepageComponent,
     Error404Component,
-    Error500Component,
     IndexComponent,
     LoginPageComponent,
     SignupPageComponent,
