@@ -12,7 +12,7 @@
       </div>
 
       <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
-        <input type="text" class="field__input" placeholder="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required minlength="6" [disabled]="processing"
+        <input type="password" class="field__input" placeholder="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required minlength="6" [disabled]="processing"
         />
         <div *ngIf="feedbackEnabled && passwordField.errors">
           <p *ngIf="passwordField.errors.required" class="validation">password required</p>
