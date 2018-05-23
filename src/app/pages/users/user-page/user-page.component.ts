@@ -62,8 +62,6 @@ export class UserPageComponent implements OnInit {
         this.usersService.checkFollow(this.bothId)
           .then((data) => {
             (data == true) ? this.iFollow = true : this.iFollow = false;
-            console.log('PUTA BIDAAAAAAA');
-            console.log(data);
             this.findUserStories();
           })
       }) 
@@ -86,10 +84,8 @@ export class UserPageComponent implements OnInit {
           idMe: this.idMe
         }
         this.iFollow = true;
-        console.log(this.bothId);
         this.usersService.followOne(this.bothId)
           .then((data) => {
-            console.log('followOne yeah!');
           })
       }) 
   }
@@ -106,7 +102,6 @@ export class UserPageComponent implements OnInit {
         this.iFollow = false;
         this.usersService.unfollowOne(this.bothId)
           .then((data) => {
-            console.log('unfollowOne yeah!');
           })
       })
   }
@@ -115,7 +110,6 @@ export class UserPageComponent implements OnInit {
   }
   
   listAllFollowers() {
-    console.log(this.idUser);
     this.usersService.userFollowers(this.idUser)
       .then((data) => {
       })

@@ -12,7 +12,6 @@ import { UsersService } from '../../../services/users.service';
 })
 export class ProfilePageComponent implements OnInit {
   
-  // @Input() user: Object;
   user: any;
   id: any;
   stories: Array<any>;
@@ -51,8 +50,6 @@ export class ProfilePageComponent implements OnInit {
         this.usersService.checkFollowMe(this.id)
           .then((data) => {
             (data == true) ? this.iFollow = true : this.iFollow = false;
-            console.log('PUTA BIDAAAAAAA2');
-            console.log(data);
           })
       })
   }
@@ -62,16 +59,6 @@ export class ProfilePageComponent implements OnInit {
       .then(()=>{
         this.router.navigate(['/']);
       })
-  }
-
-  editProfile() {}
-
-  listAllFollowing() {
-
-  }
-
-  listAllFollowers() {
-
   }
 
 }

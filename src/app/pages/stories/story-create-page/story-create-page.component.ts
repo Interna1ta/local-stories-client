@@ -29,7 +29,6 @@ export class StoryCreatePageComponent implements OnInit {
   ngOnInit() {
     let el;
     function countCharacters(e) {
-      // let textEntered, countRemaining, counter;
       const input: any = document.getElementById('tweet')
       this.textEntered = input.value;
       this.counter = (140 - (this.textEntered.length));
@@ -45,12 +44,10 @@ export class StoryCreatePageComponent implements OnInit {
       this.processing = true;
       const story = {
         text: form.value.story,
-        // user: this.user.username,
         userId: this.user._id,
         coordinates: null,
         enabled: true
       }
-      console.log(story);
       this.storiesService.create(story)
         .then((result) => {
           this.router.navigate(['/stories']);
@@ -71,8 +68,5 @@ export class StoryCreatePageComponent implements OnInit {
           this.feedbackEnabled = false;
         });
     }
-    
   }
-  
-
 }

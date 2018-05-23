@@ -28,8 +28,6 @@ export class FollowingPageComponent implements OnInit {
           if (this.user.following.length === 0) {
             this.followBoolean = false;
           }
-          console.log('im here');
-          console.log(this.user);
         })
     })
   }
