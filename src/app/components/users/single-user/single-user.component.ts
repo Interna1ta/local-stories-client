@@ -18,8 +18,6 @@ export class SingleUserComponent implements OnInit {
   idMe: string;
   bothId: object;
   iFollow: boolean;
-  // idFollower: any;
-  // idFollowerTrick: any;
 
   constructor(
     private usersService: UsersService,
@@ -40,11 +38,7 @@ export class SingleUserComponent implements OnInit {
         .then((data) => {
           this.user = data;
           this.idUser = data._id;
-          // this.idFollowerTrick = document.getElementById('myField');
-          // this.idFollower = this.idFollowerTrick.value;
-          // // this.idFollower = data.following;
-          // console.log(this.idFollower);
-          this.checkFollowUser();
+          this._checkFollowUser();
         })
     })
   }
@@ -55,7 +49,7 @@ export class SingleUserComponent implements OnInit {
     });
   }
 
-  checkFollowUser() {
+  _checkFollowUser() {
     this.authService.me()
       .then((data) => {
         this.userMe = data;
@@ -63,37 +57,20 @@ export class SingleUserComponent implements OnInit {
         if (this.idMe == this.idUser) {
           return this.router.navigate(['/profile']);
         }
-
         this.iFollow = !!this._checkIfFollowed()
-
-        // console.log(this.idFollower);
-        // this.bothId = {
-        //   idUser: this.idFollower,
-        //   idMe: this.idMe
-        // }
-        // this.usersService.checkFollow(this.bothId)
-        //   .then((data) => {
-        //     (data == true) ? this.iFollow = true : this.iFollow = false;
-        //     console.log('PUTA BIDAAAAAAA');
-        //     console.log(data);
-        //   })
       })
   }
-
 
   followUser() {
     this.authService.me()
       .then((data) => {
         this.userMe = data;
         this.idMe = data._id;
-        console.log('user user');
-        console.log(this.follower._id);
         this.bothId = {
           idUser: this.follower._id,
           idMe: this.idMe
         }
         this.iFollow = true;
-        console.log(this.bothId);
         this.usersService.followOne(this.bothId)
           .then((data) => {
             console.log('followOne yeah!');
@@ -106,7 +83,6 @@ export class SingleUserComponent implements OnInit {
       .then((data) => {
         this.userMe = data;
         this.idMe = data._id;
-        console.log(this.follower._id);
         this.bothId = {
           idUser: this.follower._id,
           idMe: this.idMe

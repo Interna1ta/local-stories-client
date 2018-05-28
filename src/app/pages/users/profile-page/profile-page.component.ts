@@ -46,7 +46,6 @@ export class ProfilePageComponent implements OnInit {
       .then((data) => {
         this.user = data;
         this.id = data._id;
-
         this.usersService.checkFollowMe(this.id)
           .then((data) => {
             (data == true) ? this.iFollow = true : this.iFollow = false;

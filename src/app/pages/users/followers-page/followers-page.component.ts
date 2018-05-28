@@ -28,38 +28,16 @@ export class FollowersPageComponent implements OnInit {
           if (this.usersData.length === 0) {
             this.followBoolean = false;
           }
-          console.log(this.usersData);
-          this.getEveryFollower();
+          this._getEveryFollower();
         })
     })
   }
 
-  getEveryFollower() {
+  _getEveryFollower() {
     for (let i = 0; i < this.usersData.length; i++) {
       this.user = this.usersData[i];
-
     }
   }
-
-
-
-
-  // getEveryFollower() {
-  //   for (let i = 0; i < this.usersData.length; i++) {
-  //     this.usersService.getOne(this.usersData[i])
-  //       .then((data)=>{
-  //         this.user = [];
-  //         this.user.push(data);
-
-  //         // this.user = data;
-
-  //         console.log(this.usersData.length);
-  //         console.log('hello');
-  //         console.log(this.user);
-  //         console.log(this.users);
-  //       })
-  //   }
-  // }
 
 }
 

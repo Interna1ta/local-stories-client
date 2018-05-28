@@ -12,7 +12,6 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class UserPageComponent implements OnInit {
 
-  // @Input() user: Object;
   user: any;
   userMe: any;
   idUser: string;
@@ -32,7 +31,6 @@ export class UserPageComponent implements OnInit {
   ngOnInit() {
     this.iFollow = false;
     this.listAllStories();
-    
   }
 
   listAllStories() {

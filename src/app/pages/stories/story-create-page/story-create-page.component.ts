@@ -31,7 +31,7 @@ export class StoryCreatePageComponent implements OnInit {
     function countCharacters(e) {
       const input: any = document.getElementById('tweet')
       this.textEntered = input.value;
-      this.counter = (140 - (this.textEntered.length));
+      this.counter = (120 - (this.textEntered.length));
       this.countRemaining = document.getElementById('charactersRemaining');
       this.countRemaining.textContent = this.counter;
     }
