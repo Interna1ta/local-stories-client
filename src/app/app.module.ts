@@ -10,7 +10,6 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { BottomNavComponent } from './components/nav/bottom-nav/bottom-nav.component';
-import { BottomNavDarkComponent } from './components/nav/bottom-nav-dark/bottom-nav-dark.component';
 import { TopNavFeedComponent } from './components/nav/top-nav-feed/top-nav-feed.component';
 import { TopNavCreateComponent } from './components/nav/top-nav-create/top-nav-create.component';
 import { StoryCardComponent } from './components/stories/story-card/story-card.component';
@@ -40,6 +39,9 @@ import { RequireAnonGuardService } from './guards/require-anon-guard.service';
 import { RequireUserGuardService } from './guards/require-user-guard.service';
 import { UsersService } from './services/users.service';
 import { SingleUserComponent } from './components/users/single-user/single-user.component';
+import { BottomNavCreateComponent } from './components/nav/bottom-nav-create/bottom-nav-create.component';
+import { BottomNavProfileComponent } from './components/nav/bottom-nav-profile/bottom-nav-profile.component';
+import { TopNavProfileComponent } from './components/nav/top-nav-profile/top-nav-profile.component';
 
 // -- Routes
 
@@ -65,7 +67,6 @@ const routes: Routes = [
     LoginPageComponent,
     SignupPageComponent,
     BottomNavComponent,
-    BottomNavDarkComponent,
     TopNavFeedComponent,
     TopNavCreateComponent,
     StoryCreatePageComponent,
@@ -74,7 +75,10 @@ const routes: Routes = [
     UserPageComponent,
     FollowersPageComponent,
     SingleUserComponent,
-    FollowingPageComponent
+    FollowingPageComponent,
+    BottomNavCreateComponent,
+    BottomNavProfileComponent,
+    TopNavProfileComponent
   ],
   imports: [
     BrowserModule,

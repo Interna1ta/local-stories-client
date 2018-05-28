@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BottomNavDarkComponent } from './bottom-nav-dark.component';
+import { TopNavProfileComponent } from './top-nav-profile.component';
 
-describe('BottomNavDarkComponent', () => {
-  let component: BottomNavDarkComponent;
-  let fixture: ComponentFixture<BottomNavDarkComponent>;
+describe('TopNavProfileComponent', () => {
+  let component: TopNavProfileComponent;
+  let fixture: ComponentFixture<TopNavProfileComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BottomNavDarkComponent ]
+      declarations: [ TopNavProfileComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BottomNavDarkComponent);
+    fixture = TestBed.createComponent(TopNavProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

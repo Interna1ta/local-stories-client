@@ -27,7 +27,6 @@ body {
 
 h1 {
   margin: 0;
-  /* font-weight: 700; */
   font-size: 30px;
   line-height: 40px;
   color: $color-icon;
@@ -42,7 +41,6 @@ h2 {
 h3 {
   margin: 0;
   font-size: 20px;
-  // margin-bottom: 10px;
 }
 
 h4 {
@@ -70,7 +68,6 @@ button {
 
 .container {
   margin: 48px 0px 80px 0px;
-  // background-color: #E6E6E6;
 
   &__home {
     margin: 0 20px;
@@ -190,7 +187,7 @@ input:focus {
   border-radius: 20px;
 }
 
-/* ---- homepage ---- */
+// -- homepage
 
 .main-title {
   padding-top: 20px;
@@ -239,7 +236,6 @@ input:focus {
 }
 
 .company {
-  // background-color: #54A3FF;
 
   &__list {
     display: flex;
@@ -274,6 +270,11 @@ input:focus {
 .instructions .list-title {
   font-weight: 700;
   padding-top: 20px;
+}
+
+.element-2 {
+  margin-bottom: 5px;
+  color: $color-icon;
 }
 
 // -- stories index
@@ -401,11 +402,6 @@ svg {
   text-align: center;
 }
 
-.element-2 {
-  margin-bottom: 5px;
-  color: $color-icon;
-}
-
 // -- profile
 
 .profile-span {
@@ -441,7 +437,6 @@ svg {
   flex-direction: row;
   justify-content: space-around;
   border-bottom: 2px solid #1487fe;
-  // border-bottom: 2px solid $color-icon;
 }
 
 .btn-profile {
@@ -456,7 +451,6 @@ svg {
 
 ul {
   list-style-type: none;
-  // border-bottom: 1px solid $color-border-soft;
   padding-left: 0px;
 
   li {
