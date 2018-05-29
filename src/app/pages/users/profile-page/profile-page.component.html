@@ -1,4 +1,12 @@
-<app-top-nav-profile></app-top-nav-profile>
+<nav class="site-nav">
+  <div class="wrapper nav icons">
+    <button (click)="logout()" class="btn-terciary">Logout</button>
+    <span class="profile-span">Profile</span>
+    <a [routerLink]="['/profile/addFollowers']">
+      <i class="fas fa-user-plus"></i>
+    </a>
+  </div>
+</nav>
 
 <div class="wrapper container profile" *ngIf="user">
   <div class="profile__information">
