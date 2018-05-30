@@ -1,23 +1,23 @@
 <nav class="site-nav">
-  <div class="wrapper nav profile-nav">
+  <div class="nav profile-nav">
       <span>Profile</span>
   </div>
 </nav>
 
-<div class=" wrapper container profile" *ngIf="user">
-  <div class="profile__information">
-    <div class="profile__information__image">
+<div class="container profile" *ngIf="user">
+  <div class="profile__info">
+    <div class="profile__info__image">
       <img src="../../../../assets/images/male-icon.png" alt="male-icon">
     </div>
     <p class="profile__username" *ngIf="user">@{{user.username}}</p>
-    <div class="profile__information__follow-btn">
+    <div class="profile__info__follow-btn">
       <button class="btn-terciary" *ngIf="iFollow == false" (click)="followUser()">Follow</button>
       <button class="btn-terciary" *ngIf="iFollow == true" (click)="unfollowUser()">Not follow</button>
     </div>
   </div>
 
   <div class="profile-actions">
-    <button class="btn-profile" (click)="listAllStories()">Stories</button>
+    <button class="btn-profile" (click)="listAllStories()"><strong>Stories</strong></button>
     <a [routerLink]="['/users', user._id, 'followers']" class="btn-profile">
       Followers
     </a>

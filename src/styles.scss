@@ -20,7 +20,6 @@ body {
   color: #111;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
-  line-height: 147%;
   background-color: $color-white;
   font-family: 'Lato', sans-serif;
 }
@@ -43,13 +42,9 @@ h3 {
   font-size: 20px;
 }
 
-h4 {
-  margin: 0;
-  font-size: 18px;
-}
-
 p {
   font-size: 14px;
+  line-height: 21px;
   margin: 0;
 }
 
@@ -58,26 +53,10 @@ button {
   cursor: pointer;
 }
 
-@media (min-width: 768px) {
-  p {
-    font-size: 16px;
-  }
-}
-
 // -- LAYOUT
 
 .container {
-  margin: 48px 0px 80px 0px;
-
-  &__home {
-    margin: 0 20px;
-    background-color: $color-white;
-  }
-}
-
-.section {
-  margin-bottom: 20px;
-  padding-top: 20px;
+  padding: 0 15px;
 }
 
 .site-nav {
@@ -97,11 +76,6 @@ button {
   justify-content: space-between;
   padding-left: 15px;
   padding-right: 15px;
-}
-
-.profile-nav {
-  flex-direction: column;
-  color: $color-icon;
 }
 
 #site-footer {
@@ -126,12 +100,17 @@ svg {
   height: 30px;
 }
 
-// @media (min-width: 768px) {
-//   .wrapper {
-//     max-width: 728px;
-//     margin: 0 auto;
-//   }
-// }
+@media (min-width: 768px) {
+  .container {
+    padding: 0 30px;
+  }
+  p {
+    font-size: 16px;
+  }
+  // .wrapper {
+  //   max-width: 728px;
+  // }
+}
 
 // -- COMPONENTS
 
@@ -164,119 +143,6 @@ input:focus {
   box-shadow: 0px 0px 2px $color-btn-primary;
 }
 
-// -- create page
-
-.create-title {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-  .characters-title {
-    display: flex;
-    flex-direction: row;
-  }
-}
-
-#tweet {
-  width: 100%;
-  font-size: 12px;
-  font-weight: 400;
-  border: 1px solid grey;
-  padding: 10px 15px;
-  line-height: 20px;
-  border-radius: 20px;
-}
-
-// -- homepage
-
-.main-title {
-  padding-top: 20px;
-  margin-bottom: 50px;
-}
-
-.instructions {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 15px;
-  margin-bottom: 15px;
-  background-color: $color-btn-primary;
-  
-  .icons {
-    display: flex;
-    flex-direction: column;
-    padding: 0 20px 0 10px;
-    align-items: center;
-    justify-content: space-around;
-    color: $color-white;
-
-    .col-3 {
-      width: 33%;
-    }
-    .fa-search,
-    .fa-users,
-    .fa-comment {
-      font-size: 20px;
-      padding-top: 2px;
-      color: $color-white;
-    }
-  }
-
-  .list {
-    margin-left: 0px;
-    padding-left: 0px;
-    text-align: left;
-
-    .element {
-      font-size: 16px;
-      line-height: 40px;
-      color: $color-white;
-    }
-  }
-}
-
-.company {
-
-  &__list {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    color: #54A3FF;
-    font-weight: lighter;
-    font-size: 10px;
-    padding-top: 5px; 
-    
-    element {
-      margin-bottom: 45px;
-    }
-  }
-}
-
-.fa-edit,
-.fa-user-plus,
-.fa-beer {
-  padding-top: 20px;
-  font-size: 50px;
-}
-
-.instructions .list{
-  display: flex;
-  flex-direction: column;
-  text-align: justify;
-  justify-content: center;
-}
-
-.instructions .list-title {
-  font-weight: 700;
-  padding-top: 20px;
-}
-
-.element-2 {
-  margin-bottom: 5px;
-  color: $color-icon;
-}
-
 // -- stories index
 
 .stories-list {
@@ -303,29 +169,6 @@ input:focus {
   font-size: 16px;
   font-weight: 400;
   margin-bottom: 15px;
-
-  &__alt {
-    padding: 5px;
-    border: 2px solid $color-btn-primary;
-    border-radius: 25px;
-    color: $color-btn-primary;
-    background-color: $color-white;
-    font-size: 16px;
-    margin-bottom: 15px;
-    
-    .login-with-twitter {
-      padding: 3px;
-    }
-
-    p {
-      font-size: 16px;
-    }
-  }
-}
-
-.user-inputs {
-  padding-top: 5px;
-  margin-bottom: 15px;
 }
 
 .btn-secondary {
@@ -345,7 +188,7 @@ input:focus {
 
 .btn-navbar {
   background-color: $color-white;
-  color: #1487fe;
+  color: $color-btn-primary;
   font-weight: 400;
   border-radius: 50px;
 }
@@ -382,7 +225,7 @@ span {
 svg {
   padding-top: 0px;
   font-size: 24px;
-  line-height: 24px;
+  // line-height: 24px;
   fill: $color-icon;
   color: $color-icon;
 }
@@ -410,7 +253,7 @@ svg {
 
 .profile {
 
-  &__information {
+  &__info {
     padding-top: 20px;
     display: flex;
     flex-direction: column;
@@ -458,53 +301,4 @@ ul {
   }
 }
 
-// -- card
 
-.card,
-.card-follow {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-bottom: 20px;
-
-  .story-information {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    .story-username {
-      margin-right: 10px;
-      text-decoration: none;
-      font-weight: lighter;
-      color: $color-btn-secondary;
-      
-    }
-
-    .story-time {
-      color: grey;
-      font-weight: lighter;
-      font-size: 12px;
-    }
-  }
-}
-
-.card-follow {
-  padding-top: 15px;
-
-  .card-username {
-    text-decoration: none;
-    font-weight: lighter;
-    color: $color-black;
-
-    &:hover {
-      color: $color-btn-primary;
-    }
-  }
-}
-
-.follow-no-card {
-  padding: 15px;
-  font-weight: lighter;
-}

@@ -12,8 +12,10 @@
 
 <div class="container stories-list">
     <div class="profile-actions">
-      <button class="btn-profile"><strong>Stories</strong></button>
+      <button class="btn-profile"><strong>City</strong></button>
+      <button class="btn-profile" (click)="listAllStories()">District</button>
     </div>
+
   <ul *ngFor="let story of stories">
     <li>
       <!-- <a [routerLink]="['/stories', story._id]"> -->

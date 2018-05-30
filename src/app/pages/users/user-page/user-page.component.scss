@@ -1,0 +1,11 @@
+@import './../../../scss/variables.scss';
+
+.container {
+  padding-top: 48px;
+  padding-bottom: 80px;
+}
+
+.profile-nav {
+  flex-direction: column;
+  color: $color-icon;
+}
