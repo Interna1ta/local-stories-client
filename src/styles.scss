@@ -210,9 +210,7 @@ span {
 
 // icons
 
-.fa-list-alt,
 .fa-plus-square,
-.fa-user-circle,
 .fa-user,
 .fa-list-alt {
   font-size: 28px;
@@ -225,7 +223,6 @@ span {
 svg {
   padding-top: 0px;
   font-size: 24px;
-  // line-height: 24px;
   fill: $color-icon;
   color: $color-icon;
 }
@@ -300,5 +297,3 @@ ul {
     margin-left: 0px;
   }
 }
-
-
