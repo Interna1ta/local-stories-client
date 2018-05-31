@@ -48,15 +48,14 @@ p {
   margin: 0;
 }
 
-a,
-button {
-  cursor: pointer;
-}
-
 // -- LAYOUT
 
 .container {
   padding: 0 15px;
+
+  &__content {
+    padding: 45px 15px;
+  }
 }
 
 .site-nav {
@@ -143,13 +142,12 @@ input:focus {
   box-shadow: 0px 0px 2px $color-btn-primary;
 }
 
-// -- stories index
-
-.stories-list {
-  padding-top: 1px;
-}
-
 // -- BUTTONS
+
+a,
+button {
+  cursor: pointer;
+}
 
 .btn {
   background-color: #1487fe;
@@ -193,6 +191,24 @@ input:focus {
   border-radius: 50px;
 }
 
+.btn-profile {
+  font-size: 14px;
+  text-decoration: none;
+  color: $color-icon;
+  background-color: $color-white;
+  border: none;
+}
+
+.feed-actions {
+  padding-top: 20px;
+  padding-bottom: 2px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-bottom: 2px solid $color-btn-primary;
+}
+
 // -- forms
 
 .link {
@@ -231,63 +247,7 @@ svg {
   height: 28px;
 }
 
-.fa-map-marker {
-  font-size: 60px;
-  color: black;
-}
-
-.user-inputs {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-// -- profile
-
-.profile-span {
-  margin-right: 25px;
-}
-
-.profile {
-
-  &__info {
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    
-    &__follow-btn{
-      padding-top: 5px;
-    }
-
-    img {
-      width: 100px;
-    }
-  }
-}
-
-.profile-nav {
-  text-align: center;
-  align-items: center;
-}
-
-.profile-actions {
-  padding-top: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  border-bottom: 2px solid #1487fe;
-}
-
-.btn-profile {
-  font-size: 14px;
-  text-decoration: none;
-  color: $color-icon;
-  background-color: $color-white;
-  border: none;
-}
-
-// -- story card
+// -- lists
 
 ul {
   list-style-type: none;

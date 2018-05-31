@@ -4,7 +4,7 @@
   </div>
 </nav>
 
-<div class="container profile" *ngIf="user">
+<div class="container__content profile" *ngIf="user">
   <div class="profile__info">
     <div>
       <img src="../../../../assets/images/male-icon.png" alt="male-icon">
@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <div class="profile-actions">
+  <div class="feed-actions">
     <button class="btn-profile" (click)="listAllStories()"><strong>Stories</strong></button>
     <a [routerLink]="['/users', user._id, 'followers']" class="btn-profile">
       Followers

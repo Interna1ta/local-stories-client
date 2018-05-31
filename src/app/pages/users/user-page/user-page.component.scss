@@ -1,8 +1,21 @@
 @import './../../../scss/variables.scss';
 
-.container {
-  padding-top: 48px;
-  padding-bottom: 80px;
+.profile {
+
+  &__info {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+    &__follow-btn{
+      padding-top: 5px;
+    }
+
+    img {
+      width: 100px;
+    }
+  }
 }
 
 .profile-nav {
