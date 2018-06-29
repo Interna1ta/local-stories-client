@@ -26,7 +26,7 @@ export class ProfilePageComponent implements OnInit {
 
   ngOnInit() {
     this.listAllStories();
-  }
+  } 
 
   listAllStories() {
     this.authService.me()

@@ -42,7 +42,8 @@ export class UsersService {
   }
 
   checkFollow(bothId: any): Promise<any> {
-    return this.httpClient.post(`${this.baseUrl}/users/${bothId.idUser}/checkFollow`, bothId, this.options)
+    console.log(`${bothId.idMe}`);
+    return this.httpClient.get(`${this.baseUrl}/users/${bothId.idMe}/checkFollow`, this.options)
       .toPromise();
   }
 

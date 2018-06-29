@@ -54,9 +54,9 @@ export class SingleUserComponent implements OnInit {
       .then((data) => {
         this.userMe = data;
         this.idMe = data._id;
-        if (this.idMe == this.idUser) {
-          return this.router.navigate(['/profile']);
-        }
+        // if (this.idMe == this.idUser) {
+        //   return this.router.navigate(['/profile']);
+        // }
         this.iFollow = !!this._checkIfFollowed()
       })
   }

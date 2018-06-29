@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-bottom-nav',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BottomNavComponent implements OnInit {
 
-  constructor() { }
+  user: any;
+  id: any;
+
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    console.log('me');
+    this.getMe();
   }
+
+  getMe() {
+    this.authService.me()
+      .then((data) => {
+        this.user = data;
+        this.id = data._id;
+      })
+  } 
 
 }

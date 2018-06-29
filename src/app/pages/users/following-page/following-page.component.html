@@ -5,13 +5,15 @@
 </nav>
 
 <div class="container__content" *ngIf="user">
-  <ul *ngFor="let follower of user.following">
+  <ul *ngFor="let follower of usersData">
     <li>
       <app-single-user [follower]="follower"></app-single-user>
     </li>
   </ul>
   <ul *ngIf="!followBoolean">
-    <li class="follow-no-card"><p>This user is following nobody!</p></li>
+    <li class="follow-no-card">
+      <p>This user is following nobody!</p>
+    </li>
   </ul>
 </div>
 

@@ -28,9 +28,17 @@ export class FollowingPageComponent implements OnInit {
           if (this.user.following.length === 0) {
             this.followBoolean = false;
           }
+          this._getEveryFollower();
+          console.log('im here');
         })
     })
   }
 
-}
+  _getEveryFollower() {
+    for (let i = 0; i < this.usersData.length; i++) {
+      this.user = this.usersData[i];
+    }
+  }
+ 
+}   
 
