@@ -19,6 +19,7 @@ export class UserPageComponent implements OnInit {
   bothId: object;
   stories: Array<any>;
   iFollow: boolean;
+  editButton: boolean;
 
   constructor(
     private usersService: UsersService, 
@@ -30,6 +31,7 @@ export class UserPageComponent implements OnInit {
 
   ngOnInit() {
     this.iFollow = false;
+    this.editButton = false;
     this.listAllStories();
   }
 
@@ -46,14 +48,13 @@ export class UserPageComponent implements OnInit {
   }
 
   checkFollowUser() {
-
     this.authService.me()
       .then((data) => {
         this.userMe = data;
         this.idMe = data._id;
-        // if (this.idMe == this.idUser) {
-        //   return this.router.navigate(['/profile']);
-        // }
+        if (this.idMe == this.idUser) {
+          this.editButton = true;
+        }
         this.bothId = {
           idUser: this.idUser,
           idMe: this.idMe
@@ -108,21 +109,10 @@ export class UserPageComponent implements OnInit {
           })
       })
   }
-
-  listAllFollowing() {
-  }
   
   listAllFollowers() {
     this.usersService.userFollowers(this.idUser)
       .then((data) => {
-      })
-
-  }
-
-  logout() {
-    this.authService.logout()
-      .then(() => {
-        this.router.navigate(['/']);
       })
   }
 

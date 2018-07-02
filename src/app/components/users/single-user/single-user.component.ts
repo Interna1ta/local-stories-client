@@ -27,7 +27,7 @@ export class SingleUserComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.iFollow = false;
+    // this.iFollow = false;
     this.userVisited()
   }
 
@@ -42,24 +42,29 @@ export class SingleUserComponent implements OnInit {
         })
     })
   }
-  
-  _checkIfFollowed(): any {
-    this.userMe.following.find((element) => {
-      return element === this.follower._id;
-    });
-  }
 
   _checkFollowUser() {
     this.authService.me()
       .then((data) => {
         this.userMe = data;
         this.idMe = data._id;
-        // if (this.idMe == this.idUser) {
-        //   return this.router.navigate(['/profile']);
-        // }
-        this.iFollow = !!this._checkIfFollowed()
+        this.usersService.userFollowing(this.idMe)
+          .then((data) => {
+            this.userMe = data;
+            this.iFollow = false;
+            console.log(this.userMe.following);
+            for (let i = 0; i < this.userMe.following.length; i++) {
+              console.log(this.idUser);
+              console.log(this.userMe.following[i]._id);
+              if (this.userMe.following[i]._id == this.idUser) {
+                this.iFollow = true;
+              }
+            }
+          })
+
+        // this.iFollow = !!this._checkIfFollowed()        
       })
-  }
+  }  
 
   followUser() {
     this.authService.me()

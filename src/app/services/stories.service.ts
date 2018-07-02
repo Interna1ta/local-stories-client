@@ -32,4 +32,9 @@ export class StoriesService {
     return this.httpClient.get(`${this.baseUrl}/stories/users/${id}`, this.options)
       .toPromise();
   }
+
+  // listTweets(): Promise<any> {
+  //   return this.httpClient.get(`${this.baseUrl}/stories/tweets`, this.options)
+  //     .toPromise();
+  // }
 }

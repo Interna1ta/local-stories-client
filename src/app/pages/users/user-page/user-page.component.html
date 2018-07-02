@@ -14,9 +14,12 @@
       <img src="../../../../assets/images/male-icon.png" alt="male-icon">
     </div>
     <p class="profile__username" *ngIf="user">@{{user.username}}</p>
-    <div class="profile__info__follow-btn">
+    <div class="profile__info__follow-btn" *ngIf="editButton == false">
       <button class="btn-terciary" *ngIf="iFollow == false" (click)="followUser()">Follow</button>
       <button class="btn-terciary" *ngIf="iFollow == true" (click)="unfollowUser()">Not follow</button>
+    </div>
+    <div class="profile__info__follow-btn" *ngIf="editButton == true">
+      <button class="btn-terciary" (click)="editProfile()">Edit</button>
     </div>
   </div>
 

@@ -12,9 +12,9 @@ export class FollowingPageComponent implements OnInit {
 
   users: Array<any>;
   user: any;
+  username: string;
   idUser: string;
-  usersData: any;
-  followBoolean: boolean;
+  iFollow: boolean;
 
   constructor(private usersService: UsersService, private activateRoute: ActivatedRoute) { }
 
@@ -24,21 +24,23 @@ export class FollowingPageComponent implements OnInit {
       this.usersService.userFollowing(this.idUser)
         .then((data) => {
           this.user = data;
-          this.followBoolean = true;
-          if (this.user.following.length === 0) {
-            this.followBoolean = false;
-          }
+          this.iFollow = true;
+          // if (this.user.following.length === 0) {
+          //   this.iFollow = false;
+          // }
           this._getEveryFollower();
-          console.log('im here');
         })
     })
   }
 
   _getEveryFollower() {
-    for (let i = 0; i < this.usersData.length; i++) {
-      this.user = this.usersData[i];
+    for (let i = 0; i < this.user.following.length; i++) {
+      console.log('im following', this.user.following[i].username);
+      console.log(this.iFollow);
+      this.users = this.user.following[i];
     }
   }
  
 }   
 
+ 

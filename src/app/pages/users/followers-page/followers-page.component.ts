@@ -14,7 +14,7 @@ export class FollowersPageComponent implements OnInit {
   user: any;
   idUser: string;
   usersData: any;
-  followBoolean: boolean;
+  iFollow: boolean;
 
   constructor(private usersService: UsersService, private activateRoute: ActivatedRoute) { }
 
@@ -24,9 +24,9 @@ export class FollowersPageComponent implements OnInit {
       this.usersService.userFollowers(this.idUser)
         .then((data) => {
           this.usersData = data;
-          this.followBoolean = true;
+          this.iFollow = true;
           if (this.usersData.length === 0) {
-            this.followBoolean = false;
+            this.iFollow = false;
           }
           this._getEveryFollower();
         })
@@ -40,4 +40,4 @@ export class FollowersPageComponent implements OnInit {
   }
 
 } 
-
+ 

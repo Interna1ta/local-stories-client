@@ -35,7 +35,12 @@ export class IndexComponent implements OnInit {
           .then((data) => {
             console.log(data);
           })
-      }) 
+      })
+
+    // this.storiesService.userStories()
+    //   .then((data) => {
+    //     this.stories = data;
+    //   })
 
     // this.storiesService.listTweets()
     //   .then((data) => {
