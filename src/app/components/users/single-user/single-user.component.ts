@@ -27,7 +27,6 @@ export class SingleUserComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.iFollow = false;
     this.userVisited()
   }
 
@@ -51,18 +50,10 @@ export class SingleUserComponent implements OnInit {
         this.usersService.userFollowing(this.idMe)
           .then((data) => {
             this.userMe = data;
-            this.iFollow = false;
-            console.log(this.userMe.following);
             for (let i = 0; i < this.userMe.following.length; i++) {
-              console.log(this.idUser);
-              console.log(this.userMe.following[i]._id);
-              if (this.userMe.following[i]._id == this.idUser) {
-                this.iFollow = true;
-              }
+              (this.userMe.following[i]._id == this.follower._id) ? this.iFollow = true : this.iFollow = false;
             }
           })
-
-        // this.iFollow = !!this._checkIfFollowed()        
       })
   }  
 
