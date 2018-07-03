@@ -16,7 +16,10 @@ export class FollowingPageComponent implements OnInit {
   idUser: string;
   iFollow: boolean;
 
-  constructor(private usersService: UsersService, private activateRoute: ActivatedRoute) { }
+  constructor(
+    private usersService: UsersService, 
+    private activateRoute: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.activateRoute.params.subscribe((params) => {
@@ -25,18 +28,16 @@ export class FollowingPageComponent implements OnInit {
         .then((data) => {
           this.user = data;
           this.iFollow = true;
-          // if (this.user.following.length === 0) {
-          //   this.iFollow = false;
-          // }
-          this._getEveryFollower();
+          this.users = this.user.following;
+          // this._getEveryFollower();
         })
     })
   }
 
   _getEveryFollower() {
     for (let i = 0; i < this.user.following.length; i++) {
-      console.log('im following', this.user.following[i].username);
-      console.log(this.iFollow);
+      console.log('im following', i, this.user.following[i].username);
+      console.log(i, this.iFollow);
       this.users = this.user.following[i];
     }
   }

@@ -18,6 +18,7 @@ export class SingleUserComponent implements OnInit {
   idMe: string;
   bothId: object;
   iFollow: boolean;
+  samePerson: boolean;
 
   constructor(
     private usersService: UsersService,
@@ -50,8 +51,21 @@ export class SingleUserComponent implements OnInit {
         this.usersService.userFollowing(this.idMe)
           .then((data) => {
             this.userMe = data;
-            for (let i = 0; i < this.userMe.following.length; i++) {
-              (this.userMe.following[i]._id == this.follower._id) ? this.iFollow = true : this.iFollow = false;
+            if (this.userMe.following.length !== 0) {
+              this.samePerson = false;
+              for (let i = 0; i < this.userMe.following.length; i++) {
+                if (this.userMe.following[i]._id == this.follower._id) {
+                  this.iFollow = true
+                  i = this.userMe.following.length;
+                } else if (this.follower._id == this.idMe) {
+                  this.samePerson = true;
+                } else {
+                  this.iFollow = false;
+                }
+              }
+            } else {
+              this.samePerson = false;
+              this.iFollow = false;
             }
           })
       })

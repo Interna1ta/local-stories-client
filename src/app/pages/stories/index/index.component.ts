@@ -12,6 +12,7 @@ import { AuthService } from '../../../services/auth.service';
 export class IndexComponent implements OnInit {
 
   stories: Array<any>;
+  tweets: any;
   user: any;
   idUser: string;
 
@@ -31,16 +32,18 @@ export class IndexComponent implements OnInit {
       .then((data) => {
         this.user = data;
         this.idUser = data._id;
-        this.usersService.userFollowers(this.idUser)
+        this.usersService.userFollowing(this.idUser)
           .then((data) => {
-            console.log(data);
+            console.log('blabla', data);
           })
+        for (let i = 0; i < this.user.following.length; i++) {
+          this.storiesService.userStories(this.user.following[i]._id)
+            .then((data) => {
+              this.tweets += data;
+              console.log(this.tweets);
+            })
+        }
       })
-
-    // this.storiesService.userStories()
-    //   .then((data) => {
-    //     this.stories = data;
-    //   })
 
     // this.storiesService.listTweets()
     //   .then((data) => {
