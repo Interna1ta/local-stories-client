@@ -14,10 +14,10 @@
 
 <div class="container__content stories-list">
     <div class="feed-actions">
-      <button class="btn-profile"><strong>City</strong></button>
-      <button class="btn-profile">District</button>
+      <button class="btn-profile" (click)="ListAllStories()"><strong>All Stories</strong></button>
+      <button class="btn-profile" (click)="FollowingUserStories()">Only Following</button>
     </div>
-
+ 
   <ul *ngFor="let story of stories">
     <li>
       <!-- <a [routerLink]="['/stories', story._id]"> -->

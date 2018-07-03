@@ -29,17 +29,8 @@ export class FollowingPageComponent implements OnInit {
           this.user = data;
           this.iFollow = true;
           this.users = this.user.following;
-          // this._getEveryFollower();
         })
     })
-  }
-
-  _getEveryFollower() {
-    for (let i = 0; i < this.user.following.length; i++) {
-      console.log('im following', i, this.user.following[i].username);
-      console.log(i, this.iFollow);
-      this.users = this.user.following[i];
-    }
   }
  
 }   

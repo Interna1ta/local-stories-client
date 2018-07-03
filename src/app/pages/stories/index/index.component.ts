@@ -23,32 +23,50 @@ export class IndexComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.ListAllStories();
+  }
+
+  ListAllStories() {
     this.storiesService.listAll()
       .then((data) => {
         this.stories = data;
       })
+  }
 
+  FollowingUserStories() {
+    this.stories = [];
+    this.user = '';
     this.authService.me()
       .then((data) => {
+        this.tweets = [];
         this.user = data;
         this.idUser = data._id;
         this.usersService.userFollowing(this.idUser)
           .then((data) => {
-            console.log('blabla', data);
+            // this.user = data
+            // console.log('blabla', data);
           })
+        console.log(this.user);
+        console.log(this.user.following);
         for (let i = 0; i < this.user.following.length; i++) {
-          this.storiesService.userStories(this.user.following[i]._id)
-            .then((data) => {
-              this.tweets += data;
-              console.log(this.tweets);
-            })
-        }
-      })
+          this.storiesService.userStories(this.user.following[i])
+            .then((result) => {
+              for (let j = 0; j < this.user.following.length; j++) {
+                if (result[j] !== undefined) {
+                  this.stories.push(result[j]);
+                }
+              }
+              // sort
+              // this.stories.sort(function (a, b) {
+              //   // ASC  -> a.length - b.length
+              //   // DESC -> b.length - a.length
+              //   return a.length - b.length || [a, b].sort()[0] === b;
+              // });
+              console.log(this.stories);
 
-    // this.storiesService.listTweets()
-    //   .then((data) => {
-    //     this.stories = data;
-    //   })
+            })
+        }        
+      })
   }
 
 }

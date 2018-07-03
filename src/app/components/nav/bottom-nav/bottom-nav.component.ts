@@ -19,7 +19,6 @@ export class BottomNavComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('me');
     this.getMe();
   }
 
