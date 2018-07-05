@@ -58,7 +58,7 @@ export class UsersService {
   }
 
   editProfile(user: any): Promise<any> {
-    return this.httpClient.put(`${this.baseUrl}/users/${user.id}/unfollow`, user, this.options)
+    return this.httpClient.put(`${this.baseUrl}/users/${user.id}/edit`, user, this.options)
       .toPromise();
   }
 }

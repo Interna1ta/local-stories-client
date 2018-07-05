@@ -4,9 +4,9 @@
       <!-- <img style="width: 50px; height: 50px;" src="../../../../assets/images/male-icon.png" alt="male-icon"> -->
       <div class="profile__info__image"></div>
       <a class="story__info__username" [routerLink]="['/users', story.user._id]">
-        <p>@{{story.user.username}}</p>
+        <p>{{story.user.name}} @{{story.user.username}}</p>
       </a>
-      <p class="story__info__time">{{story.created_at | date : 'shortTime' }}</p>
+      <p class="story__info__time">{{story.created_at | date : 'shortDate' }}</p>
     </div>
     <p class="tweet">{{story.text}}</p> 
   </div>

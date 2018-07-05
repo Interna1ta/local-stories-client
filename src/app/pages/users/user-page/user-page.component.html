@@ -21,6 +21,7 @@
     <div>
       <img src="../../../../assets/images/male-icon.png" alt="male-icon">
     </div>
+    <p class="profile__username" *ngIf="user.name">{{user.name}}</p>
     <p class="profile__username" *ngIf="user">@{{user.username}}</p>
     <div class="profile__info__follow-btn" *ngIf="editButton == false">
       <button class="btn-terciary" *ngIf="iFollow == false" (click)="followUser()">Follow</button>
