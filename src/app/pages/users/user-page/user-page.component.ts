@@ -117,4 +117,8 @@ export class UserPageComponent implements OnInit {
       })
   }
 
+  editProfile() {
+    this.router.navigate(['/profile/edit']);
+  }
+
 }

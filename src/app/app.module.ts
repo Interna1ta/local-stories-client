@@ -9,10 +9,14 @@ import { FormsModule } from '@angular/forms';
 // -- Components
 
 import { AppComponent } from './app.component';
-import { BottomNavComponent } from './components/nav/bottom-nav/bottom-nav.component';
 import { TopNavFeedComponent } from './components/nav/top-nav-feed/top-nav-feed.component';
 import { TopNavCreateComponent } from './components/nav/top-nav-create/top-nav-create.component';
+import { TopNavProfileComponent } from './components/nav/top-nav-profile/top-nav-profile.component';
+import { BottomNavComponent } from './components/nav/bottom-nav/bottom-nav.component';
+import { BottomNavCreateComponent } from './components/nav/bottom-nav-create/bottom-nav-create.component';
+import { BottomNavProfileComponent } from './components/nav/bottom-nav-profile/bottom-nav-profile.component';
 import { StoryCardComponent } from './components/stories/story-card/story-card.component';
+import { NotificationCardComponent } from './components/notifications/notification-card/notification-card.component';
 
 // -- Pages
 
@@ -26,6 +30,8 @@ import { ProfilePageComponent } from './pages/users/profile-page/profile-page.co
 import { UserPageComponent } from './pages/users/user-page/user-page.component';
 import { FollowersPageComponent } from './pages/users/followers-page/followers-page.component';
 import { FollowingPageComponent } from './pages/users/following-page/following-page.component';
+import { EditProfilePageComponent } from './pages/users/edit-profile-page/edit-profile-page.component';
+import { NotificationsPageComponent } from './pages/notifications/notifications-page.component';
 
 // -- Services
 
@@ -39,11 +45,6 @@ import { RequireAnonGuardService } from './guards/require-anon-guard.service';
 import { RequireUserGuardService } from './guards/require-user-guard.service';
 import { UsersService } from './services/users.service';
 import { SingleUserComponent } from './components/users/single-user/single-user.component';
-import { BottomNavCreateComponent } from './components/nav/bottom-nav-create/bottom-nav-create.component';
-import { BottomNavProfileComponent } from './components/nav/bottom-nav-profile/bottom-nav-profile.component';
-import { TopNavProfileComponent } from './components/nav/top-nav-profile/top-nav-profile.component';
-import { NotificationsComponent } from './pages/notifications/notifications-page.component';
-import { NotificationCardComponent } from './components/notifications/notification-card/notification-card.component';
 
 // -- Routes
 
@@ -54,7 +55,8 @@ const routes: Routes = [
   { path: 'stories', component: IndexComponent, canActivate: [RequireUserGuardService] },
   { path: 'stories/create', component: StoryCreatePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'profile', component: ProfilePageComponent, canActivate: [RequireUserGuardService] },
-  { path: 'notifications', component: NotificationsComponent, canActivate: [RequireUserGuardService] },
+  { path: 'profile/edit', component: EditProfilePageComponent, canActivate: [RequireUserGuardService] },
+  { path: 'notifications', component: NotificationsPageComponent, canActivate: [RequireUserGuardService] },
   { path: 'users/:id/followers', component: FollowersPageComponent, canActivate: [RequireUserGuardService] },
   { path: 'users/:id/following', component: FollowingPageComponent, canActivate: [RequireUserGuardService] },
   { path: 'users/:id', component: UserPageComponent, canActivate: [RequireUserGuardService] },
@@ -82,8 +84,9 @@ const routes: Routes = [
     BottomNavCreateComponent,
     BottomNavProfileComponent,
     TopNavProfileComponent,
-    NotificationsComponent,
-    NotificationCardComponent
+    NotificationsPageComponent,
+    NotificationCardComponent,
+    EditProfilePageComponent
   ],
   imports: [
     BrowserModule,

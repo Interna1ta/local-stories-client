@@ -9,7 +9,7 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './notifications-page.component.html',
   styleUrls: ['./notifications-page.component.scss']
 })
-export class NotificationsComponent implements OnInit {
+export class NotificationsPageComponent implements OnInit {
 
   notifications: any;
   userMe: any;
