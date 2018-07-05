@@ -42,6 +42,7 @@ import { SingleUserComponent } from './components/users/single-user/single-user.
 import { BottomNavCreateComponent } from './components/nav/bottom-nav-create/bottom-nav-create.component';
 import { BottomNavProfileComponent } from './components/nav/bottom-nav-profile/bottom-nav-profile.component';
 import { TopNavProfileComponent } from './components/nav/top-nav-profile/top-nav-profile.component';
+import { NotificationsComponent } from './pages/notifications/notifications-page.component';
 
 // -- Routes
 
@@ -52,6 +53,7 @@ const routes: Routes = [
   { path: 'stories', component: IndexComponent, canActivate: [RequireUserGuardService] },
   { path: 'stories/create', component: StoryCreatePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'profile', component: ProfilePageComponent, canActivate: [RequireUserGuardService] },
+  { path: 'notifications', component: NotificationsComponent, canActivate: [RequireUserGuardService] },
   { path: 'users/:id/followers', component: FollowersPageComponent, canActivate: [RequireUserGuardService] },
   { path: 'users/:id/following', component: FollowingPageComponent, canActivate: [RequireUserGuardService] },
   { path: 'users/:id', component: UserPageComponent, canActivate: [RequireUserGuardService] },
@@ -78,7 +80,8 @@ const routes: Routes = [
     FollowingPageComponent,
     BottomNavCreateComponent,
     BottomNavProfileComponent,
-    TopNavProfileComponent
+    TopNavProfileComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,
