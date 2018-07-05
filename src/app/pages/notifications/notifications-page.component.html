@@ -1,3 +1,21 @@
-<p>
-  notifications-page works!
-</p>
+<nav class="site-nav">
+  <div class="wrapper nav icons">
+
+    <span>Activity</span>
+
+  </div>
+</nav>
+<hr>
+
+<!-- <app-top-nav-feed></app-top-nav-feed> -->
+
+<div class="container__content notifications-list">
+
+  <ul *ngFor="let notification of notifications">
+    <li>
+      <app-notification-card [notification]="notification"></app-notification-card>
+    </li>
+  </ul>
+</div>
+
+<app-bottom-nav></app-bottom-nav> 

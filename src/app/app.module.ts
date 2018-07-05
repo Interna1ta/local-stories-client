@@ -43,6 +43,7 @@ import { BottomNavCreateComponent } from './components/nav/bottom-nav-create/bot
 import { BottomNavProfileComponent } from './components/nav/bottom-nav-profile/bottom-nav-profile.component';
 import { TopNavProfileComponent } from './components/nav/top-nav-profile/top-nav-profile.component';
 import { NotificationsComponent } from './pages/notifications/notifications-page.component';
+import { NotificationCardComponent } from './components/notifications/notification-card/notification-card.component';
 
 // -- Routes
 
@@ -81,7 +82,8 @@ const routes: Routes = [
     BottomNavCreateComponent,
     BottomNavProfileComponent,
     TopNavProfileComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    NotificationCardComponent
   ],
   imports: [
     BrowserModule,

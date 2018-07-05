@@ -82,8 +82,8 @@ export class SingleUserComponent implements OnInit {
         }
         this.iFollow = true;
         this.usersService.followOne(this.bothId)
-          .then((data) => {
-            console.log('followOne yeah!');
+          .then(() => {
+            this.usersService.followOneNotification(this.bothId);
           })
       })
   }
