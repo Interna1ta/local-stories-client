@@ -89,7 +89,8 @@ export class UserPageComponent implements OnInit {
         }
         this.iFollow = true;
         this.usersService.followOne(this.bothId)
-          .then((data) => {
+          .then(() => {
+            this.usersService.followOneNotification(this.bothId);
           })
       }) 
   }

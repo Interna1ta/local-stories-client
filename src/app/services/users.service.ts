@@ -25,6 +25,12 @@ export class UsersService {
     return this.httpClient.put(`${this.baseUrl}/users/${bothId.idMe}/follow`, bothId, this.options)
     .toPromise();
   }
+
+  followOneNotification(bothId: any): Promise<any> {
+    console.log('im inside the service');
+    return this.httpClient.post(`${this.baseUrl}/users/${bothId.idMe}/follow`, bothId, this.options)
+      .toPromise();
+  }
   
   unfollowOne(bothId: any): Promise<any> {
     return this.httpClient.put(`${this.baseUrl}/users/${bothId.idMe}/unfollow`, bothId, this.options)
@@ -42,7 +48,6 @@ export class UsersService {
   }
 
   checkFollow(bothId: any): Promise<any> {
-    console.log(`${bothId.idMe}`);
     return this.httpClient.get(`${this.baseUrl}/users/${bothId.idMe}/checkFollow`, this.options)
       .toPromise();
   }
