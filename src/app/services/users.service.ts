@@ -57,8 +57,8 @@ export class UsersService {
       .toPromise();
   }
 
-  checkFollowMe(id: any): Promise<any> {
-    return this.httpClient.post(`${this.baseUrl}/users/${id}/checkFollowMe`, id, this.options)
+  editProfile(user: any): Promise<any> {
+    return this.httpClient.put(`${this.baseUrl}/users/${user.id}/unfollow`, user, this.options)
       .toPromise();
   }
 }

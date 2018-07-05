@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../../services/auth.service';
-import { StoriesService } from '../../../services/stories.service';
 import { UsersService } from '../../../services/users.service';
 
 @Component({
@@ -14,44 +13,20 @@ export class ProfilePageComponent implements OnInit {
   
   user: any;
   id: any;
-  stories: Array<any>;
-  iFollow: boolean;
 
   constructor(
     private authService: AuthService, 
-    private storiesService: StoriesService, 
     private usersService: UsersService,
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.listAllStories();
-  } 
-
-  listAllStories() {
     this.authService.me()
       .then((data) => {
         this.user = data;
         this.id = data._id;
-        this.storiesService.userStories(this.id)
-          .then((data) => {
-            this.stories = data;
-            this.checkFollowMe();
-          })
-      }) 
-  } 
-  
-  checkFollowMe() {
-    this.authService.me()
-      .then((data) => {
-        this.user = data;
-        this.id = data._id;
-        this.usersService.checkFollowMe(this.id)
-          .then((data) => {
-            (data == true) ? this.iFollow = true : this.iFollow = false;
-          })
       })
-  }
+  } 
 
   logout() {
     this.authService.logout()
