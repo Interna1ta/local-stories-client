@@ -2,21 +2,23 @@
   <div class="wrapper nav icons">
 
     <span>Edit profile</span>
-
+    
   </div>
 </nav>
 <hr>
 
 <div class="container__content">
-
-    <div class="profile__info">
-      <div class="profile__info__image">
-        <img src="../../../../assets/images/male-icon.png" alt="male-icon">
-      </div>
-      <p class="profile__username" *ngIf="user">@{{user.username}}</p>
-      <div class="profile__follow-btn">
-        <a [routerLink]="['/users', user._id]" class="btn-profile">Edit profile image</a>
-      </div>
+  
+  <div class="profile__info">
+    <div class="profile__info__image">
+      <img src="../../../../assets/images/male-icon.png" alt="male-icon">
+    </div>
+    <p class="profile__username" *ngIf="user">{{user.name}}</p>
+    <p class="profile__username" *ngIf="user">@{{user.username}}</p>
+    <div class="profile__follow-btn">
+      <a [routerLink]="['/users', user._id]" class="btn-profile">Edit profile image</a>
+    </div>
+    <input type="file" (change)="onFileSelected($event)">
     </div>
 
     <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
@@ -24,7 +26,7 @@
       
         <div class="field" [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
           <p>Name</p>
-          <input type="name" class="field__input" placeholder="{{user.name}}" name="name" [(ngModel)]="name" #nameField="ngModel"
+          <input type="name" class="field__input" value="{{user.name}}" name="name" [(ngModel)]="name" #nameField="ngModel"
             required minlength="6" [disabled]="processing" />
           <div *ngIf="feedbackEnabled && nameField.errors">
             <p *ngIf="nameField.errors.required" class="validation">name required</p>
@@ -34,7 +36,7 @@
 
         <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
           <p>Username</p>
-          <input type="text" class="field__input" placeholder="{{user.username}}" name="username" [(ngModel)]="username" #usernameField="ngModel"
+          <input type="text" class="field__input" value="{{user.username}}" name="username" [(ngModel)]="username" #usernameField="ngModel"
             required minlength="6" [disabled]="processing" />
           <div *ngIf="feedbackEnabled && usernameField.errors">
             <p *ngIf="usernameField.errors.required" class="validation">username required</p>
@@ -42,19 +44,19 @@
           </div>
         </div>
 
-        <div class="field" [ngClass]="{'has-error': feedbackEnabled && biographyField.errors}">
+        <div class="field" [ngClass]="{'has-error': feedbackEnabled && descriptionField.errors}">
           <p>Biography</p>
-          <input type="biography" class="field__input" placeholder="{{user.biography}}" biography="biography" [(ngModel)]="biography" #biographyField="ngModel"
+          <input type="text" class="field__input" value="{{user.description}}" name="description" [(ngModel)]="description" #descriptionField="ngModel"
             maxlength="400" [disabled]="processing" />
-          <div *ngIf="feedbackEnabled && biographyField.errors">
-            <p *ngIf="biographyField.errors.minlength" class="validation">biography is too long</p>
+          <div *ngIf="feedbackEnabled && descriptionField.errors">
+            <!-- <p *ngIf="descriptionField.errors.maxlength" class="validation">description is too long</p> -->
           </div>
         </div>
 
       </div>
 
       <div class="field submit">
-        <button type="submit" [disabled]="processing" class="btn btn-terciary">Sign Up</button>
+        <button type="submit" [disabled]="processing" class="btn btn-terciary">Save</button>
         <div *ngIf="error">
           <p class="validation">{{error}}</p>
         </div>
@@ -69,3 +71,5 @@
 </div>
 
 <app-bottom-nav></app-bottom-nav>
+
+<!-- {{ user | json}} -->

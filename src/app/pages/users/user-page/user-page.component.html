@@ -32,6 +32,11 @@
     </div>
   </div>
 
+  <!-- <div>
+    <p>Biography</p>
+    <p class="profile__username" *ngIf="user">{{user.description}}</p>
+  </div> -->
+
   <div class="feed-actions">
     <button class="btn-profile" (click)="listAllStories()"><strong>Stories</strong></button>
     <a [routerLink]="['/users', user._id, 'followers']" class="btn-profile">

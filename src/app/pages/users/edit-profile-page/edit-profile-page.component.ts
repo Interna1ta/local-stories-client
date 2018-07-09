@@ -11,11 +11,16 @@ import { Router } from '@angular/router';
 })
 export class EditProfilePageComponent implements OnInit {
 
+  onFileSelected(event) {
+    console.log(event);
+  }
+
   user: any;
   id: any;
+  idUser: String;
   username: String;
   name: String;
-  biography: String;
+  description: String;
 
   feedbackEnabled = false;
   error = null;
@@ -32,6 +37,17 @@ export class EditProfilePageComponent implements OnInit {
       .then((data) => {
         this.user = data;
         this.id = data._id;
+        this.username = data.username;
+        this.name = data.name;
+        this.description = data.description;
+        this.usersService.getOne(this.id)
+          .then((data) => {
+            this.user = data;
+            this.idUser = data._id;
+            this.username = data.username;
+            this.name = data.name;
+            this.description = data.description;
+          })
       })
   }
 
@@ -44,7 +60,7 @@ export class EditProfilePageComponent implements OnInit {
         id: this.id,
         username: this.username,
         name: this.name,
-        description: this.biography
+        description: this.description
       }
       this.usersService.editProfile(user)
         .then((result) => {
