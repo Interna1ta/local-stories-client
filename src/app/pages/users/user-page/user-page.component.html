@@ -19,7 +19,8 @@
 <div class="container__content profile" *ngIf="user">
   <div class="profile__info">
     <div>
-      <img src="../../../../assets/images/male-icon.png" alt="male-icon">
+      <!-- <img src="../../../../assets/images/male-icon.png" alt="male-icon"> -->
+      <img src="{{user.profile_image_url}}" alt="male-icon">
     </div>
     <p class="profile__username" *ngIf="user.name">{{user.name}}</p>
     <p class="profile__username" *ngIf="user">@{{user.username}}</p>

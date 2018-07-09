@@ -11,10 +11,6 @@ import { Router } from '@angular/router';
 })
 export class EditProfilePageComponent implements OnInit {
 
-  onFileSelected(event) {
-    console.log(event);
-  }
-
   user: any;
   id: any;
   idUser: String;
@@ -25,6 +21,8 @@ export class EditProfilePageComponent implements OnInit {
   feedbackEnabled = false;
   error = null;
   processing = false;
+
+  selectedFile: File = null;
 
   constructor(
     private authService: AuthService, 
@@ -75,6 +73,22 @@ export class EditProfilePageComponent implements OnInit {
     }
   }
 
-  
+  onFileSelected(event) {
+    console.log(event);
+    this.selectedFile = <File>event.target.files[0];
+  }
+
+  onUpload() {
+    const fd = new FormData();
+    fd.append("image", this.selectedFile, this.selectedFile.name);
+    const user = {
+      id: this.id,
+      fd: fd
+    } 
+    this.usersService.uploadPicture(user)
+      .then(result => {
+        this.router.navigate(["/"]);
+      });
+  }
 
 }

@@ -61,4 +61,9 @@ export class UsersService {
     return this.httpClient.put(`${this.baseUrl}/users/${user.id}/edit`, user, this.options)
       .toPromise();
   }
+
+  uploadPicture(user: any) {
+    return this.httpClient.put(`${this.baseUrl}/users/${user.id}/image`, user.fd, this.options)
+      .toPromise();
+  }
 }

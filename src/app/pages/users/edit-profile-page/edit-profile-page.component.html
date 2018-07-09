@@ -17,9 +17,17 @@
     <p class="profile__username" *ngIf="user">@{{user.username}}</p>
     <div class="profile__follow-btn">
       <a [routerLink]="['/users', user._id]" class="btn-profile">Edit profile image</a>
-    </div>
-    <input type="file" (change)="onFileSelected($event)">
-    </div>
+
+    <form>
+      <div class="field">
+        <input type="file" name="image" (change)="onFileSelected($event)" class="file-input">
+        <div class="field submit">
+          <button type="button" (click)="onUpload()" class="btn btn-terciary">Submit</button>
+        </div>
+      </div>
+    </form>
+
+    <br><br>
 
     <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
       <div class="field_inputs">
