@@ -33,6 +33,7 @@ import { FollowersPageComponent } from './pages/users/followers-page/followers-p
 import { FollowingPageComponent } from './pages/users/following-page/following-page.component';
 import { EditProfilePageComponent } from './pages/users/edit-profile-page/edit-profile-page.component';
 import { NotificationsPageComponent } from './pages/notifications/notifications-page.component';
+import { AddFollowersPageComponent } from './pages/users/add-followers-page/add-followers-page.component';
 
 // -- Services
 
@@ -59,6 +60,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfilePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'profile/edit', component: EditProfilePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'notifications', component: NotificationsPageComponent, canActivate: [RequireUserGuardService] },
+  { path: 'profile/addfollowers', component: AddFollowersPageComponent, canActivate: [RequireUserGuardService] },
   { path: 'users/:id/followers', component: FollowersPageComponent, canActivate: [RequireUserGuardService] },
   { path: 'users/:id/following', component: FollowingPageComponent, canActivate: [RequireUserGuardService] },
   { path: 'users/:id', component: UserPageComponent, canActivate: [RequireUserGuardService] },
@@ -88,7 +90,8 @@ const routes: Routes = [
     TopNavProfileComponent,
     NotificationsPageComponent,
     NotificationCardComponent,
-    EditProfilePageComponent
+    EditProfilePageComponent,
+    AddFollowersPageComponent
   ],
   imports: [
     BrowserModule,

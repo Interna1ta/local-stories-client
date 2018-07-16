@@ -21,6 +21,11 @@ export class UsersService {
       .toPromise();
   }
 
+  addFollowers(id: string): Promise<any> {
+    return this.httpClient.get(`${this.baseUrl}/users/${id}/addfollowers`, this.options)
+      .toPromise();
+  }
+
   getNotifications(id: string): Promise<any> {
     console.log('im inside the service');
     return this.httpClient.get(`${this.baseUrl}/users/${id}/notifications`, this.options)

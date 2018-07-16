@@ -1,0 +1,20 @@
+<nav class="site-nav">
+  <div class="nav icons">
+    <h3>Add Followers</h3>
+  </div>
+</nav>
+
+<div class="container__content" *ngIf="user">
+  <ul *ngFor="let follower of usersData">
+    <li>
+      <app-single-user [follower]="follower"></app-single-user>
+    </li>
+  </ul>
+  <ul *ngIf="!iFollow">
+    <li class="follow-no-card">
+      <p>This user has no followers!</p>
+    </li>
+  </ul>
+</div>
+
+<app-bottom-nav></app-bottom-nav>
