@@ -48,6 +48,7 @@ import { InitAuthGuardService } from './guards/init-auth-guard.service';
 import { RequireAnonGuardService } from './guards/require-anon-guard.service';
 import { RequireUserGuardService } from './guards/require-user-guard.service';
 import { SearchPageComponent } from './pages/search/search-page/search-page.component';
+import { TopNavSearchComponent } from './components/nav/top-nav-search/top-nav-search.component';
 
 // -- Routes
 
@@ -55,7 +56,7 @@ const routes: Routes = [
   { path: '', component: HomepageComponent, canActivate: [RequireAnonGuardService]},
   { path: 'login', component: LoginPageComponent, canActivate: [RequireAnonGuardService] },
   { path: 'signup', component: SignupPageComponent, canActivate: [RequireAnonGuardService] },
-  { path: 'tweets', component: IndexComponent, canActivate: [RequireUserGuardService] },
+  { path: 'search', component: SearchPageComponent, canActivate: [RequireUserGuardService] },
   { path: 'stories', component: IndexComponent, canActivate: [RequireUserGuardService] },
   { path: 'stories/create', component: StoryCreatePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'profile', component: ProfilePageComponent, canActivate: [RequireUserGuardService] },
@@ -93,7 +94,8 @@ const routes: Routes = [
     NotificationCardComponent,
     EditProfilePageComponent,
     AddFollowersPageComponent,
-    SearchPageComponent
+    SearchPageComponent,
+    TopNavSearchComponent
   ],
   imports: [
     BrowserModule,

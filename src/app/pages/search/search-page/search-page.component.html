@@ -1,3 +1,20 @@
-<p>
-  search-page works!
-</p>
+<app-top-nav-search></app-top-nav-search>
+
+<div class="container__content stories-list">
+  <!-- <div class="feed-actions">
+    <button class="btn-profile" (click)="ListAllStories()">
+      <strong>All Stories</strong>
+    </button>
+    <button class="btn-profile" (click)="FollowingUserStories()">Only Following</button>
+  </div> -->
+
+  <ul *ngFor="let story of stories">
+    <li>
+      <!-- <a [routerLink]="['/stories', story._id]"> -->
+      <app-story-card [story]="story"></app-story-card>
+      <!-- </a> -->
+    </li>
+  </ul>
+</div>
+
+<app-bottom-nav></app-bottom-nav>
