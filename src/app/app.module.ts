@@ -47,6 +47,7 @@ import { StoriesService } from './services/stories.service';
 import { InitAuthGuardService } from './guards/init-auth-guard.service';
 import { RequireAnonGuardService } from './guards/require-anon-guard.service';
 import { RequireUserGuardService } from './guards/require-user-guard.service';
+import { SearchPageComponent } from './pages/search/search-page/search-page.component';
 
 // -- Routes
 
@@ -91,7 +92,8 @@ const routes: Routes = [
     NotificationsPageComponent,
     NotificationCardComponent,
     EditProfilePageComponent,
-    AddFollowersPageComponent
+    AddFollowersPageComponent,
+    SearchPageComponent
   ],
   imports: [
     BrowserModule,
