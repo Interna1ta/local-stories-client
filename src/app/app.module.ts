@@ -17,6 +17,7 @@ import { BottomNavCreateComponent } from './components/nav/bottom-nav-create/bot
 import { BottomNavProfileComponent } from './components/nav/bottom-nav-profile/bottom-nav-profile.component';
 import { StoryCardComponent } from './components/stories/story-card/story-card.component';
 import { NotificationCardComponent } from './components/notifications/notification-card/notification-card.component';
+import { SingleUserComponent } from './components/users/single-user/single-user.component';
 
 // -- Pages
 
@@ -36,6 +37,8 @@ import { NotificationsPageComponent } from './pages/notifications/notifications-
 // -- Services
 
 import { AuthService } from './services/auth.service';
+import { UsersService } from './services/users.service';
+import { TweetsService } from './services/tweets.service';
 import { StoriesService } from './services/stories.service';
 
 // -- Guards
@@ -43,8 +46,6 @@ import { StoriesService } from './services/stories.service';
 import { InitAuthGuardService } from './guards/init-auth-guard.service';
 import { RequireAnonGuardService } from './guards/require-anon-guard.service';
 import { RequireUserGuardService } from './guards/require-user-guard.service';
-import { UsersService } from './services/users.service';
-import { SingleUserComponent } from './components/users/single-user/single-user.component';
 
 // -- Routes
 
@@ -52,6 +53,7 @@ const routes: Routes = [
   { path: '', component: HomepageComponent, canActivate: [RequireAnonGuardService]},
   { path: 'login', component: LoginPageComponent, canActivate: [RequireAnonGuardService] },
   { path: 'signup', component: SignupPageComponent, canActivate: [RequireAnonGuardService] },
+  { path: 'tweets', component: IndexComponent, canActivate: [RequireUserGuardService] },
   { path: 'stories', component: IndexComponent, canActivate: [RequireUserGuardService] },
   { path: 'stories/create', component: StoryCreatePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'profile', component: ProfilePageComponent, canActivate: [RequireUserGuardService] },
@@ -100,7 +102,8 @@ const routes: Routes = [
     InitAuthGuardService,
     RequireAnonGuardService,
     RequireUserGuardService,
-    UsersService
+    UsersService,
+    TweetsService
   ],
   bootstrap: [AppComponent]
 })
