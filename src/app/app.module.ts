@@ -51,6 +51,7 @@ import { RequireAnonGuardService } from './guards/require-anon-guard.service';
 import { RequireUserGuardService } from './guards/require-user-guard.service';
 import { SearchPageComponent } from './pages/search/search-page/search-page.component';
 import { TopNavSearchComponent } from './components/nav/top-nav-search/top-nav-search.component';
+import { ArticleCardComponent } from './components/stories/article-card/article-card.component';
 
 // -- Routes
 
@@ -101,7 +102,8 @@ const routes: Routes = [
     SearchPageComponent,
     TopNavSearchComponent,
     ArticleCreatePageComponent,
-    StoryPageComponent
+    StoryPageComponent,
+    ArticleCardComponent
   ],
   imports: [
     BrowserModule,

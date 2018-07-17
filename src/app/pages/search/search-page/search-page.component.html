@@ -8,10 +8,10 @@
     <button class="btn-profile" (click)="FollowingUserStories()">Only Following</button>
   </div> -->
 
-  <ul *ngFor="let story of stories">
+  <ul *ngFor="let article of articles">
     <li>
-      <!-- <a [routerLink]="['/stories', story._id]"> -->
-        <app-story-card [story]="story"></app-story-card>
+      <!-- <a [routerLink]="['/articles', article._id]"> -->
+        <app-article-card [article]="article"></app-article-card>
       <!-- </a> -->
     </li>
   </ul>

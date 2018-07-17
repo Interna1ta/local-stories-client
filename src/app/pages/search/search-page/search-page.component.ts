@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ArticlesService } from '../../../services/articles.service';
 
 @Component({
   selector: 'app-search-page',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchPageComponent implements OnInit {
 
-  constructor() { }
+  articles: Array<any>;
+
+  constructor(
+    private articlesService: ArticlesService
+  ) { }
 
   ngOnInit() {
+    this.ListAllArticles();
+  }
+
+  ListAllArticles() {
+    this.articlesService.listAll()
+      .then((data) => {
+        this.articles = data;
+      })
   }
 
 }
