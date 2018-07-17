@@ -3,7 +3,7 @@
   
   <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">    
     <div class="create-title">
-      <h2>Create Story</h2>
+      <h2>Write a Tweet</h2>
       <div class="characters-title">
         <div id="charactersRemaining">120</div>
         <p>/120</p>
@@ -29,6 +29,8 @@
         <p class="validation">there are errors in the form, please review the fields</p>
       </div>
     </div>
+
+    <a [routerLink]="['/articles/create']" class="btn btn-secondary">Write an Article</a>
     
   </form>
 </div>

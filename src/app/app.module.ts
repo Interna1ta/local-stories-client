@@ -34,12 +34,13 @@ import { FollowingPageComponent } from './pages/users/following-page/following-p
 import { EditProfilePageComponent } from './pages/users/edit-profile-page/edit-profile-page.component';
 import { NotificationsPageComponent } from './pages/notifications/notifications-page.component';
 import { AddFollowersPageComponent } from './pages/users/add-followers-page/add-followers-page.component';
+import { ArticleCreatePageComponent } from './pages/stories/article-create-page/article-create-page.component';
 
 // -- Services
 
 import { AuthService } from './services/auth.service';
 import { UsersService } from './services/users.service';
-import { TweetsService } from './services/tweets.service';
+import { ArticlesService } from './services/articles.service';
 import { StoriesService } from './services/stories.service';
 
 // -- Guards
@@ -59,6 +60,7 @@ const routes: Routes = [
   { path: 'search', component: SearchPageComponent, canActivate: [RequireUserGuardService] },
   { path: 'stories', component: IndexComponent, canActivate: [RequireUserGuardService] },
   { path: 'stories/create', component: StoryCreatePageComponent, canActivate: [RequireUserGuardService] },
+  { path: 'articles/create', component: ArticleCreatePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'profile', component: ProfilePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'profile/edit', component: EditProfilePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'notifications', component: NotificationsPageComponent, canActivate: [RequireUserGuardService] },
@@ -95,7 +97,8 @@ const routes: Routes = [
     EditProfilePageComponent,
     AddFollowersPageComponent,
     SearchPageComponent,
-    TopNavSearchComponent
+    TopNavSearchComponent,
+    ArticleCreatePageComponent
   ],
   imports: [
     BrowserModule,
@@ -110,7 +113,7 @@ const routes: Routes = [
     RequireAnonGuardService,
     RequireUserGuardService,
     UsersService,
-    TweetsService
+    ArticlesService
   ],
   bootstrap: [AppComponent]
 })

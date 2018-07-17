@@ -1,0 +1,44 @@
+<div class="container auth">
+
+  <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+    <div class="create-title">
+      <h2>Write an article</h2>
+      <!-- <div class="characters-title">
+        <div id="charactersRemaining">120</div>
+        <p>/120</p>
+      </div> -->
+    </div>
+
+    <div class="field_inputs">
+      <div class="field" [ngClass]="{'has-error': feedbackEnabled && titleField.errors}">
+        <input type="text" id="tweet" placeholder="Write a title" name="title" [(ngModel)]="title" #titleField="ngModel" maxlength="120"
+          [disabled]="processing" />
+        <div *ngIf="feedbackEnabled && titleField.errors">
+          <p *ngIf="titleField.errors.minlength" class="validation">title is too long</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="field_inputs">
+      <div class="field" [ngClass]="{'has-error': feedbackEnabled && textField.errors}">
+        <input type="text" id="tweet" placeholder="Write a text" name="text" [(ngModel)]="text" #textField="ngModel" maxlength="120"
+          [disabled]="processing" />
+      </div>
+    </div>
+
+    <div class="field submit">
+      <button type="submit" [disabled]="processing" class="btn btn-primary">Create</button>
+      <div *ngIf="error">
+        <p class="validation">{{error}}</p>
+      </div>
+      <div *ngIf="feedbackEnabled && form.invalid">
+        <p class="validation">there are errors in the form, please review the fields</p>
+      </div>
+    </div>
+
+    <a [routerLink]="['/stories/create']" class="btn btn-secondary">Write a Tweet</a>
+
+  </form>
+</div>
+
+<app-bottom-nav></app-bottom-nav>
