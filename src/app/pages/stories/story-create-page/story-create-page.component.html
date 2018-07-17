@@ -12,7 +12,7 @@
     
     <div class="field_inputs">
       <div class="field" [ngClass]="{'has-error': feedbackEnabled && storyField.errors}">
-        <input type="text" id="tweet" placeholder="Write a story" name="story" [(ngModel)]="story.text" #storyField="ngModel" maxlength="120" [disabled]="processing"
+        <input type="text" id="tweet" placeholder="What are you thinking?" name="story" [(ngModel)]="story.text" #storyField="ngModel" maxlength="120" [disabled]="processing"
         />
         <div *ngIf="feedbackEnabled && storyField.errors">
         <p *ngIf="storyField.errors.minlength" class="validation">story is too long</p>
