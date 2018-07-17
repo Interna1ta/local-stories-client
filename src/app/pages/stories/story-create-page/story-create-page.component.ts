@@ -27,6 +27,7 @@ export class StoryCreatePageComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('im in story-create-page')
     let el;
     function countCharacters(e) {
       const input: any = document.getElementById('tweet')

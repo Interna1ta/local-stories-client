@@ -18,6 +18,7 @@ import { BottomNavProfileComponent } from './components/nav/bottom-nav-profile/b
 import { StoryCardComponent } from './components/stories/story-card/story-card.component';
 import { NotificationCardComponent } from './components/notifications/notification-card/notification-card.component';
 import { SingleUserComponent } from './components/users/single-user/single-user.component';
+import { ArticleCardComponent } from './components/stories/article-card/article-card.component';
 
 // -- Pages
 
@@ -36,6 +37,7 @@ import { NotificationsPageComponent } from './pages/notifications/notifications-
 import { AddFollowersPageComponent } from './pages/users/add-followers-page/add-followers-page.component';
 import { ArticleCreatePageComponent } from './pages/stories/article-create-page/article-create-page.component';
 import { StoryPageComponent } from './pages/stories/story-page/story-page.component';
+import { SingleArticlePageComponent } from './pages/stories/single-article-page/single-article-page.component';
 
 // -- Services
 
@@ -51,7 +53,6 @@ import { RequireAnonGuardService } from './guards/require-anon-guard.service';
 import { RequireUserGuardService } from './guards/require-user-guard.service';
 import { SearchPageComponent } from './pages/search/search-page/search-page.component';
 import { TopNavSearchComponent } from './components/nav/top-nav-search/top-nav-search.component';
-import { ArticleCardComponent } from './components/stories/article-card/article-card.component';
 
 // -- Routes
 
@@ -61,9 +62,10 @@ const routes: Routes = [
   { path: 'signup', component: SignupPageComponent, canActivate: [RequireAnonGuardService] },
   { path: 'search', component: SearchPageComponent, canActivate: [RequireUserGuardService] },
   { path: 'stories', component: IndexComponent, canActivate: [RequireUserGuardService] },
-  { path: 'stories/:id', component: StoryPageComponent },
   { path: 'stories/create', component: StoryCreatePageComponent, canActivate: [RequireUserGuardService] },
+  { path: 'stories/:id', component: StoryPageComponent },
   { path: 'articles/create', component: ArticleCreatePageComponent, canActivate: [RequireUserGuardService] },
+  { path: 'articles/:id', component: SingleArticlePageComponent },
   { path: 'profile', component: ProfilePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'profile/edit', component: EditProfilePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'notifications', component: NotificationsPageComponent, canActivate: [RequireUserGuardService] },
@@ -103,7 +105,8 @@ const routes: Routes = [
     TopNavSearchComponent,
     ArticleCreatePageComponent,
     StoryPageComponent,
-    ArticleCardComponent
+    ArticleCardComponent,
+    SingleArticlePageComponent
   ],
   imports: [
     BrowserModule,
