@@ -8,7 +8,9 @@
       </a>
       <p class="story__info__time">{{story.created_at | date : 'shortDate' }}</p>
     </div>
-    <p class="tweet">{{story.text}}</p> 
+    <a class="story__tweet" [routerLink]="['/stories', story._id]">
+      <p>{{story.text}}</p> 
+    </a>
   </div>
 </div>
 

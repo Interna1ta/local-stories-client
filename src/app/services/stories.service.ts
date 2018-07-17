@@ -13,22 +13,27 @@ export class StoriesService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getOne(id: string): Promise<any> {
+    return this.httpClient.get(`${this.baseUrl}/stories/${id}`, this.options)
+      .toPromise();
+  }
+
   listAll(): Promise<any> {
     return this.httpClient.get(`${this.baseUrl}/stories`, this.options)
       .toPromise();
   }
 
-  create(story) {
+  create(story: any): Promise<any> {
     return this.httpClient.post(`${this.baseUrl}/stories`, story, this.options)
       .toPromise();
   }
 
-  tweet(story) {
+  tweet(story: any): Promise<any> {
     return this.httpClient.post(`${this.baseUrl}/twitter`, story, this.options)
       .toPromise();
   }
 
-  userStories(id): Promise<any> {
+  userStories(id: string): Promise<any> {
     return this.httpClient.get(`${this.baseUrl}/stories/users/${id}`, this.options)
       .toPromise();
   }

@@ -1,0 +1,9 @@
+<div *ngIf="story">
+  <p class="story" *ngIf="story.user.name">{{story.user.name}}</p>
+  <p class="story">@{{story.user.username}}</p>
+  <p class="story">{{story.text}}</p>
+</div>
+
+<!-- {{ story | json}} -->
+
+<app-bottom-nav></app-bottom-nav>

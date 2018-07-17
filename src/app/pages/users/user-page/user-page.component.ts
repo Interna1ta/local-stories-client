@@ -33,7 +33,7 @@ export class UserPageComponent implements OnInit {
     this.iFollow = false;
     this.editButton = false;
     this.listAllStories();
-  }
+  } 
 
   listAllStories() {
     this.activateRoute.params.subscribe((params) => {
