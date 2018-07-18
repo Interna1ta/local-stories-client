@@ -19,7 +19,7 @@
 <div class="container__content profile" *ngIf="user">
   <div class="profile__info">
     <div>
-      <img *ngIf="!user.profile_image_url == true" src="../../../../assets/images/male-icon.png" alt="male-icon">
+      <!-- <img *ngIf="!user.profile_image_url == true" src="../../../../assets/images/male-icon.png" alt="male-icon"> -->
       <img *ngIf="user.profile_image_url" src="{{user.profile_image_url}}" alt="male-icon">
     </div>
     <p class="profile__username" *ngIf="user.name">{{user.name}}</p>
@@ -40,6 +40,7 @@
 
   <div class="feed-actions">
     <button class="btn-profile" (click)="listAllStories()"><strong>Stories</strong></button>
+    <button class="btn-profile" (click)="findUserArticles()"><strong>News</strong></button>
     <a [routerLink]="['/users', user._id, 'followers']" class="btn-profile">
       Followers
     </a>
@@ -52,6 +53,14 @@
     <li>
       <!-- <a [routerLink]="['/stories', story._id]"> -->
       <app-story-card [story]="story"></app-story-card>
+      <!-- </a> -->
+    </li>
+  </ul>
+
+  <ul *ngFor="let article of articles">
+    <li>
+      <!-- <a [routerLink]="['/articles', article._id]"> -->
+      <app-article-card [article]="article"></app-article-card>
       <!-- </a> -->
     </li>
   </ul>

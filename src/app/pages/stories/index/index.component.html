@@ -1,28 +1,25 @@
-<!-- <nav class="site-nav">
-  <div class="nav icons">
-    <a [routerLink]="['/stories/create']">
-      <i class="far fa-edit"></i>
-    </a>
-    <span>LightTwitter</span>
-    <a [routerLink]="['/profile/addFollowers']">
-      <i class="fas fa-user-plus"></i>
-    </a>
-  </div>
-</nav> -->
-
 <app-top-nav-feed></app-top-nav-feed>
 
 <div class="container__content stories-list">
-    <div class="feed-actions">
-      <button class="btn-profile" (click)="ListAllStories()"><strong>All Stories</strong></button>
-      <button class="btn-profile" (click)="FollowingUserStories()">Only Following</button>
-    </div>
- 
+  <div class="feed-actions">
+    <button class="btn-profile" (click)="ListAllStories()"><strong>Last News</strong></button>
+    <p>More ></p>
+  </div>
+      <ul *ngFor="let article of articles">
+      <li>
+        <!-- <a [routerLink]="['/articles', article._id]"> -->
+        <app-article-card [article]="article"></app-article-card>
+        <!-- </a> -->
+      </li>
+    </ul>
+  <div class="feed-actions">
+    <button class="btn-profile" (click)="ListAllStories()"><strong>All Stories</strong></button>
+    <button class="btn-profile" (click)="FollowingUserStories()">Only Following</button>
+  </div>
+
   <ul *ngFor="let story of stories">
     <li>
-      <!-- <a [routerLink]="['/stories', story._id]"> -->
-        <app-story-card [story]="story"></app-story-card>
-      <!-- </a> -->
+      <app-story-card [story]="story"></app-story-card>
     </li>
   </ul>
 </div>

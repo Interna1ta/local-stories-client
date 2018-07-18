@@ -19,8 +19,6 @@ export class ArticlesService {
   }
 
   create(article): Promise<any> {
-    console.log('im in the service');
-    console.log(article);
     return this.httpClient.post(`${this.baseUrl}/articles`, article, this.options)
       .toPromise();
   }

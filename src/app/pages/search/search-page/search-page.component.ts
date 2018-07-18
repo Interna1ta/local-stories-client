@@ -25,4 +25,4 @@ export class SearchPageComponent implements OnInit {
       })
   }
 
-}
+} 

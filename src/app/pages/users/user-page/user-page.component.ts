@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { StoriesService } from '../../../services/stories.service';
 import { UsersService } from '../../../services/users.service';
 import { AuthService } from '../../../services/auth.service';
+import { ArticlesService } from '../../../services/articles.service';
 
 @Component({
   selector: 'app-user-page',
@@ -24,6 +25,7 @@ export class UserPageComponent implements OnInit {
   constructor(
     private usersService: UsersService, 
     private storiesService: StoriesService, 
+    private articlesService: ArticlesService,
     private router: Router,
     private activateRoute: ActivatedRoute,
     private authService: AuthService
@@ -33,7 +35,7 @@ export class UserPageComponent implements OnInit {
     this.iFollow = false;
     this.editButton = false;
     this.listAllStories();
-  } 
+  }
 
   listAllStories() {
     this.activateRoute.params.subscribe((params) => {
@@ -69,6 +71,13 @@ export class UserPageComponent implements OnInit {
             this.findUserStories();
           })
       }) 
+  }
+
+  findUserArticles() {
+    this.articlesService.userArticles(this.idUser)
+      .then((data) => {
+        this.stories = data;
+      })
   }
 
   findUserStories() {
