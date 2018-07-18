@@ -13,6 +13,11 @@ export class ArticlesService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getOne(id: string): Promise<any> {
+    return this.httpClient.get(`${this.baseUrl}/articles/${id}`, this.options)
+      .toPromise();
+  }
+
   listAll(): Promise<any> {
     return this.httpClient.get(`${this.baseUrl}/articles`, this.options)
       .toPromise();

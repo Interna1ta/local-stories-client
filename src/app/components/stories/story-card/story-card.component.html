@@ -4,16 +4,15 @@
       <img *ngIf="!story.user.profile_image_url" class="story__image" src="../../../../assets/images/male-icon.png"
               alt="image-icon">
       <img *ngIf="story.user.profile_image_url" class="story__image" src="{{story.user.profile_image_url}}" alt="image-icon">
-      <!-- <img class="story__image" style="width: 50px; height: 50px;" src="{{story.user.profile_image_url}}" alt="image-icon"> -->
     </div>
-    <div class="story__content">
-      <div class="story__content__user">
-        <a class="story__content__user__username" [routerLink]="['/users', story.user._id]">
+    <div class="story__info">
+      <div class="story__info__user">
+        <a class="story__info__user__username" [routerLink]="['/users', story.user._id]">
           <p>{{story.user.name}} @{{story.user.username}}</p>
         </a>
-        <p class="story__content__user__time">{{story.created_at | date : 'shortDate' }}</p>
+        <p class="story__info__user__time">{{story.created_at | date : 'shortDate' }}</p>
       </div>
-      <a class="story__content__text" [routerLink]="['/stories', story._id]">
+      <a class="story__info__text" [routerLink]="['/stories', story._id]">
         <p>{{story.text}}</p> 
       </a>
     </div>

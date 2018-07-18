@@ -62,8 +62,7 @@ export class EditProfilePageComponent implements OnInit {
       }
       this.usersService.editProfile(user)
         .then((result) => {
-          this.router.navigate(['/']);
-          // this.router.navigate(['/users', this.id]);
+          this.router.navigate(['/users', this.id]);
         })
         .catch((err) => {
           this.error = err.error.code;
@@ -74,11 +73,10 @@ export class EditProfilePageComponent implements OnInit {
   }
 
   onFileSelected(event) {
-    console.log(event);
     this.selectedFile = <File>event.target.files[0];
   }
 
-  onUpload() {
+  onUpload(event) {
     const fd = new FormData();
     fd.append("image", this.selectedFile, this.selectedFile.name);
     const user = {
@@ -87,7 +85,7 @@ export class EditProfilePageComponent implements OnInit {
     } 
     this.usersService.uploadPicture(user)
       .then(result => {
-        this.router.navigate(["/"]);
+        this.router.navigate(['/users', this.id]);
       });
   }
 

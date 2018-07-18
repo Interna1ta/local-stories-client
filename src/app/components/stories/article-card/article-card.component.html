@@ -1,17 +1,13 @@
 <div class="card" *ngIf="article">
   <div class="article">
     <div class="article__info">
-      <!-- <img style="width: 50px; height: 50px;" src="../../../../assets/images/male-icon.png" alt="male-icon"> -->
-      <div class="profile__info__image"></div>
+      <p class="article__info__title" [routerLink]="['/articles', article._id]">{{article.title}}</p>
+      <!-- <p class="article__info__text">{{article.text}}</p> -->
       <a class="article__info__username" [routerLink]="['/users', article.user._id]">
-        <p>{{article.user.name}} @{{article.user.username}}</p>
+        <p>{{article.user.name}}</p>
       </a>
       <p class="article__info__time">{{article.created_at | date : 'shortDate' }}</p>
     </div>
-    <a class="article__tweet" [routerLink]="['/stories', article._id]">
-      <p>{{article.title}}</p>
-      <p>{{article.text}}</p>
-    </a>
   </div>
 </div>
 

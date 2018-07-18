@@ -11,20 +11,25 @@
   
   <div class="profile__info">
     <div class="profile__info__image">
-      <img src="../../../../assets/images/male-icon.png" alt="male-icon">
+      <img *ngIf="!user.profile_image_url == true" src="../../../../assets/images/male-icon.png" alt="male-icon">
+      <img *ngIf="user.profile_image_url" src="{{user.profile_image_url}}" alt="image-icon">
     </div>
     <p class="profile__username" *ngIf="user">{{user.name}}</p>
     <p class="profile__username" *ngIf="user">@{{user.username}}</p>
-    <div class="profile__follow-btn">
-      <a [routerLink]="['/users', user._id]" class="btn-profile">Edit profile image</a>
-
+    <div class="profile__follow-btn"> 
     <form>
       <div class="field">
         <input type="file" name="image" (change)="onFileSelected($event)" class="file-input">
         <div class="field submit">
-          <button type="button" (click)="onUpload()" class="btn btn-terciary">Submit</button>
+          <button type="button" (click)="onUpload()" class="btn btn-terciary">Change Profile Image</button>
         </div>
       </div>
+      <!-- <div class="field">
+        <input type="file" name="image" (change)="onFileSelected($event)" class="file-input">
+        <div class="field submit">
+          <button type="button" (click)="onFileSelected($event)" class="btn btn-terciary">Change Profile Image</button>
+        </div>
+      </div> -->
     </form>
 
     <br><br>
