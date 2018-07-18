@@ -3,34 +3,49 @@
 .card {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   padding: 0 10px;
   margin-bottom: 20px;
 
   .story {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 
-    &__info {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-
-      &__username {
-        margin-right: 10px;
-        text-decoration: none;
-        font-weight: lighter;
-        color: $color-btn-secondary;
-      }
-
-      &__time {
-        color: grey;
-        font-weight: lighter;
-        font-size: 12px;
-      }
+    &__image {
+      width: 50px; 
+      height: 50px;
+      border-radius: 50%;
     }
 
-    &__tweet {
-      color: black;
-      text-decoration: none;
+    &__content {
+      padding-left: 10px; 
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      
+      &__user {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        &__username {
+          margin-right: 10px;
+          text-decoration: none;
+          font-weight: lighter;
+          color: $color-btn-secondary;
+        }
+
+        &__time {
+          color: grey;
+          font-weight: lighter;
+          font-size: 12px;
+        }
+      }
+
+      &__text {
+        color: black;
+        text-decoration: none;
+      }
     }
   }
 }
