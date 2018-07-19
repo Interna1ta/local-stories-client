@@ -11,7 +11,9 @@ export class UsersService {
     withCredentials: true
   };
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private httpClient: HttpClient
+  ) { }
   
   ngOnInit() {
   }
@@ -27,23 +29,22 @@ export class UsersService {
   }
 
   getNotifications(id: string): Promise<any> {
-    console.log('im inside the service');
     return this.httpClient.get(`${this.baseUrl}/users/${id}/notifications`, this.options)
       .toPromise();
   }
   
-  followOne(bothId: any): Promise<any> {
-    return this.httpClient.put(`${this.baseUrl}/users/${bothId.idMe}/follow`, bothId, this.options)
+  followOne(idUsers: any): Promise<any> {
+    return this.httpClient.put(`${this.baseUrl}/users/${idUsers.idMe}/follow`, idUsers, this.options)
     .toPromise();
   }
 
-  followOneNotification(bothId: any): Promise<any> {
-    return this.httpClient.post(`${this.baseUrl}/users/${bothId.idMe}/follow`, bothId, this.options)
+  followOneNotification(idUsers: any): Promise<any> {
+    return this.httpClient.post(`${this.baseUrl}/users/${idUsers.idMe}/follow`, idUsers, this.options)
       .toPromise();
   }
   
-  unfollowOne(bothId: any): Promise<any> {
-    return this.httpClient.put(`${this.baseUrl}/users/${bothId.idMe}/unfollow`, bothId, this.options)
+  unfollowOne(idUsers: any): Promise<any> {
+    return this.httpClient.put(`${this.baseUrl}/users/${idUsers.idMe}/unfollow`, idUsers, this.options)
     .toPromise();
   }
   
@@ -57,8 +58,8 @@ export class UsersService {
       .toPromise();
   }
 
-  checkFollow(bothId: any): Promise<any> {
-    return this.httpClient.get(`${this.baseUrl}/users/${bothId.idMe}/checkFollow`, this.options)
+  checkFollow(idUsers: any): Promise<any> {
+    return this.httpClient.get(`${this.baseUrl}/users/${idUsers.idMe}/checkFollow`, this.options)
       .toPromise();
   }
 

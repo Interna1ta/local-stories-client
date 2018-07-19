@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 import { AuthService } from '../../../services/auth.service';
 import { UsersService } from '../../../services/users.service';
@@ -16,14 +16,13 @@ export class SingleUserComponent implements OnInit {
   userMe: any;
   idUser: string;
   idMe: string;
-  bothId: object;
-  iFollow: boolean;
+  idUsers: object;
+  checkFollow: boolean;
   samePerson: boolean;
 
   constructor(
     private usersService: UsersService,
     private authService: AuthService,
-    private router: Router,
     private activateRoute: ActivatedRoute
   ) { }
 
@@ -37,7 +36,6 @@ export class SingleUserComponent implements OnInit {
       this.usersService.getOne(this.idUser)
         .then((data) => {
           this.user = data;
-          this.idUser = data._id;
           this._checkFollowUser();
         })
     })
@@ -48,6 +46,10 @@ export class SingleUserComponent implements OnInit {
       .then((data) => {
         this.userMe = data;
         this.idMe = data._id;
+        this.idUsers = {
+          idUser: this.follower._id,
+          idMe: this.idMe
+        }
         this.usersService.userFollowing(this.idMe)
           .then((data) => {
             this.userMe = data;
@@ -55,53 +57,33 @@ export class SingleUserComponent implements OnInit {
               this.samePerson = false;
               for (let i = 0; i < this.userMe.following.length; i++) {
                 if (this.userMe.following[i]._id == this.follower._id) {
-                  this.iFollow = true
+                  this.checkFollow = true
                   i = this.userMe.following.length;
                 } else if (this.follower._id == this.idMe) {
                   this.samePerson = true;
                 } else {
-                  this.iFollow = false;
+                  this.checkFollow = false;
                 }
               }
             } else {
               this.samePerson = false;
-              this.iFollow = false;
+              this.checkFollow = false;
             }
           })
       })
   }  
 
   followUser() {
-    this.authService.me()
-      .then((data) => {
-        this.userMe = data;
-        this.idMe = data._id;
-        this.bothId = {
-          idUser: this.follower._id,
-          idMe: this.idMe
-        }
-        this.iFollow = true;
-        this.usersService.followOne(this.bothId)
-          .then(() => {
-            this.usersService.followOneNotification(this.bothId);
-          })
+    this.checkFollow = true;
+    this.usersService.followOne(this.idUsers)
+      .then(() => {
+        this.usersService.followOneNotification(this.idUsers);
       })
   }
 
   unfollowUser() {
-    this.authService.me()
-      .then((data) => {
-        this.userMe = data;
-        this.idMe = data._id;
-        this.bothId = {
-          idUser: this.follower._id,
-          idMe: this.idMe
-        }
-        this.iFollow = false;
-        this.usersService.unfollowOne(this.bothId)
-          .then((data) => {
-            console.log('unfollowOne yeah!');
-          })
-      })
+    this.checkFollow = false;
+    this.usersService.unfollowOne(this.idUsers)
+      .then(() => {})
   }
 }

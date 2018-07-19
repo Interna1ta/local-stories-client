@@ -17,6 +17,7 @@ export class IndexComponent implements OnInit {
   tweets: any;
   user: any;
   idUser: string;
+  idMe: string;
 
   constructor(
     private storiesService: StoriesService, 
@@ -47,31 +48,26 @@ export class IndexComponent implements OnInit {
 
   FollowingUserStories() {
     this.stories = [];
-    this.user = '';
-    this.authService.me()
+    this.authService.me() 
       .then((data) => {
         this.tweets = [];
         this.user = data;
-        this.idUser = data._id;
-        this.usersService.userFollowing(this.idUser)
+        this.idMe = data._id;
+        this.usersService.userFollowing(this.idMe)
           .then((data) => {
-            // this.user = data
-            // console.log('blabla', data);
+            this.user = data
+            for (let i = 0; i < this.user.following.length; i++) {
+              this.idUser = this.user.following[i]._id;
+              this.storiesService.userStories(this.idUser)
+                .then((result) => {
+                  for (let j = 0; j < this.user.following.length; j++) {
+                    if (result[j] !== undefined) {
+                      this.stories.unshift(result[j]);
+                    }
+                  }
+                })
+            }        
           })
-        // console.log(this.user);
-        // console.log(this.user.following);
-        for (let i = 0; i < this.user.following.length; i++) {
-          this.storiesService.userStories(this.user.following[i])
-            .then((result) => {
-              for (let j = 0; j < this.user.following.length; j++) {
-                if (result[j] !== undefined) {
-                  this.stories.unshift(result[j]);
-                }
-              }
-              // console.log(this.stories);
-
-            })
-        }        
       })
   }
 

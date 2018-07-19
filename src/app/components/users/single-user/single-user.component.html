@@ -3,7 +3,7 @@
     <p>@{{follower.username}}</p>
   </a>
   <div *ngIf="samePerson == false">
-    <button *ngIf="iFollow == false" class="btn-terciary" (click)="followUser()">Follow</button>
-    <button *ngIf="iFollow == true" class="btn-terciary" (click)="unfollowUser()">Not follow</button>
+    <button *ngIf="checkFollow == false" class="btn-terciary" (click)="followUser()">Follow</button>
+    <button *ngIf="checkFollow == true" class="btn-terciary" (click)="unfollowUser()">Not follow</button>
   </div>
 </div>

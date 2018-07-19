@@ -25,8 +25,8 @@
     <p class="profile__username" *ngIf="user.name">{{user.name}}</p>
     <p class="profile__username" *ngIf="user">@{{user.username}}</p>
     <div class="profile__info__follow-btn" *ngIf="editButton == false">
-      <button class="btn-terciary" *ngIf="iFollow == false" (click)="followUser()">Follow</button>
-      <button class="btn-terciary" *ngIf="iFollow == true" (click)="unfollowUser()">Not follow</button>
+      <button class="btn-terciary" *ngIf="checkFollow == false" (click)="followUser()">Follow</button>
+      <button class="btn-terciary" *ngIf="checkFollow == true" (click)="unfollowUser()">Not follow</button>
     </div>
     <div class="profile__info__follow-btn" *ngIf="editButton == true">
       <button class="btn-terciary" (click)="editProfile()">Edit</button>
@@ -49,19 +49,21 @@
     </a>
   </div>
 
-  <ul *ngFor="let story of stories">
-    <li>
-      <app-story-card [story]="story"></app-story-card>
-    </li>
-  </ul>
+  <div class="feed-stories">
+    <ul *ngFor="let story of stories">
+      <li>
+        <app-story-card [story]="story"></app-story-card>
+      </li>
+    </ul>
+  </div>
 
-  <ul *ngFor="let article of articles">
-    <li>
-      <!-- <a [routerLink]="['/articles', article._id]"> -->
-      <app-article-card [article]="article"></app-article-card>
-      <!-- </a> -->
-    </li>
-  </ul>
+  <div class="feed-articles">
+    <ul *ngFor="let article of articles">
+      <li>
+        <app-article-card [article]="article"></app-article-card>
+      </li>
+    </ul>
+  </div>
 </div>
 
 <app-bottom-nav></app-bottom-nav>

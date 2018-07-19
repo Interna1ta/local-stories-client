@@ -32,11 +32,8 @@ export class NotificationsPageComponent implements OnInit {
       .then((data) => {
         this.userMe = data;
         this.idMe = data._id;
-        console.log (this.idMe);
-        console.log("im inside the notifications page");
         this.usersService.getNotifications(this.idMe)
           .then((data) => {
-            console.log('notification:', data);
             this.notifications = data;
           })
     })

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-import { UsersService } from '../../../services/users.service';
 import { ActivatedRoute } from '@angular/router';
+import { UsersService } from '../../../services/users.service';
 
 @Component({
   selector: 'app-following-page',
@@ -14,7 +13,7 @@ export class FollowingPageComponent implements OnInit {
   user: any;
   username: string;
   idUser: string;
-  iFollow: boolean;
+  checkFollow: boolean;
 
   constructor(
     private usersService: UsersService, 
@@ -27,8 +26,9 @@ export class FollowingPageComponent implements OnInit {
       this.usersService.userFollowing(this.idUser)
         .then((data) => {
           this.user = data;
-          this.iFollow = true;
-          this.users = this.user.following;
+          (this.user.following.length == 0) ? this.checkFollow = false 
+          : (this.checkFollow = true, 
+             this.users = this.user.following)
         })
     })
   }

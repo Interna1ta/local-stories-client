@@ -27,7 +27,6 @@ export class StoryCreatePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('im in story-create-page')
     let el;
     function countCharacters(e) {
       const input: any = document.getElementById('tweet')
@@ -38,6 +37,26 @@ export class StoryCreatePageComponent implements OnInit {
     }
     el = document.getElementById('tweet');
     el.addEventListener('keyup', countCharacters, false);
+    this.getUserLocation();
+  }
+
+  getUserLocation() {
+    return new Promise((resolve, reject) => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          const userPosition = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          console.log('location :', userPosition)
+          resolve(userPosition);
+        }, () => {
+          resolve();
+        });
+      } else {
+        resolve();
+      }
+    });
   }
 
   submitForm(form) {

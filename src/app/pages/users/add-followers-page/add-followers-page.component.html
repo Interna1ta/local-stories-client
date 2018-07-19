@@ -10,7 +10,7 @@
       <app-single-user [follower]="follower"></app-single-user>
     </li>
   </ul>
-  <ul *ngIf="!iFollow">
+  <ul *ngIf="!checkFollow">
     <li class="follow-no-card">
       <p>This user has no followers!</p>
     </li>

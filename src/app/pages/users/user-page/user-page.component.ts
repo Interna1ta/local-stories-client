@@ -17,9 +17,9 @@ export class UserPageComponent implements OnInit {
   userMe: any;
   idUser: string;
   idMe: string;
-  bothId: object;
+  idUsers: object;
   stories: Array<any>;
-  iFollow: boolean;
+  checkFollow: boolean;
   editButton: boolean;
 
   constructor(
@@ -32,7 +32,7 @@ export class UserPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.iFollow = false;
+    this.checkFollow = false;
     this.editButton = false;
     this.listAllStories();
   }
@@ -44,12 +44,12 @@ export class UserPageComponent implements OnInit {
         .then((data) => {
           this.user = data;
           this.idUser = data._id;
-          this.checkFollowUser();
+          this._checkFollowUser();
         })
     })
   }
 
-  checkFollowUser() {
+  _checkFollowUser() {
     this.authService.me()
       .then((data) => {
         this.userMe = data;
@@ -57,15 +57,15 @@ export class UserPageComponent implements OnInit {
         if (this.idMe == this.idUser) {
           this.editButton = true;
         }
-        this.bothId = {
+        this.idUsers = {
           idUser: this.idUser,
           idMe: this.idMe
         }
-        this.usersService.checkFollow(this.bothId)
+        this.usersService.checkFollow(this.idUsers)
           .then((data) => {            
             for (var i=0; i<data.following.length; i++) {
               if (data.following[i] == this.idUser) {
-                this.iFollow = true;
+                this.checkFollow = true;
               }
             }
             this.findUserStories();
@@ -88,42 +88,22 @@ export class UserPageComponent implements OnInit {
   }
 
   followUser() {
-    this.authService.me()
-      .then((data) => {
-        this.userMe = data;
-        this.idMe = data._id;
-        this.bothId = {
-          idUser: this.idUser,
-          idMe: this.idMe
-        }
-        this.iFollow = true;
-        this.usersService.followOne(this.bothId)
-          .then(() => {
-            this.usersService.followOneNotification(this.bothId);
-          })
-      }) 
+    this.checkFollow = true;
+    this.usersService.followOne(this.idUsers)
+      .then(() => {
+        this.usersService.followOneNotification(this.idUsers);
+      })
   }
 
   unfollowUser() {
-    this.authService.me()
-      .then((data) => {
-        this.userMe = data;
-        this.idMe = data._id;
-        this.bothId = {
-          idUser: this.idUser,
-          idMe: this.idMe
-        }
-        this.iFollow = false;
-        this.usersService.unfollowOne(this.bothId)
-          .then((data) => {
-          })
-      })
+    this.checkFollow = false;
+    this.usersService.unfollowOne(this.idUsers)
+      .then(() => {})
   }
   
   listAllFollowers() {
     this.usersService.userFollowers(this.idUser)
-      .then((data) => {
-      })
+      .then(() => {})
   }
 
   editProfile() {

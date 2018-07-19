@@ -11,7 +11,7 @@ import { AuthService } from '../../../services/auth.service';
 export class BottomNavComponent implements OnInit {
 
   user: any;
-  id: any;
+  // id: any;
 
   constructor(
     private authService: AuthService,
@@ -26,7 +26,7 @@ export class BottomNavComponent implements OnInit {
     this.authService.me()
       .then((data) => {
         this.user = data;
-        this.id = data._id;
+        // this.id = data._id;
       })
   } 
 

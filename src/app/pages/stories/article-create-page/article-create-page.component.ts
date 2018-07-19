@@ -19,9 +19,11 @@ export class ArticleCreatePageComponent implements OnInit {
   @Input() title: String;
   @Input() text: String;
 
-  constructor(private articlesService: ArticlesService, private router: Router, private authService: AuthService) {
-    // this.title = {}
-    // this.text = {}
+  constructor(
+    private articlesService: ArticlesService, 
+    private router: Router, 
+    private authService: AuthService
+  ) {
     this.user = this.authService.getUser()
   }
 
@@ -37,7 +39,6 @@ export class ArticleCreatePageComponent implements OnInit {
         coordinates: null,
         enabled: true
       }
-      console.log(article);
       this.articlesService.create(article)
         .then((result) => {
           this.router.navigate(['/']);
