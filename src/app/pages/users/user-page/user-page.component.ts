@@ -14,7 +14,6 @@ import { ArticlesService } from '../../../services/articles.service';
 export class UserPageComponent implements OnInit {
 
   user: any;
-  userMe: any;
   idUser: string;
   idMe: string;
   idUsers: object;
@@ -52,7 +51,6 @@ export class UserPageComponent implements OnInit {
   _checkFollowUser() {
     this.authService.me()
       .then((data) => {
-        this.userMe = data;
         this.idMe = data._id;
         if (this.idMe == this.idUser) {
           this.editButton = true;

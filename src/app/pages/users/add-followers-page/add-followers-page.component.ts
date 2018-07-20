@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { UsersService } from '../../../services/users.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-followers-page',
@@ -11,9 +11,8 @@ export class AddFollowersPageComponent implements OnInit {
 
   users: Array<any>;
   user: any;
-  idUser: string;
-  usersData: any;
   checkFollow: boolean;
+  idUser: string;
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -23,23 +22,17 @@ export class AddFollowersPageComponent implements OnInit {
   ngOnInit() {
     this.activateRoute.params.subscribe((params) => {
       this.idUser = params.id;
-      this.usersService.addFollowers(this.idUser)
-        .then((data) => {
-          console.log(data);
-          this.usersData = data;
-          this.checkFollow = true;
-          if (this.usersData.length == 0) {
-            this.checkFollow = null;
-          }
-          this._getEveryFollower();
-        })
+      this.usersService.addFollowers(this.idUser) 
+          .then((data) => {
+            this.users = data;
+            this._getEveryFollower();
+          })
     })
   }
 
   _getEveryFollower() {
-    for (let i = 0; i < this.usersData.length; i++) {
-      console.log(this.usersData[i]);
-      this.user = this.usersData[i];
+    for (let i = 0; i < this.users.length; i++) {
+      this.user = this.users[i];
     }
   }
 

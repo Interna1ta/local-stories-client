@@ -5,7 +5,7 @@
 </nav>
 
 <div class="container__content" *ngIf="checkFollow">
-  <ul *ngFor="let follower of usersData">
+  <ul *ngFor="let follower of users">
     <li>
       <app-single-user [follower]="follower"></app-single-user>
     </li>

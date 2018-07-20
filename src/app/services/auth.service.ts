@@ -5,8 +5,6 @@ import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/toPromise';
 import { environment } from '../../environments/environment';
 
-// import { environment } from '../../environments/environment';
-
 @Injectable()
 export class AuthService {
 
@@ -20,7 +18,9 @@ export class AuthService {
 
   userChange$: Observable<any> = this.userChange.asObservable();
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private httpClient: HttpClient
+  ) { }
 
   private setUser(user?: any) {
     this.user = user;

@@ -11,7 +11,9 @@ export class StoriesService {
     withCredentials: true
   };
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private httpClient: HttpClient
+  ) { }
 
   getOne(id: string): Promise<any> {
     return this.httpClient.get(`${this.baseUrl}/stories/${id}`, this.options)

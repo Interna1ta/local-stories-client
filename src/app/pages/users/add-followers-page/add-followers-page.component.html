@@ -4,15 +4,10 @@
   </div>
 </nav>
 
-<div class="container__content" *ngIf="user">
-  <ul *ngFor="let follower of usersData">
+<div class="container__content">
+  <ul *ngFor="let follower of users">
     <li>
       <app-single-user [follower]="follower"></app-single-user>
-    </li>
-  </ul>
-  <ul *ngIf="!checkFollow">
-    <li class="follow-no-card">
-      <p>This user has no followers!</p>
     </li>
   </ul>
 </div>
