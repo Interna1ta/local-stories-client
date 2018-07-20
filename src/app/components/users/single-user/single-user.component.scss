@@ -1,24 +1,64 @@
 @import './../../../scss/variables.scss';
 
-.card-follow {
+// .card-follow {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+//   margin-bottom: 20px;
+//   padding-top: 15px;
+
+//   .card-username {
+//     text-decoration: none;
+//     font-weight: lighter;
+//     color: $color-black;
+
+//     &:hover {
+//       color: $color-btn-primary;
+//     }
+//   }
+// }
+
+// .follow-no-card {
+//   padding: 15px;
+//   font-weight: lighter;
+// }
+
+.profile {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  padding-top: 15px;
+  // padding-top: 10px;
 
-  .card-username {
-    text-decoration: none;
-    font-weight: lighter;
-    color: $color-black;
+  &__image {
+    width: 50px; 
+    height: 50px;
+    border-radius: 50%;
+  }
 
-    &:hover {
-      color: $color-btn-primary;
+  &__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 10px;
+    width: 100%;
+
+    &__user {
+      display: flex;
+      flex-direction: column;
+      
+      &__username {
+        text-decoration: none;
+        color: $color-black;
+      }
+
+      &__name {
+        color: grey;
+        font-weight: lighter;
+      }
+    }
+
+    &__action {
+      align-items: center;
     }
   }
 }
 
-.follow-no-card {
-  padding: 15px;
-  font-weight: lighter;
-}

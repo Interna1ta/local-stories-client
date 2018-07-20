@@ -1,7 +1,18 @@
-<div class="card-follow" *ngIf="follower">
-  <a class="card-username" [routerLink]="['/users', follower._id]">
-    <p>@{{follower.username}}</p>
-  </a>
-  <button *ngIf="checkFollow == false" class="btn-terciary" (click)="followUser()">Follow</button>
-  <button *ngIf="checkFollow == true" class="btn-terciary" (click)="unfollowUser()">Not follow</button>
+<div class="profile" *ngIf="follower">
+  <div [routerLink]="['/users', follower._id]">
+    <img *ngIf="!follower.profile_image_url" class="profile__image" src="../../../../assets/images/male-icon.png" alt="image-icon">
+    <img *ngIf="follower.profile_image_url" class="profile__image" src="{{follower.profile_image_url}}" alt="image-icon">
+  </div>
+  <div class="profile__info">
+    <div class="profile__info__user">
+      <a class="profile__info__user__username" [routerLink]="['/users', follower._id]">
+        <p>{{follower.name}}</p>
+      </a>
+      <p>@{{follower.username}}</p>
+    </div>
+    <div class="profile__info__action">
+      <button *ngIf="checkFollow == false" class="btn-terciary" (click)="followUser()">Follow</button>
+      <button *ngIf="checkFollow == true" class="btn-terciary" (click)="unfollowUser()">Not follow</button>
+    </div>
+  </div>
 </div>
