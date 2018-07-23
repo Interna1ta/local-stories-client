@@ -14,9 +14,7 @@ export class SingleArticlePageComponent implements OnInit {
   idArticle: string;
   article: any;
 
-  users: Array<any>;
   user: any;
-  username: string;
   idUser: string;
   idUsers: any;
   idMe: string;
@@ -30,7 +28,6 @@ export class SingleArticlePageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
     this.activateRoute.params.subscribe((params) => {
       this.idArticle = params.id;
       this.articlesService.getOne(this.idArticle)
@@ -41,7 +38,6 @@ export class SingleArticlePageComponent implements OnInit {
           this._checkFollowUser();
         })
     })
-    
   }
 
   _checkFollowUser() {
@@ -56,7 +52,6 @@ export class SingleArticlePageComponent implements OnInit {
         this.usersService.userFollowing(this.idMe)
           .then((data) => {
             this.user = data;
-            console.log(data);
             if (this.user.following.length !== 0) {
               for (let i = 0; i < this.user.following.length; i++) {
                 if (this.user.following[i]._id == this.idUser) {
@@ -73,5 +68,19 @@ export class SingleArticlePageComponent implements OnInit {
           })
       })
   } 
+
+  followUser() {
+    this.checkFollow = true;
+    this.usersService.followOne(this.idUsers)
+      .then(() => {
+        this.usersService.followOneNotification(this.idUsers);
+      })
+  }
+
+  unfollowUser() {
+    this.checkFollow = false;
+    this.usersService.unfollowOne(this.idUsers)
+      .then(() => { })
+  }
 }
  

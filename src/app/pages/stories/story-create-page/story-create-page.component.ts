@@ -15,6 +15,8 @@ export class StoryCreatePageComponent implements OnInit {
   countRemaining: Number;
   counter: Number;
   user: any;
+  position: any;
+  postCity: String;
 
   @Input() error: String;
   @Input() processing: Boolean;
@@ -37,7 +39,6 @@ export class StoryCreatePageComponent implements OnInit {
     }
     el = document.getElementById('tweet');
     el.addEventListener('keyup', countCharacters, false);
-    this.getUserLocation();
   }
 
   getUserLocation() {
@@ -46,8 +47,9 @@ export class StoryCreatePageComponent implements OnInit {
         navigator.geolocation.getCurrentPosition((position) => {
           const userPosition = {
             lat: position.coords.latitude,
-            lng: position.coords.longitude
+            lon: position.coords.longitude
           };
+          this.position = userPosition;
           console.log('location :', userPosition)
           resolve(userPosition);
         }, () => {
@@ -60,13 +62,15 @@ export class StoryCreatePageComponent implements OnInit {
   }
 
   submitForm(form) {
+    this.getUserLocation();
     if (form.valid) {
       this.processing = true;
       const story = {
         text: form.value.story,
         userId: this.user._id,
-        coordinates: null,
-        enabled: true
+        coordinates: this.position,
+        city: 'Barcelona',
+        enabled: true 
       }
       this.storiesService.create(story)
         .then((result) => {

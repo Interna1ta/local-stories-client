@@ -1,28 +1,22 @@
-  <div class="article">
-    <div class="article__user" [routerLink]="['/users', article.user._id]">
-      <div [routerLink]="['/users', article.user._id]">
-        <img *ngIf="!article.user.profile_image_url" class="article__user__image" src="../../../../assets/images/male-icon.png" alt="image-icon">
-        <img *ngIf="article.user.profile_image_url" class="article__user__image" src="{{article.user.profile_image_url}}" alt="image-icon">
-      </div>
-      <div class="article__user__info">
-        <p>{{article.user.name}} @{{article.user.username}}</p>
-        <p class="article__info__time">{{article.created_at | date : 'shortDate' }}</p>
-      </div>
+<div class="article">
+  <div class="article__user">
+    <div [routerLink]="['/users', article.user._id]">
+      <img *ngIf="!article.user.profile_image_url" class="article__user__image" src="../../../../assets/images/male-icon.png" alt="image-icon">
+      <img *ngIf="article.user.profile_image_url" class="article__user__image" src="{{article.user.profile_image_url}}" alt="image-icon">
     </div>
-    <div class="article__content">
-      <p class="article__content__title">{{article.title}}</p>
-      <p class="article__content__text">{{article.text}}</p>
+    <div class="article__user__info" [routerLink]="['/users', article.user._id]">
+      <p>{{article.user.name}} @{{article.user.username}}</p>
+      <p class="article__info__time">{{article.created_at | date : 'shortDate' }}</p>
+    </div>
+    <div class="profile__info__action">
+      <button *ngIf="checkFollow == false" class="btn-terciary" (click)="followUser()">Follow</button>
+      <button *ngIf="checkFollow == true" class="btn-terciary" (click)="unfollowUser()">Not follow</button>
     </div>
   </div>
-
-<!-- <div class="container__content" *ngIf="checkFollow">
-  <ul *ngFor="let follower of user.following">
-    <li>
-      <app-single-user [follower]="follower"></app-single-user>
-    </li>
-  </ul>
-</div> -->
+  <div class="article__content">
+    <p class="article__content__title">{{article.title}}</p>
+    <p class="article__content__text">{{article.text}}</p>
+  </div>
+</div>
 
 <app-bottom-nav></app-bottom-nav>
-
-<!-- {{article | json}} -->

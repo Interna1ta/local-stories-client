@@ -3,10 +3,6 @@
   <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
     <div class="create-title">
       <h2>Write an article</h2>
-      <!-- <div class="characters-title">
-        <div id="charactersRemaining">120</div>
-        <p>/120</p>
-      </div> -->
     </div>
 
     <div class="field_inputs">
@@ -14,15 +10,18 @@
         <input type="text" id="tweet" placeholder="Write a title" name="title" [(ngModel)]="title" #titleField="ngModel" maxlength="120"
           [disabled]="processing" />
         <div *ngIf="feedbackEnabled && titleField.errors">
-          <p *ngIf="titleField.errors.minlength" class="validation">title is too long</p>
+          <p *ngIf="titleField.errors.maxlength" class="validation">title is too long</p>
         </div>
       </div>
     </div>
 
     <div class="field_inputs">
       <div class="field" [ngClass]="{'has-error': feedbackEnabled && textField.errors}">
-        <input type="text" id="tweet" placeholder="Write a text" name="text" [(ngModel)]="text" #textField="ngModel" maxlength="120"
+        <input type="text" id="tweet" placeholder="Write a text" name="text" [(ngModel)]="text" #textField="ngModel" maxlength="10000"
           [disabled]="processing" />
+        <div *ngIf="feedbackEnabled && titleField.errors">
+          <p *ngIf="titleField.errors.maxlength" class="validation">title is too long</p>
+        </div>
       </div>
     </div>
 
