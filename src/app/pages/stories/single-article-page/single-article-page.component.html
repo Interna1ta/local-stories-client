@@ -8,16 +8,20 @@
         <p>{{article.user.name}} @{{article.user.username}}</p>
         <p class="article__info__time">{{article.created_at | date : 'shortDate' }}</p>
       </div>
-      <!-- <div *ngIf="samePerson == false">
-        <button *ngIf="checkFollow == false" class="btn-terciary" (click)="followUser()">Follow</button>
-        <button *ngIf="checkFollow == true" class="btn-terciary" (click)="unfollowUser()">Not follow</button>
-      </div> -->
     </div>
     <div class="article__content">
       <p class="article__content__title">{{article.title}}</p>
       <p class="article__content__text">{{article.text}}</p>
     </div>
   </div>
+
+<!-- <div class="container__content" *ngIf="checkFollow">
+  <ul *ngFor="let follower of user.following">
+    <li>
+      <app-single-user [follower]="follower"></app-single-user>
+    </li>
+  </ul>
+</div> -->
 
 <app-bottom-nav></app-bottom-nav>
 
