@@ -46,13 +46,12 @@
       flex-direction: column;
       
       &__username {
-        text-decoration: none;
-        color: $color-black;
+        color: grey;
+        font-weight: lighter;
       }
 
       &__name {
-        color: grey;
-        font-weight: lighter;
+        color: $color-black;
       }
     }
 

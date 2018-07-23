@@ -4,11 +4,9 @@
     <img *ngIf="follower.profile_image_url" class="profile__image" src="{{follower.profile_image_url}}" alt="image-icon">
   </div>
   <div class="profile__info">
-    <div class="profile__info__user">
-      <a class="profile__info__user__username" [routerLink]="['/users', follower._id]">
-        <p>{{follower.name}}</p>
-      </a>
-      <p>@{{follower.username}}</p>
+    <div class="profile__info__user" [routerLink]="['/users', follower._id]">
+      <p class="profile__info__user__name">{{follower.name}}</p>
+      <p class="profile__info__user__username">@{{follower.username}}</p>
     </div>
     <div class="profile__info__action">
       <button *ngIf="checkFollow == false" class="btn-terciary" (click)="followUser()">Follow</button>
