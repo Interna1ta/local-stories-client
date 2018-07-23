@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { AuthService } from '../../../services/auth.service';
 
@@ -11,23 +10,13 @@ import { AuthService } from '../../../services/auth.service';
 export class BottomNavComponent implements OnInit {
 
   user: any;
-  // id: any;
 
   constructor(
-    private authService: AuthService,
-    private router: Router
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
-    this.getMe();
+    this.user = this.authService.getUser();
   }
-
-  getMe() {
-    this.authService.me()
-      .then((data) => {
-        this.user = data;
-        // this.id = data._id;
-      })
-  } 
 
 }

@@ -1,4 +1,3 @@
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from '../../../services/auth.service';
@@ -10,27 +9,14 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class TopNavFeedComponent implements OnInit {
 
-
-  title = 'app';
-  loading = true;
-  anon: boolean;
   user: any;
 
   constructor(
-    private authService: AuthService,
-    private router: Router
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
-    this.authService.userChange$.subscribe((user) => {
-      this.loading = false;
-      this.user = user;
-      this.anon = !user;
-    });
+    this.user = this.authService.getUser();
   }
 
-  logout() {
-    this.authService.logout()
-      .then(() => this.router.navigate(['/login']));
-  }
 }
