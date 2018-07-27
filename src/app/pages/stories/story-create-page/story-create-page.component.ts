@@ -23,7 +23,11 @@ export class StoryCreatePageComponent implements OnInit {
   @Input() feedbackEnabled: Boolean;
   @Input() story: any;
 
-  constructor(private storiesService: StoriesService, private router: Router, private authService: AuthService) { 
+  constructor(
+    private storiesService: StoriesService, 
+    private router: Router, 
+    private authService: AuthService
+  ) { 
     this.story = {}
     this.user = this.authService.getUser()
   }
@@ -49,9 +53,9 @@ export class StoryCreatePageComponent implements OnInit {
             lat: position.coords.latitude,
             lon: position.coords.longitude
           };
-          this.position = userPosition;
           console.log('location :', userPosition)
           resolve(userPosition);
+          this.position = userPosition;
         }, () => {
           resolve();
         });
@@ -68,8 +72,8 @@ export class StoryCreatePageComponent implements OnInit {
       const story = {
         text: form.value.story,
         userId: this.user._id,
-        coordinates: this.position,
-        city: 'Barcelona',
+        // coordinates: this.position,
+        // city: 'Barcelona',
         enabled: true 
       }
       this.storiesService.create(story)
@@ -82,15 +86,15 @@ export class StoryCreatePageComponent implements OnInit {
           this.feedbackEnabled = false;
         });
 
-      this.storiesService.tweet(story)
-        .then((result) => {
-          this.router.navigate(['/stories']);
-        })
-        .catch((err) => {
-          this.error = err.error.code;
-          this.processing = false;
-          this.feedbackEnabled = false;
-        });
+      // this.storiesService.tweet(story)
+      //   .then((result) => {
+      //     this.router.navigate(['/stories']);
+      //   })
+      //   .catch((err) => {
+      //     this.error = err.error.code;
+      //     this.processing = false;
+      //     this.feedbackEnabled = false;
+      //   });
     }
   }
 }
