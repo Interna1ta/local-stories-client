@@ -1,4 +1,4 @@
-<nav class="site-nav" *ngIf="editButton == true">
+<!-- <nav class="site-nav" *ngIf="editButton == true">
   <div class="nav icons">
     <a [routerLink]="['/profile']">
       <img src="../../../../assets/icons/settings.svg" alt="settings-icon">
@@ -14,56 +14,64 @@
   <div class="nav icons">
     <span class="profile-span">Profile</span>
   </div>
-</nav>
+</nav> -->
 
-<div class="container__content profile" *ngIf="user">
-  <div class="profile__info">
-    <div>
-      <img *ngIf="!user.profile_image_url == true" src="../../../../assets/images/male-icon.png" alt="male-icon">
-      <img *ngIf="user.profile_image_url" src="{{user.profile_image_url}}" alt="image-icon">
+<div id="site-body">
+
+  <div class="container content profile" *ngIf="user">
+    <div class="profile__info">
+      <div>
+        <img *ngIf="!user.profile_image_url == true" src="../../../../assets/images/male-icon.png" alt="male-icon">
+        <img *ngIf="user.profile_image_url" src="{{user.profile_image_url}}" alt="image-icon">
+      </div>
+      <p class="profile__username" *ngIf="user.name">{{user.name}}</p>
+      <p class="profile__username" *ngIf="user">@{{user.username}}</p>
+      <div class="profile__info__follow-btn" *ngIf="editButton == false">
+        <button class="btn-terciary" *ngIf="checkFollow == false" (click)="followUser()">Follow</button>
+        <button class="btn-terciary" *ngIf="checkFollow == true" (click)="unfollowUser()">Not follow</button>
+      </div>
+      <div class="profile__info__follow-btn" *ngIf="editButton == true">
+        <button class="btn-terciary" (click)="editProfile()">Edit</button>
+        <button (click)="logout()" class="btn-terciary">Sign Out</button>
+        <!-- <a [routerLink]="['/profile']">
+          <img src="../../../../assets/icons/settings.svg" alt="settings-icon">
+        </a> -->
+      </div>
     </div>
-    <p class="profile__username" *ngIf="user.name">{{user.name}}</p>
-    <p class="profile__username" *ngIf="user">@{{user.username}}</p>
-    <div class="profile__info__follow-btn" *ngIf="editButton == false">
-      <button class="btn-terciary" *ngIf="checkFollow == false" (click)="followUser()">Follow</button>
-      <button class="btn-terciary" *ngIf="checkFollow == true" (click)="unfollowUser()">Not follow</button>
+
+    <!-- <div>
+      <p>Biography</p>
+      <p class="profile__username" *ngIf="user">{{user.description}}</p>
+    </div> -->
+
+    <div class="feed-actions">
+      <button class="btn-profile" (click)="listAllStories()"><strong>Stories</strong></button>
+      <button class="btn-profile" (click)="findUserArticles()"><strong>News</strong></button>
+      <a [routerLink]="['/users', user._id, 'followers']" class="btn-profile">
+        Followers
+      </a>
+      <a [routerLink]="['/users', user._id, 'following']" class="btn-profile">
+        Following
+      </a>
     </div>
-    <div class="profile__info__follow-btn" *ngIf="editButton == true">
-      <button class="btn-terciary" (click)="editProfile()">Edit</button>
+
+    <div class="feed-stories">
+      <ul *ngFor="let story of stories">
+        <li>
+          <app-story-card [story]="story"></app-story-card>
+        </li>
+      </ul>
+    </div>
+
+    <div class="feed-articles">
+      <ul *ngFor="let article of articles">
+        <li>
+          <app-article-card [article]="article"></app-article-card>
+        </li>
+      </ul>
     </div>
   </div>
 
-  <!-- <div>
-    <p>Biography</p>
-    <p class="profile__username" *ngIf="user">{{user.description}}</p>
-  </div> -->
-
-  <div class="feed-actions">
-    <button class="btn-profile" (click)="listAllStories()"><strong>Stories</strong></button>
-    <button class="btn-profile" (click)="findUserArticles()"><strong>News</strong></button>
-    <a [routerLink]="['/users', user._id, 'followers']" class="btn-profile">
-      Followers
-    </a>
-    <a [routerLink]="['/users', user._id, 'following']" class="btn-profile">
-      Following
-    </a>
-  </div>
-
-  <div class="feed-stories">
-    <ul *ngFor="let story of stories">
-      <li>
-        <app-story-card [story]="story"></app-story-card>
-      </li>
-    </ul>
-  </div>
-
-  <div class="feed-articles">
-    <ul *ngFor="let article of articles">
-      <li>
-        <app-article-card [article]="article"></app-article-card>
-      </li>
-    </ul>
-  </div>
 </div>
 
 <app-bottom-nav></app-bottom-nav>

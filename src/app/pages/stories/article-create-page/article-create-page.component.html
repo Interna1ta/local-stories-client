@@ -1,8 +1,10 @@
-<div class="container auth">
+<div id="site-body">
+
+<div class="container content auth">
 
   <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
     <div class="create-title">
-      <h2>Write an article</h2>
+      <h2>Write an Article</h2>
     </div>
 
     <div class="field_inputs">
@@ -38,6 +40,8 @@
     <a [routerLink]="['/stories/create']" class="btn btn-secondary">Write a Tweet</a>
 
   </form>
+</div>
+
 </div>
 
 <app-bottom-nav></app-bottom-nav>

@@ -5,6 +5,7 @@
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -12,6 +13,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  background-color: #e6ecf0;
 }
 
 // -- TYPOGRAPHY
@@ -20,7 +22,6 @@ body {
   color: #111;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 16px;
-  background-color: $color-white;
   font-family: 'Lato', sans-serif;
 }
 
@@ -33,13 +34,15 @@ h1 {
 
 h2 {
   margin: 0;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-size: 28px;
 }
 
 h3 {
   margin: 0;
   font-size: 20px;
+  line-height: 30px;
+  padding-bottom: 5px;
 }
 
 p {
@@ -50,31 +53,17 @@ p {
 
 // -- LAYOUT
 
-.container {
-  padding: 0 15px;
-
-  &__content {
-    padding: 45px 15px;
-  }
-}
-
-.site-nav {
-  padding: 10px 0;
-  color: #111;
-  background: $color-white;
-  position:fixed;
-  top:0;
-  width: 100%;
-  z-index: 10;
-  border-bottom: 1px solid $color-border;
-}
-
-.nav {
+#site-body {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-left: 15px;
-  padding-right: 15px;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+
+  .content {
+    margin-top: 15px;
+    width: 100%;
+    background-color: white;
+  }
 }
 
 #site-footer {
@@ -82,33 +71,30 @@ p {
   background: $color-white;
   padding: 10px 0;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   position:fixed;
-  bottom:0;
+  top:0;
   width: 100%;
   z-index: 10;
-  border-top: 1px solid $color-border;
-}
+  border-bottom: 1px solid $color-border;
 
-.footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-svg {
-  height: 30px;
+  .nav-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+  }
 }
 
 @media (min-width: 768px) {
   .container {
-    padding: 0 30px;
+    padding: 0 20px;
+    max-width: 768px;
   }
-  p {
-    font-size: 16px;
-  }
-  // .wrapper {
-  //   max-width: 728px;
-  // }
+
 }
 
 // -- COMPONENTS
@@ -117,6 +103,8 @@ svg {
 
 .auth {
   margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 
   .field_inputs {
     margin-bottom: 20px;
@@ -140,6 +128,10 @@ svg {
 input:focus {
   outline: none;
   box-shadow: 0px 0px 2px $color-btn-primary;
+}
+
+svg {
+  height: 30px;
 }
 
 // -- BUTTONS
@@ -197,16 +189,36 @@ button {
   color: $color-icon;
   background-color: $color-white;
   border: none;
+  margin-right: 5px;
+}
+
+.btn-actions {
+  margin: 0;
+  font-size: 20px;
+  line-height: 30px;
+  padding-bottom: 5px;
 }
 
 .feed-actions {
   padding-top: 20px;
-  padding-bottom: 2px;
+  padding-left: 10px;
+  // padding-bottom: 2px;
   margin-bottom: 5px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  border-bottom: 2px solid $color-btn-primary;
+  justify-content: space-between;
+  border-bottom: 1px solid $color-border;
+  text-align: left;
+}
+
+.feed-title {
+  padding-top: 20px;
+  padding-left: 10px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid $color-border;
+  text-align: left;
 }
 
 // -- forms

@@ -108,4 +108,11 @@ export class UserPageComponent implements OnInit {
     this.router.navigate(['/profile/edit']);
   }
 
+  logout() {
+    this.authService.logout()
+      .then(() => {
+        this.router.navigate(['/']);
+      })
+  }
+
 }

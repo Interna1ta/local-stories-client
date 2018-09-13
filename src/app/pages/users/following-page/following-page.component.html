@@ -1,23 +1,22 @@
-<nav class="site-nav">
-  <div class="nav icons">
+<div id="site-body">
+
+  <div class="container content" *ngIf="checkFollow">
     <h3>Following</h3>
+    <ul *ngFor="let follower of user.following">
+      <li>
+        <app-single-user [follower]="follower"></app-single-user>
+      </li>
+    </ul>
   </div>
-</nav>
 
-<div class="container__content" *ngIf="checkFollow">
-  <ul *ngFor="let follower of user.following">
-    <li>
-      <app-single-user [follower]="follower"></app-single-user>
-    </li>
-  </ul>
-</div>
+  <div class="container__content" *ngIf="!checkFollow">
+    <ul>
+      <li>
+        <p>This user is following nobody!</p>
+      </li>
+    </ul>
+  </div>
 
-<div class="container__content" *ngIf="!checkFollow">
-  <ul>
-    <li>
-      <p>This user is following nobody!</p>
-    </li>
-  </ul>
 </div>
 
 <app-bottom-nav></app-bottom-nav>

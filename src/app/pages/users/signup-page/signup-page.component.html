@@ -1,4 +1,6 @@
-<div class="container auth">
+<div id="site-body">
+
+<div class="container content auth">
   <h2>signup</h2>
   <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
     <div class="field_inputs">
@@ -34,4 +36,6 @@
     <p>You already have an account? </p>
     <a [routerLink]="['/login']" class="btn-secondary">Login</a>
   </div>
+</div>
+
 </div>

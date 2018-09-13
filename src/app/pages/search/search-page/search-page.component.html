@@ -1,20 +1,19 @@
-<app-top-nav-search></app-top-nav-search>
+<div id="site-body">
 
-<div class="container__content stories-list">
-  <!-- <div class="feed-actions">
-    <button class="btn-profile" (click)="ListAllStories()">
-      <strong>All Stories</strong>
-    </button>
-    <button class="btn-profile" (click)="FollowingUserStories()">Only Following</button>
-  </div> -->
+  <div class="container content">
+    <div class="feed-title">
+      <h3>All News</h3>
+    </div>
 
-  <ul *ngFor="let article of articles">
-    <li>
-      <!-- <a [routerLink]="['/articles', article._id]"> -->
-        <app-article-card [article]="article"></app-article-card>
-      <!-- </a> -->
-    </li>
-  </ul>
+    <ul *ngFor="let article of articles">
+      <li>
+        <!-- <a [routerLink]="['/articles', article._id]"> -->
+          <app-article-card [article]="article"></app-article-card>
+        <!-- </a> -->
+      </li>
+    </ul>
+  </div>
+
 </div>
 
 <app-bottom-nav></app-bottom-nav>

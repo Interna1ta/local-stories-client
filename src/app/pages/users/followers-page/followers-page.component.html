@@ -1,23 +1,23 @@
-<nav class="site-nav">
-  <div class="nav icons">
-    <h3>Followers</h3>
+<div id="site-body">
+
+  <div class="container content" *ngIf="checkFollow">
+    <div class="feed-title">
+      <h3>Followers</h3>
+    </div>
+    <ul *ngFor="let follower of users">
+      <li>
+        <app-single-user [follower]="follower"></app-single-user>
+      </li>
+    </ul>
   </div>
-</nav>
 
-<div class="container__content" *ngIf="checkFollow">
-  <ul *ngFor="let follower of users">
-    <li>
-      <app-single-user [follower]="follower"></app-single-user>
-    </li>
-  </ul>
-</div>
-
-<div class="container__content" *ngIf="!checkFollow">
-  <ul>
-    <li>
-      <p>This user has no followers!</p>
-    </li>
-  </ul>
+  <div class="container__content" *ngIf="!checkFollow">
+    <ul>
+      <li>
+        <p>This user has no followers!</p>
+      </li>
+    </ul>
+  </div>
 </div>
 
 <app-bottom-nav></app-bottom-nav> 
