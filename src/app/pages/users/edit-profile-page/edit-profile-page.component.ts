@@ -76,17 +76,17 @@ export class EditProfilePageComponent implements OnInit {
     this.selectedFile = <File>event.target.files[0];
   }
 
-  // onUpload(event) {
-  //   const fd = new FormData();
-  //   fd.append("image", this.selectedFile, this.selectedFile.name);
-  //   const user = {
-  //     id: this.id,
-  //     fd: fd
-  //   } 
-  //   this.usersService.uploadPicture(user)
-  //     .then(result => {
-  //       this.router.navigate(['/users', this.id]);
-  //     });
-  // }
+  onUpload() {
+    const fd = new FormData();
+    fd.append("image", this.selectedFile, this.selectedFile.name);
+    const user = {
+      id: this.id,
+      fd: fd
+    } 
+    this.usersService.uploadPicture(user)
+      .then(result => {
+        this.router.navigate(['/users', this.id]);
+      });
+  }
 
 }
