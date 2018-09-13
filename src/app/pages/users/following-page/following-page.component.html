@@ -1,7 +1,9 @@
 <div id="site-body">
 
   <div class="container content" *ngIf="checkFollow">
-    <h3>Following</h3>
+    <div class="feed-title">
+      <h3>Following</h3>
+    </div>
     <ul *ngFor="let follower of user.following">
       <li>
         <app-single-user [follower]="follower"></app-single-user>

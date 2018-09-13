@@ -15,10 +15,13 @@
     <span class="profile-span">Profile</span>
   </div>
 </nav> -->
-
+ 
 <div id="site-body">
 
   <div class="container content profile" *ngIf="user">
+    <div class="feed-title">
+      <h3>Profile</h3>
+    </div>
     <div class="profile__info">
       <div>
         <img *ngIf="!user.profile_image_url == true" src="../../../../assets/images/male-icon.png" alt="male-icon">
@@ -33,9 +36,6 @@
       <div class="profile__info__follow-btn" *ngIf="editButton == true">
         <button class="btn-terciary" (click)="editProfile()">Edit</button>
         <button (click)="logout()" class="btn-terciary">Sign Out</button>
-        <!-- <a [routerLink]="['/profile']">
-          <img src="../../../../assets/icons/settings.svg" alt="settings-icon">
-        </a> -->
       </div>
     </div>
 
@@ -44,9 +44,9 @@
       <p class="profile__username" *ngIf="user">{{user.description}}</p>
     </div> -->
 
-    <div class="feed-actions">
+    <div class="feed-actions feed-actions-profile">
       <button class="btn-profile" (click)="listAllStories()"><strong>Stories</strong></button>
-      <button class="btn-profile" (click)="findUserArticles()"><strong>News</strong></button>
+      <button class="btn-profile" (click)="findUserArticles()">News</button>
       <a [routerLink]="['/users', user._id, 'followers']" class="btn-profile">
         Followers
       </a>

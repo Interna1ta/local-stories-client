@@ -83,24 +83,6 @@
   }
 }
 
-.company {
-
-  &__list {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    color: #54A3FF;
-    font-weight: lighter;
-    font-size: 10px;
-    padding-top: 5px; 
-    
-    element {
-      margin-bottom: 45px;
-    }
-  }
-}
-
 .element-2 {
   margin-bottom: 5px;
   color: $color-icon;

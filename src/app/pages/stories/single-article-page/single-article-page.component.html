@@ -1,5 +1,5 @@
 <div id="site-body">
-  <div class="article">
+  <div class="container content article">
     <div class="article__user">
       <div [routerLink]="['/users', article.user._id]">
         <img *ngIf="!article.user.profile_image_url" class="article__user__image" src="../../../../assets/images/male-icon.png" alt="image-icon">

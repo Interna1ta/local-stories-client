@@ -2,15 +2,16 @@
   <div class="container content auth">
     
     <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">    
-      <div class="create-title">
-        <h2>Write a Tweet</h2>
+
+      <div class="feed-actions">
+        <h3>Write a Tweet</h3>
         <div class="characters-title">
           <div id="charactersRemaining">120</div>
           <p>/120</p>
         </div>
       </div>
       
-      <div class="field_inputs">
+      <div class="field-inputs">
         <div class="field" [ngClass]="{'has-error': feedbackEnabled && storyField.errors}">
           <input type="text" id="tweet" placeholder="What are you thinking?" name="story" [(ngModel)]="story.text" #storyField="ngModel" maxlength="120" [disabled]="processing"
           />
@@ -20,7 +21,7 @@
         </div> 
       </div> 
 
-      <div class="field submit">
+      <div class="field-submit">
         <button type="submit" [disabled]="processing" class="btn btn-primary" >Create</button>
         <div *ngIf="error">
           <p class="validation">{{error}}</p>

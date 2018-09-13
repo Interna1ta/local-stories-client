@@ -1,6 +1,8 @@
 <div id="site-body">
   <div class="container content">
-    
+    <div class="feed-title">
+      <h3>Edit profile</h3>
+    </div>
     <div class="profile__info">
       <div class="profile__info__image">
         <img *ngIf="!user.profile_image_url == true" src="../../../../assets/images/male-icon.png" alt="male-icon">
@@ -22,7 +24,7 @@
             <button type="button" (click)="onFileSelected($event)" class="btn btn-terciary">Change Profile Image</button>
           </div>
         </div> -->
-      </form>
+      </form> 
 
       <br><br>
 
@@ -72,10 +74,7 @@
 
       </form>
 
-
   </div>
 </div>
 
 <app-bottom-nav></app-bottom-nav>
-
-<!-- {{ user | json}} -->

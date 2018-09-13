@@ -3,11 +3,12 @@
 <div class="container content auth">
 
   <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
-    <div class="create-title">
-      <h2>Write an Article</h2>
+
+    <div class="feed-title">
+      <h3>Write an Article</h3>
     </div>
 
-    <div class="field_inputs">
+    <div class="field-inputs">
       <div class="field" [ngClass]="{'has-error': feedbackEnabled && titleField.errors}">
         <input type="text" id="tweet" placeholder="Write a title" name="title" [(ngModel)]="title" #titleField="ngModel" maxlength="120"
           [disabled]="processing" />
@@ -17,7 +18,7 @@
       </div>
     </div>
 
-    <div class="field_inputs">
+    <div class="field-inputs">
       <div class="field" [ngClass]="{'has-error': feedbackEnabled && textField.errors}">
         <input type="text" id="tweet" placeholder="Write a text" name="text" [(ngModel)]="text" #textField="ngModel" maxlength="10000"
           [disabled]="processing" />
@@ -27,7 +28,7 @@
       </div>
     </div>
 
-    <div class="field submit">
+    <div class="field-submit">
       <button type="submit" [disabled]="processing" class="btn btn-primary">Create</button>
       <div *ngIf="error">
         <p class="validation">{{error}}</p>
