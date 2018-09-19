@@ -210,10 +210,6 @@
     transition-duration: .3s;
   }
 
-  .btn2:hover {
-    color: #6E6E6E;
-  }
-
   .btn-prim {
     font-weight: 700;
     background-color: white;
@@ -229,6 +225,10 @@
 
   .btn-sec {
     display: none;
+  }
+
+  .btn-prim:hover, .btn-sec:hover {
+    color: #6E6E6E;
   }
 
   .btn-ter {
