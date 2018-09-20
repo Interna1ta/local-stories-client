@@ -1,15 +1,15 @@
-<nav class="site-nav">
-  <div class="nav icons">
-    <h3>Add Followers</h3>
+<div id="site-body">
+  <div class="container content">
+    <div class="feed-title">
+      <h3>Add followers</h3>
+    </div>
+  
+    <ul *ngFor="let follower of users">
+      <li>
+        <app-single-user [follower]="follower"></app-single-user>
+      </li>
+    </ul>
   </div>
-</nav>
-
-<div class="container__content">
-  <ul *ngFor="let follower of users">
-    <li>
-      <app-single-user [follower]="follower"></app-single-user>
-    </li>
-  </ul>
 </div>
 
 <app-bottom-nav></app-bottom-nav>

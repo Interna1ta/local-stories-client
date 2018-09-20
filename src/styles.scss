@@ -64,10 +64,21 @@ button {
   align-items: center;
   padding-top: 49px;
 
-  .content {
+  .columns {
     width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .content {
     background-color: white;
-    padding: 0 20px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .content2 {
+    display: none;
   }
 }
 
@@ -82,43 +93,41 @@ button {
   }
 }
 
-#site-footer {
-  color: #111;
-  background: $color-white;
-  padding: 10px 0;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  position:fixed;
-  top:0;
-  left: 0;
-  width: 100%;
-  z-index: 10;
-  border-bottom: 1px solid $color-border;
-
-  .nav-footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    height: 24px;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    width: 100%;
-  }
-}
-
 @media (min-width: 768px) {
   .container {
-    max-width: 768px;
+    max-width: 568px;
   }
 
-  .content {
-    margin-top: 15px;
-    padding: 0 20px;
+  #site-body {
+    
+    .content {
+      margin-top: 15px;
+      // padding: 0 20px;
+      max-width: 568;
+    }
+
+    .content2 {
+      display: block;
+      margin: 15px 0;
+      width: 280px;
+      background-color: white;
+      // padding: 0 20px;
+      padding-bottom: 5px;
+    }
   }
 
+  .columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .info {
+      width: 568px;
+      margin-right: 15px; 
+      align-items: right;
+    }
+
+  }
 }
 
 // -- COMPONENTS
@@ -227,7 +236,7 @@ button {
   color: $color-icon;
   background-color: $color-white;
   border: none;
-  margin-right: 10px;
+  // margin-right: 10px;
   margin-bottom: 5px;
 }
 
@@ -239,8 +248,9 @@ button {
 }
 
 .feed-title, .feed-actions {
-  padding-top: 20px;
-  padding-left: 10px;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
   margin-bottom: 5px;
   display: flex;
   flex-direction: row;
@@ -251,6 +261,10 @@ button {
 @media (min-width: 768px) {
   .boxes {
     padding-bottom: 10px;
+    // width: 468px;
+  }
+  .boxes-right {
+    float: right;
   }
 }
 

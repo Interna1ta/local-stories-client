@@ -19,6 +19,8 @@ import { StoryCardComponent } from './components/stories/story-card/story-card.c
 import { NotificationCardComponent } from './components/notifications/notification-card/notification-card.component';
 import { SingleUserComponent } from './components/users/single-user/single-user.component';
 import { ArticleCardComponent } from './components/stories/article-card/article-card.component';
+import { TopNavSearchComponent } from './components/nav/top-nav-search/top-nav-search.component';
+import { AddFriendsComponent } from './components/add-friends/add-friends.component';
 
 // -- Pages
 
@@ -38,6 +40,7 @@ import { AddFollowersPageComponent } from './pages/users/add-followers-page/add-
 import { ArticleCreatePageComponent } from './pages/stories/article-create-page/article-create-page.component';
 import { StoryPageComponent } from './pages/stories/story-page/story-page.component';
 import { SingleArticlePageComponent } from './pages/stories/single-article-page/single-article-page.component';
+import { SearchPageComponent } from './pages/search/search-page/search-page.component';
 
 // -- Services
 
@@ -51,8 +54,6 @@ import { StoriesService } from './services/stories.service';
 import { InitAuthGuardService } from './guards/init-auth-guard.service';
 import { RequireAnonGuardService } from './guards/require-anon-guard.service';
 import { RequireUserGuardService } from './guards/require-user-guard.service';
-import { SearchPageComponent } from './pages/search/search-page/search-page.component';
-import { TopNavSearchComponent } from './components/nav/top-nav-search/top-nav-search.component';
 
 // -- Routes
 
@@ -106,7 +107,8 @@ const routes: Routes = [
     ArticleCreatePageComponent,
     StoryPageComponent,
     ArticleCardComponent,
-    SingleArticlePageComponent
+    SingleArticlePageComponent,
+    AddFriendsComponent
   ],
   imports: [
     BrowserModule,
