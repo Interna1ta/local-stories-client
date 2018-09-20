@@ -1,16 +1,21 @@
 @import './../../scss/variables.scss';
 
+@font-face {
+  font-family: 'Klavika Bold';
+  src: url(./../../scss/fonts/klavika-bold.otf) format('truetype');
+}
+
 // -- homepage
 
 #site-homepage {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("./../../../assets/images/bg-2.png");
+  background-image: url("./../../../assets/images/bg-3.png");
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
-  font-family: 'Helvetica';
+  font-family: 'Helvetica Neue';
 }
 
 .homepage {
@@ -27,14 +32,14 @@
     justify-content: center;
     align-items: center;
     background-color: black;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.30);
     position:fixed;
     top:0;
     width: 100%;
     z-index: 10;
 
     .wrapper {
-      width: 1200px;
+      width: 980px;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -47,10 +52,10 @@
       align-items: center;
 
       .brand__name {
-        padding-left: 5px;
         color: white;
-        font-size: 24px;
+        font-size: 26px;
         font-weight: 600;
+        font-family: 'Klavika Bold'
       }
     }
   }
@@ -67,12 +72,13 @@
 
       .marketing-text, .marketing-text-2 {
         color: white;
-        margin-bottom: 8px;
+        margin-bottom: 12px;
       }
     }
   }
 
   .marketing-text-2 {
+    padding-top: 6px;
     display: none;
   }
 
@@ -125,7 +131,6 @@
     align-items: center;
     background-color: white;
     color: black;
-    // background-color: rgba(0, 0, 0, 0.3);
     position:fixed;
     bottom:0;
     width: 100%;
