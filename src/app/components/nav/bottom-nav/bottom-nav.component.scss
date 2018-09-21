@@ -1,6 +1,8 @@
+@import './../../../../app/scss/variables.scss';
+
 #site-footer {
   color: #111;
-  background: white;
+  background: $color-white;
   padding: 10px 0;
 
   display: flex;
@@ -12,7 +14,7 @@
   left: 0;
   width: 100%;
   z-index: 10;
-  border-bottom: 1px solid #BDBDBD;
+  border-bottom: 1px solid $color-border-hard;
 
   .nav-footer {
     display: flex;

@@ -1,22 +1,35 @@
-@import './../../../scss/variables.scss';
+// @import './../../../scss/variables.scss';
 
-// -- create page
+// // -- create page
 
-.tweets {
-  padding: 10px 15px;
+// .tweets {
+//   padding: 10px 15px;
+//   background-color: $color-card-hover;
 
-  .characters-title {
-    display: flex;
-    flex-direction: row;
-  }
-}
+//   #tweet {
+//     width: 100%;
+//     margin-top: 5px;
+//     padding: 10px 15px;
+//     border: 1px solid $color-border;
+//     font-size: 15px;
+//   }
 
-#tweet {
-  width: 100%;
-  font-size: 12px;
-  font-weight: 400;
-  border: 1px solid grey;
-  padding: 10px 15px;
-  line-height: 20px;
-  border-radius: 20px;
-}
+//   #tweet:hover {
+//     border: 1px solid $color-border-hard;
+//   }
+
+//   .characters-title {
+//     display: flex;
+//     flex-direction: row;
+//     padding-right: 15px;
+
+//     #charactersRemaining {
+//       font-size: 15px;
+//       line-height: 30px;
+//     }
+
+//     .characters-total {
+//       line-height: 30px;
+//     }
+//   }
+// }

@@ -1,50 +1,52 @@
 <div id="site-body">
 
-<div class="container content auth">
-  <div class="wrapper">
+  <div class="columns">
+  
+    <div class="info">
+      <div class="container content">
 
-    <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
-
-      <div class="feed-title">
-        <h3>Write an Article</h3>
-      </div>
-
-      <div class="field-inputs">
-        <div class="field" [ngClass]="{'has-error': feedbackEnabled && titleField.errors}">
-          <input type="text" id="tweet" placeholder="Write a title" name="title" [(ngModel)]="title" #titleField="ngModel" maxlength="120"
-            [disabled]="processing" />
-          <div *ngIf="feedbackEnabled && titleField.errors">
-            <p *ngIf="titleField.errors.maxlength" class="validation">title is too long</p>
+        <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+          <div class="feed-title">
+            <h3>Write an Article</h3>
           </div>
-        </div>
-      </div>
 
-      <div class="field-inputs">
-        <div class="field" [ngClass]="{'has-error': feedbackEnabled && textField.errors}">
-          <input type="text" id="tweet" placeholder="Write a text" name="text" [(ngModel)]="text" #textField="ngModel" maxlength="10000"
-            [disabled]="processing" />
-          <div *ngIf="feedbackEnabled && titleField.errors">
-            <p *ngIf="titleField.errors.maxlength" class="validation">title is too long</p>
+          <div class="write">
+            <div class="field">
+              <div class="field__tweet" [ngClass]="{'has-error': feedbackEnabled && titleField.errors}">
+                <input type="text" id="tweet" placeholder="Write a title" name="title" [(ngModel)]="title" #titleField="ngModel" maxlength="120"
+                  [disabled]="processing" />
+                <div *ngIf="feedbackEnabled && titleField.errors">
+                  <p *ngIf="titleField.errors.maxlength" class="validation">title is too long</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="field-inputs">
+              <div class="field" [ngClass]="{'has-error': feedbackEnabled && textField.errors}">
+                <input type="text" id="tweet" placeholder="Write a text" name="text" [(ngModel)]="text" #textField="ngModel" maxlength="10000"
+                  [disabled]="processing" />
+                <div *ngIf="feedbackEnabled && titleField.errors">
+                  <p *ngIf="titleField.errors.maxlength" class="validation">title is too long</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+
+          <!-- <div class="bottom-actions"> -->
+            <div class="field-submit">
+              <button type="submit" [disabled]="processing" class="btn btn-publish">Publish</button>
+              <div *ngIf="error">
+                <p class="validation">{{error}}</p>
+              </div>
+              <div *ngIf="feedbackEnabled && form.invalid">
+                <p class="validation">there are errors in the form, please review the fields</p>
+              </div>
+            </div>
+          <!-- </div> -->
+        </form>
       </div>
-
-      <div class="field-submit">
-        <button type="submit" [disabled]="processing" class="btn btn-primary">Create</button>
-        <div *ngIf="error">
-          <p class="validation">{{error}}</p>
-        </div>
-        <div *ngIf="feedbackEnabled && form.invalid">
-          <p class="validation">there are errors in the form, please review the fields</p>
-        </div>
-      </div>
-
-      <a [routerLink]="['/stories/create']" class="btn btn-secondary">Write a Tweet</a>
-
-    </form>
+    </div>
   </div>
-</div>
-
 </div>
 
 <app-bottom-nav></app-bottom-nav>

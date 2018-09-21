@@ -49,6 +49,7 @@ export class IndexComponent implements OnInit {
     this.articlesService.listAll()
       .then((data) => {
         this.articles.push(data[data.length - 1]);
+        this.articles.push(data[data.length - 2]);
       })
   }
 

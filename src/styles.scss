@@ -40,9 +40,9 @@ h2 {
 
 h3 {
   margin: 0;
-  font-size: 18px;
-  line-height: 30px;
-  padding-bottom: 5px;
+  font-size: 17px;
+  line-height: 18px;
+  padding-bottom: 10px;
 }
 
 p {
@@ -72,7 +72,7 @@ button {
 
   .content {
     background-color: white;
-    padding-bottom: 10px;
+    // padding-bottom: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
   }
@@ -224,6 +224,17 @@ button {
   color: $color-icon;
 }
 
+.btn-publish {
+  text-decoration: none;
+  color: $color-white;
+  border-radius: 3px;
+  border: 1px solid $color-btn-primary;
+  background-color: $color-btn-primary;
+  // border: 0px;
+  font-size: 15px;
+  padding: 5px 10px;
+}
+
 .btn-navbar {
   background-color: $color-white;
   color: $color-btn-primary;
@@ -233,12 +244,13 @@ button {
 
 .btn-profile {
   font-size: 15px;
-  line-height: 30px;
+  line-height: 18px;
+  // line-height: 30px;
   text-decoration: none;
   color: $color-icon;
   background-color: $color-white;
   border: none;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .btn-actions {
@@ -252,7 +264,7 @@ button {
   padding-top: 15px;
   padding-left: 15px;
   padding-right: 15px;
-  // margin-bottom: 5px;
+  // margin-bottom: 10px;
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid $color-border;
@@ -272,6 +284,34 @@ button {
 
 .feed-actions-profile {
   justify-content: space-around;
+}
+
+.more-actions {
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid $color-border;
+  text-align: left;
+}
+ 
+.more-actions:hover {
+  background-color: $color-card-hover;
+
+  a {
+    background-color: $color-card-hover;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+.bottom-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-top: 10px;
+  margin-bottom: 5px;
 }
 
 // -- forms
@@ -304,24 +344,36 @@ ul {
   padding: 10px 15px;
 }
 
-.more-actions {
+// -- create/write pages
+
+.write {
   padding: 10px 15px;
-  display: flex;
-  flex-direction: row;
-  border-top: 1px solid $color-border;
-  text-align: left;
-}
+  background-color: $color-card-hover;
 
-.more-actions:hover {
-  a {
-    text-decoration: underline;
+  #tweet {
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px 15px;
+    border: 1px solid $color-border;
+    font-size: 15px;
   }
-  // background-color: grey;
-}
 
-.bottom-actions {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  padding-top: 10px;
+  #tweet:hover {
+    border: 1px solid $color-border-hard;
+  }
+
+  .characters-title {
+    display: flex;
+    flex-direction: row;
+    padding-right: 15px;
+
+    #charactersRemaining {
+      font-size: 15px;
+      line-height: 30px;
+    }
+
+    .characters-total {
+      line-height: 30px;
+    }
+  }
 }

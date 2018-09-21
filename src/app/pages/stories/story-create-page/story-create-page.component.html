@@ -7,12 +7,11 @@
         <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
           <div class="feed-title">
             <h3>Write a Tweet</h3>
-
           </div>
-          <div class="tweets">
-            
-            <div class="field-inputs">
-              <div class="field" [ngClass]="{'has-error': feedbackEnabled && storyField.errors}">
+
+          <div class="write">  
+            <div class="field">
+              <div class="field__tweet" [ngClass]="{'has-error': feedbackEnabled && storyField.errors}">
                 <input type="text" id="tweet" placeholder="What are you thinking?" name="story" [(ngModel)]="story.text" #storyField="ngModel" maxlength="120" [disabled]="processing"
                 />
                 <div *ngIf="feedbackEnabled && storyField.errors">
@@ -23,12 +22,12 @@
 
             <div class="bottom-actions">
               <div class="characters-title">
-                <div id="charactersRemaining">120</div>
-                <p>/120</p>
+                <p id="charactersRemaining">120</p>
+                <p class="characters-total">/120</p>
               </div>
 
               <div class="field-submit">
-                <button type="submit" [disabled]="processing" class="btn btn-secondary">Publish</button>
+                <button type="submit" [disabled]="processing" class="btn btn-publish">Tweet</button>
                 <div *ngIf="error">
                   <p class="validation">{{error}}</p>
                 </div>
