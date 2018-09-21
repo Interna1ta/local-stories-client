@@ -3,7 +3,7 @@
     <div class="article__info">
       <p class="article__info__title" [routerLink]="['/articles', article._id]">{{article.title}}</p>
       <!-- <p class="article__info__text">{{article.text}}</p> -->
-      <a class="article__info__username" [routerLink]="['/users', article.user._id]">
+      <a class="article__info__name" [routerLink]="['/users', article.user._id]">
         <p>{{article.user.name}}</p>
       </a>
       <p class="article__info__time">{{article.created_at | date : 'shortDate' }}</p>

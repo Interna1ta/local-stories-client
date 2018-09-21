@@ -13,12 +13,15 @@ import { Router } from '@angular/router';
 })
 export class IndexComponent implements OnInit {
 
-  articles: Array<any> = [];
+  articles: Array<any> = []; 
   stories: Array<any>;
   tweets: any;
   user: any;
   idUser: string;
   idMe: string;
+  idUsers: object;
+  checkFollow: boolean;
+
 
   constructor(
     private storiesService: StoriesService, 
@@ -29,11 +32,12 @@ export class IndexComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.ListAllStories();
-    this.ListLastArticle();
+    this.checkFollow = false;
+    this.listAllStories();
+    this.listLastArticle();
   }
 
-  ListAllStories() {
+  listAllStories() {
     this.storiesService.listAll()
       .then((data) => {
         data.reverse();
@@ -41,7 +45,7 @@ export class IndexComponent implements OnInit {
       })
   }
 
-  ListLastArticle() {
+  listLastArticle() {
     this.articlesService.listAll()
       .then((data) => {
         this.articles.push(data[data.length - 1]);

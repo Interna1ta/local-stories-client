@@ -236,7 +236,6 @@ button {
   color: $color-icon;
   background-color: $color-white;
   border: none;
-  // margin-right: 10px;
   margin-bottom: 5px;
 }
 
@@ -251,21 +250,11 @@ button {
   padding-top: 15px;
   padding-left: 15px;
   padding-right: 15px;
-  margin-bottom: 5px;
+  // margin-bottom: 5px;
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid $color-border;
   text-align: left;
-}
-
-@media (min-width: 768px) {
-  .boxes {
-    padding-bottom: 10px;
-    // width: 468px;
-  }
-  .boxes-right {
-    float: right;
-  }
 }
 
 .feed-actions {
@@ -305,8 +294,12 @@ button {
 ul {
   list-style-type: none;
   padding-left: 0px;
+  padding: 0;
+  margin: 0;
 
   li {
     margin-left: 0px;
+    margin: 0px;
+    padding: 0;
   }
 }

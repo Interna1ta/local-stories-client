@@ -1,7 +1,7 @@
 <div class="profile" *ngIf="follower">
-  <div [routerLink]="['/users', follower._id]">
-    <img *ngIf="!follower.profile_image_url" class="profile__image" src="../../../../assets/images/male-icon.png" alt="image-icon">
-    <img *ngIf="follower.profile_image_url" class="profile__image" src="{{follower.profile_image_url}}" alt="image-icon">
+  <div class="profile__box" [routerLink]="['/users', follower._id]">
+    <img *ngIf="!follower.profile_image_url" class="profile__box__image" src="../../../../assets/images/male-icon.png" alt="image-icon">
+    <img *ngIf="follower.profile_image_url" class="profile__box__image" src="{{follower.profile_image_url}}" alt="image-icon">
   </div>
   <div class="profile__info">
     <div class="profile__info__user" [routerLink]="['/users', follower._id]">

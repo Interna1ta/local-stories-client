@@ -3,12 +3,17 @@
 .profile {
   display: flex;
   flex-direction: row;
-  padding: 0 15px;
+  padding: 10px 15px;
 
-  &__image {
+  &__box {
     width: 50px; 
     height: 50px;
-    border-radius: 50%;
+
+    &__image {
+      width: 50px; 
+      height: 50px;
+      border-radius: 50%;
+    }
   }
 
   &__info {
@@ -23,12 +28,16 @@
       flex-direction: column;
       
       &__username {
-        color: grey;
+        color: $color-username;
         font-weight: lighter;
       }
 
       &__name {
-        color: $color-black;
+        color: $color-name;
+      }
+
+      &__name:hover {
+        text-decoration: underline;
       }
     }
 

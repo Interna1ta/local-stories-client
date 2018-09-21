@@ -13,7 +13,6 @@ export class AddFriendsComponent implements OnInit {
   user: any;
   checkFollow: boolean;
   idUser: string;
-  idUsers: object;
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -35,20 +34,6 @@ export class AddFriendsComponent implements OnInit {
     for (let i = 0; i < this.users.length; i++) {
       this.user = this.users[i];
     }
-  }
-
-  followUser() {
-    this.checkFollow = true;
-    this.usersService.followOne(this.idUsers)
-      .then(() => {
-        this.usersService.followOneNotification(this.idUsers);
-      })
-  }
-
-  unfollowUser() {
-    this.checkFollow = false;
-    this.usersService.unfollowOne(this.idUsers)
-      .then(() => { })
   }
 
 }

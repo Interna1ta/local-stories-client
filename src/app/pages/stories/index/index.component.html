@@ -3,33 +3,29 @@
 
     <div class="info">
       <div class="container content">
-        <div class="boxes">
-          <div class="feed-actions">
-            <h3>Local News</h3>
-            <button class="btn-profile" (click)="readAllNews()">More ></button>
-          </div>
-          <ul *ngFor="let article of articles">
-            <li>
-              <!-- <a [routerLink]="['/articles', article._id]"> -->
-              <app-article-card [article]="article"></app-article-card>
-              <!-- </a> -->
-            </li>
-          </ul>
+        <div class="feed-actions">
+          <h3>Local News</h3>
+          <button class="btn-profile" (click)="readAllNews()">More ></button>
         </div>
+        <ul *ngFor="let article of articles">
+          <li>
+            <!-- <a [routerLink]="['/articles', article._id]"> -->
+            <app-article-card [article]="article"></app-article-card>
+            <!-- </a> -->
+          </li>
+        </ul>
       </div>
 
       <div class="container content">
-        <div class="boxes">
-          <div class="feed-actions">
-            <h3>Local Tweets</h3>
-            <button class="btn-profile" (click)="FollowingUserStories()">Only Following ></button>
-          </div>
-          <ul *ngFor="let story of stories">
-            <li>
-              <app-story-card [story]="story"></app-story-card>
-            </li>
-          </ul>
+        <div class="feed-actions">
+          <h3>Local Tweets</h3>
+          <button class="btn-profile" (click)="FollowingUserStories()">Only Following ></button>
         </div>
+        <ul *ngFor="let story of stories">
+          <li>
+            <app-story-card [story]="story"></app-story-card>
+          </li>
+        </ul>
       </div>
     </div>
 

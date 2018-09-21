@@ -22,12 +22,12 @@
       flex-direction: column;
       
       &__username {
-        color: $color-black;
+        color: $color-name;
         text-decoration: none;
       }
 
       &__time {
-        color: grey;
+        color: $color-username;
         font-weight: lighter;
       }
     }

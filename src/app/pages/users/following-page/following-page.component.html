@@ -1,24 +1,31 @@
 <div id="site-body">
+  <div class="columns">
+  
+    <div class="info">
+      <div class="container content" *ngIf="checkFollow">
+        <div class="feed-title">
+          <h3>Following</h3>
+        </div>
+        <ul *ngFor="let follower of user.following">
+          <li>
+            <app-single-user [follower]="follower"></app-single-user>
+          </li>
+        </ul>
+      </div>
 
-  <div class="container content" *ngIf="checkFollow">
-    <div class="feed-title">
-      <h3>Following</h3>
+      <div class="container__content" *ngIf="!checkFollow">
+        <ul>
+          <li>
+            <p>This user is following nobody!</p>
+          </li>
+        </ul>
+      </div>
     </div>
-    <ul *ngFor="let follower of user.following">
-      <li>
-        <app-single-user [follower]="follower"></app-single-user>
-      </li>
-    </ul>
+    
+    <div class="add-people">
+      <app-add-friends></app-add-friends>
+    </div>
   </div>
-
-  <div class="container__content" *ngIf="!checkFollow">
-    <ul>
-      <li>
-        <p>This user is following nobody!</p>
-      </li>
-    </ul>
-  </div>
-
 </div>
 
 <app-bottom-nav></app-bottom-nav>

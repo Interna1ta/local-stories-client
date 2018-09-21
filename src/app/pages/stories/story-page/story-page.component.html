@@ -1,9 +1,29 @@
-<div *ngIf="story">
-  <p class="story" *ngIf="story.user.name">{{story.user.name}}</p>
-  <p class="story">@{{story.user.username}}</p>
-  <p class="story">{{story.text}}</p>
+<div id="site-body">
+  <div class="columns">
+
+    <div class="info">
+      <div class="container content story">
+
+        <div class="story__user" *ngIf="story">
+          <div [routerLink]="['/users', story.user._id]">
+            <img *ngIf="!story.user.profile_image_url" class="story__user__image" src="../../../../assets/images/male-icon.png" alt="image-icon">
+            <img *ngIf="story.user.profile_image_url" class="story__user__image" src="{{story.user.profile_image_url}}" alt="image-icon">
+          </div>
+          <div class="story__user__info" [routerLink]="['/users', story.user._id]">
+            <p>{{story.user.name}} @{{story.user.username}}</p>
+            <p class="story__info__time">{{story.created_at | date : 'shortDate' }}</p>
+            <p class="story__content__text">{{story.text}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="add-people">
+      <app-add-friends></app-add-friends>
+    </div> -->
+  </div>
 </div>
 
 <!-- {{ story | json}} -->
 
-<app-bottom-nav></app-bottom-nav>
+<app-bottom-nav></app-bottom-nav> 
