@@ -1,9 +1,6 @@
 <div class="container content2">
   <div class="feed-actions">
-    <h3>Add People</h3>
-    <a [routerLink]="['/profile',user._id,'addfollowers']">
-      <img src="../../../../assets/icons/follow.svg" alt="follow-icon">
-    </a>
+    <h3>Who to follow</h3>
   </div>
 
   <ul *ngFor="let follower of users">
@@ -11,4 +8,7 @@
       <app-single-user [follower]="follower"></app-single-user>
     </li>
   </ul>
+  <div class="more-actions">
+    <a [routerLink]="['/profile',user._id,'addfollowers']" class="btn btn-secondary">Show more</a>
+  </div>
 </div>

@@ -18,6 +18,7 @@ export class UserPageComponent implements OnInit {
   idMe: string;
   idUsers: object;
   stories: Array<any>;
+  articles: Array<any>;
   checkFollow: boolean;
   editButton: boolean;
 
@@ -74,13 +75,15 @@ export class UserPageComponent implements OnInit {
   findUserArticles() {
     this.articlesService.userArticles(this.idUser)
       .then((data) => {
-        this.stories = data;
+        this.stories = [];
+        this.articles = data;
       })
   }
 
   findUserStories() {
     this.storiesService.userStories(this.idUser)
       .then((data) => {
+        this.articles = [];
         this.stories = data;
       })
   }
