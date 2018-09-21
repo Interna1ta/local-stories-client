@@ -9,17 +9,11 @@ import { FormsModule } from '@angular/forms';
 // -- Components
 
 import { AppComponent } from './app.component';
-import { TopNavFeedComponent } from './components/nav/top-nav-feed/top-nav-feed.component';
-import { TopNavCreateComponent } from './components/nav/top-nav-create/top-nav-create.component';
-import { TopNavProfileComponent } from './components/nav/top-nav-profile/top-nav-profile.component';
 import { BottomNavComponent } from './components/nav/bottom-nav/bottom-nav.component';
-import { BottomNavCreateComponent } from './components/nav/bottom-nav-create/bottom-nav-create.component';
-import { BottomNavProfileComponent } from './components/nav/bottom-nav-profile/bottom-nav-profile.component';
 import { StoryCardComponent } from './components/stories/story-card/story-card.component';
 import { NotificationCardComponent } from './components/notifications/notification-card/notification-card.component';
 import { SingleUserComponent } from './components/users/single-user/single-user.component';
 import { ArticleCardComponent } from './components/stories/article-card/article-card.component';
-import { TopNavSearchComponent } from './components/nav/top-nav-search/top-nav-search.component';
 import { AddFriendsComponent } from './components/add-friends/add-friends.component';
 
 // -- Pages
@@ -86,8 +80,6 @@ const routes: Routes = [
     LoginPageComponent,
     SignupPageComponent,
     BottomNavComponent,
-    TopNavFeedComponent,
-    TopNavCreateComponent,
     StoryCreatePageComponent,
     StoryCardComponent,
     ProfilePageComponent,
@@ -95,15 +87,11 @@ const routes: Routes = [
     FollowersPageComponent,
     SingleUserComponent,
     FollowingPageComponent,
-    BottomNavCreateComponent,
-    BottomNavProfileComponent,
-    TopNavProfileComponent,
     NotificationsPageComponent,
     NotificationCardComponent,
     EditProfilePageComponent,
     AddFollowersPageComponent,
     SearchPageComponent,
-    TopNavSearchComponent,
     ArticleCreatePageComponent,
     StoryPageComponent,
     ArticleCardComponent,
