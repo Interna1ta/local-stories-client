@@ -311,7 +311,6 @@ button {
   flex-direction: row;
   justify-content: flex-end;
   padding-top: 10px;
-  margin-bottom: 5px;
 }
 
 // -- forms
@@ -347,15 +346,23 @@ ul {
 // -- create/write pages
 
 .write {
-  padding: 10px 15px;
+  padding: 15px 15px;
   background-color: $color-card-hover;
 
-  #tweet {
+  #tweet, .article-title, .article-text {
     width: 100%;
-    margin-top: 5px;
     padding: 10px 15px;
     border: 1px solid $color-border;
     font-size: 15px;
+  }
+
+  .field-text {
+    height: 100%;
+  }
+
+  .field__article__text {
+    padding-top: 10px;
+    height: 100%;
   }
 
   #tweet:hover {
