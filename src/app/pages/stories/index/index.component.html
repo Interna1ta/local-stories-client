@@ -5,7 +5,7 @@
       <div class="container content">
         <div class="feed-actions">
           <h3>Local News</h3>
-          <button class="btn-profile" (click)="readAllNews()">More ></button>
+          <button class="btn-secondary" (click)="readAllNews()">Show more</button>
         </div>
         <ul *ngFor="let article of articles">
           <li>
@@ -19,7 +19,7 @@
       <div class="container content">
         <div class="feed-actions">
           <h3>Local Tweets</h3>
-          <button class="btn-profile" (click)="FollowingUserStories()">Only Following ></button>
+          <button class="btn-secondary" (click)="followingUserStories()">Following users</button>
         </div>
         <ul *ngFor="let story of stories">
           <li>

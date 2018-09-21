@@ -42,7 +42,7 @@ h3 {
   margin: 0;
   font-size: 17px;
   line-height: 18px;
-  padding-bottom: 10px;
+  // padding-bottom: 10px;
 }
 
 p {
@@ -226,7 +226,6 @@ button {
   border-radius: 3px;
   border: 1px solid $color-btn-primary;
   background-color: $color-btn-primary;
-  // border: 0px;
   font-size: 15px;
   padding: 5px 10px;
 }
@@ -241,12 +240,10 @@ button {
 .btn-profile {
   font-size: 15px;
   line-height: 18px;
-  // line-height: 30px;
   text-decoration: none;
   color: $color-icon;
   background-color: $color-white;
   border: none;
-  margin-bottom: 10px;
 }
 
 .btn-actions {
@@ -257,12 +254,9 @@ button {
 }
 
 .feed-title, .feed-actions {
-  padding-top: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-  // margin-bottom: 10px;
   display: flex;
   flex-direction: row;
+  padding: 15px 15px 10px 15px;
   border-bottom: 1px solid $color-border;
   text-align: left;
 }

@@ -53,7 +53,7 @@ export class IndexComponent implements OnInit {
       })
   }
 
-  FollowingUserStories() {
+  followingUserStories() {
     this.stories = [];
     this.authService.me() 
       .then((data) => {
