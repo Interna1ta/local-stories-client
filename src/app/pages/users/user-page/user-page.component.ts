@@ -91,7 +91,7 @@ export class UserPageComponent implements OnInit {
       .then(() => {
         this.usersService.followOneNotification(this.idUsers);
       })
-  }
+  } 
 
   unfollowUser() {
     this.checkFollow = false;

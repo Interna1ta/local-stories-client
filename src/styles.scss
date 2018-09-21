@@ -187,9 +187,10 @@ button {
   cursor: pointer;
 }
 
+
 .btn {
   background-color: #1487fe;
-  padding: 3px 10px;
+  // padding: 3px 10px;
   color: #ffffff;
   text-decoration: none;
   font-size: 12px;
@@ -211,6 +212,7 @@ button {
   text-decoration: none;
   color: $color-btn-primary;
   background-color: $color-white;
+  border: 0px;
   font-size: 15px;
 }
 
@@ -283,13 +285,7 @@ button {
   margin-right: 10px;
 }
 
-// icons
-
-.nav-icon {
-  font-size: 24px;
-}
-
-// -- lists
+// -- lists cards
 
 ul {
   list-style-type: none;
@@ -302,4 +298,30 @@ ul {
     margin: 0px;
     padding: 0;
   }
+}
+
+.no-cards {
+  padding: 10px 15px;
+}
+
+.more-actions {
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid $color-border;
+  text-align: left;
+}
+
+.more-actions:hover {
+  a {
+    text-decoration: underline;
+  }
+  // background-color: grey;
+}
+
+.bottom-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-top: 10px;
 }

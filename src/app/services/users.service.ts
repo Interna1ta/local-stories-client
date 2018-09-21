@@ -72,4 +72,10 @@ export class UsersService {
     return this.httpClient.put(`${this.baseUrl}/users/${user.id}/image`, user.fd, this.options)
       .toPromise();
   }
+
+  signUpNotification(idUser: any): Promise<any> {
+    console.log('im in the auth service: ', idUser);
+    return this.httpClient.post(`${this.baseUrl}/users/${idUser}/signup`, idUser, this.options)
+      .toPromise();
+  }
 }

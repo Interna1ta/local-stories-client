@@ -2,23 +2,24 @@
   <div class="columns">
   
     <div class="info">
-      <div class="container content" *ngIf="checkFollow">
+      <div class="container content">
         <div class="feed-title">
           <h3>Followers</h3>
         </div>
-        <ul *ngFor="let follower of users">
-          <li>
-            <app-single-user [follower]="follower"></app-single-user>
-          </li>
-        </ul>
-      </div>
-
-      <div class="container__content" *ngIf="!checkFollow">
-        <ul>
-          <li>
-            <p>This user has no followers!</p>
-          </li>
-        </ul>
+        <div *ngIf="checkFollow">
+          <ul *ngFor="let follower of users">
+            <li>
+              <app-single-user [follower]="follower"></app-single-user>
+            </li>
+          </ul>
+        </div>
+        <div *ngIf="!checkFollow">
+          <ul>
+            <li>
+              <p class="no-cards">This user has no followers!</p>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
       

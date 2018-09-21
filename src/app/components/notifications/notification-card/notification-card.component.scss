@@ -3,6 +3,7 @@
 .notification {
   display: flex;
   flex-direction: row;
+  padding: 10px 15px;
 
   &__image {
     width: 50px; 
@@ -11,19 +12,35 @@
   }
 
   &__info {
-    display: flex;
+    display: flex; 
     flex-direction: row;
     justify-content: space-between;
-    padding-left: 10px;
     width: 100%;
 
     &__user {
       display: flex;
       flex-direction: column;
+
+      &__text {
+        display: flex;
+        flex-direction: row;
+      }
+
+      &__name {
+        color: $color-name;
+        text-decoration: none;
+        padding-right: 5px;
+      }
+
+      &__name:hover {
+        text-decoration: underline;
+      }
       
       &__username {
         color: $color-name;
         text-decoration: none;
+        padding-right: 5px;
+        font-weight: lighter;
       }
 
       &__time {

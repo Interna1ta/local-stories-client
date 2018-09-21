@@ -6,10 +6,14 @@
         <img *ngIf="notification.user.profile_image_url" class="notification__image" src="{{notification.user.profile_image_url}}" alt="image-icon">
       </div> -->
       <div class="notification__info__user">
-        <a class="notification__info__user__username" [routerLink]="['/users', notification.user._id]">{{notification.created_by.username}} {{notification.message}}</a>
+        <div class="notification__info__user__text">
+          <a *ngIf="notification.created_by.name" class="notification__info__user__name" [routerLink]="['/users', notification.user._id]">{{notification.created_by.name}}</a>
+          <a *ngIf="!notification.created_by.name" class="notification__info__user__username" [routerLink]="['/users', notification.user._id]">@{{notification.created_by.username}}</a>
+          <p class="notification__info__user__message">{{notification.message}}</p>
+        </div>
         <p class="notification__info__user__time">{{notification.created_at | date : 'fullDate' }}</p>
       </div>
-    </div>
+    </div> 
   </div>
 </div>
 

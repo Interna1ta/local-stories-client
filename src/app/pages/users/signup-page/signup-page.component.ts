@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../../services/auth.service';
+import { UsersService } from '../../../services/users.service';
 
 @Component({
   selector: 'app-signup-page',
@@ -15,8 +16,13 @@ export class SignupPageComponent implements OnInit {
   processing = false;
   username: String;
   password: String;
+  idUser: any;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(
+    private authService: AuthService, 
+    private usersService: UsersService, 
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -31,7 +37,11 @@ export class SignupPageComponent implements OnInit {
         password: this.password
       }
       this.authService.signup(user)
-        .then((result) => {
+        .then((data) => {
+          console.log('im the data: ', data);
+          this.idUser = data._id;
+          console.log('signup-page: ', this.idUser)
+          this.usersService.signUpNotification(this.idUser);
           this.router.navigate(['/stories']);
         })
         .catch((err) => {
@@ -42,4 +52,4 @@ export class SignupPageComponent implements OnInit {
     }
   }
 
-}
+} 
