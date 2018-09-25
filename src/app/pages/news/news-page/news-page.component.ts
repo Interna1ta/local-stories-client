@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ArticlesService } from '../../../services/articles.service';
 
 @Component({
-  selector: 'app-search-page',
-  templateUrl: './search-page.component.html',
-  styleUrls: ['./search-page.component.scss']
+  selector: 'app-news-page',
+  templateUrl: './news-page.component.html',
+  styleUrls: ['./news-page.component.scss']
 })
-export class SearchPageComponent implements OnInit {
+export class NewsPageComponent implements OnInit {
 
   articles: Array<any>;
 

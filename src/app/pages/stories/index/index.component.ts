@@ -78,7 +78,7 @@ export class IndexComponent implements OnInit {
   }
 
   readAllNews() {
-    this.router.navigate(['/search']);
+    this.router.navigate(['/news']);
   }
 
 }

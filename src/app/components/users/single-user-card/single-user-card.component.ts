@@ -4,11 +4,11 @@ import { AuthService } from '../../../services/auth.service';
 import { UsersService } from '../../../services/users.service';
 
 @Component({
-  selector: 'app-single-user',
-  templateUrl: './single-user.component.html',
-  styleUrls: ['./single-user.component.scss']
+  selector: 'app-single-user-card',
+  templateUrl: './single-user-card.component.html',
+  styleUrls: ['./single-user-card.component.scss']
 })
-export class SingleUserComponent implements OnInit {
+export class SingleUserCardComponent implements OnInit {
 
   @Input() follower: any;
   
