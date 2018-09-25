@@ -50,7 +50,7 @@ export class SingleArticlePageComponent implements OnInit {
         (this.idMe == this.idUser) ? this.editButton = true : this.editButton = false;
       })
   } 
-
+ 
   // _checkFollowUser() {
   //   this.authService.me()
   //     .then((data) => {

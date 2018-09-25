@@ -11,10 +11,15 @@
           </div>
           <div class="story__user__info" [routerLink]="['/users', story.user._id]">
             <p>{{story.user.name}} @{{story.user.username}}</p>
+            <div *ngIf="editButton == false">
+              <button *ngIf="checkFollow == false" class="btn-secondary" (click)="followUser()">Follow</button>
+              <button *ngIf="checkFollow == true" class="btn-secondary" (click)="unfollowUser()">Not follow</button>
+            </div>
             <p class="story__info__time">{{story.created_at | date : 'shortDate' }}</p>
             <p class="story__content__text">{{story.text}}</p>
           </div>
         </div>
+
         <div class="story-actions">
           <button *ngIf="editButton" class="btn-secondary" (click)="deleteStory()">Delete</button>
           <!-- <button class="btn-secondary" (click)="likeStory()">Like</button> -->
@@ -22,9 +27,6 @@
       </div>
     </div>
 
-    <!-- <div class="add-people">
-      <app-add-friends></app-add-friends>
-    </div> -->
   </div>
 </div>
 

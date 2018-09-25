@@ -17,6 +17,7 @@ export class SingleUserComponent implements OnInit {
   idMe: string;
   idUsers: object;
   checkFollow: boolean;
+  editButton: boolean = false;
 
   constructor(
     private usersService: UsersService,
@@ -33,36 +34,32 @@ export class SingleUserComponent implements OnInit {
       this.idUser = params.id;
       this.usersService.getOne(this.idUser)
         .then(() => {
-          this._checkFollowUser();
+          this._checkAuthUser();
         })
     })
   }
 
-  _checkFollowUser() {
+  _checkAuthUser() {
     this.authService.me()
       .then((data) => {
         this.idMe = data._id;
-        this.idUsers = {
-          idUser: this.follower._id,
-          idMe: this.idMe
+        this._checkFollowingUser();
+      })
+  }
+
+  _checkFollowingUser() {
+    this.usersService.getOne(this.idMe)
+      .then((data) => {
+        this.user = data;
+        this.checkFollow = false;
+        for (let i = 0; i < this.user.following.length; i++) {
+          if (this.user.following[i] == this.follower._id) {
+            this.checkFollow = true
+            i = this.user.following.length;
+          } else if (this.follower._id == this.idMe) {
+            this.editButton = true
+          }
         }
-        this.usersService.userFollowing(this.idMe)
-          .then((data) => {
-            this.user = data;
-            if (this.user.following.length !== 0) {
-              for (let i = 0; i < this.user.following.length; i++) {
-                if (this.user.following[i]._id == this.follower._id) {
-                  this.checkFollow = true
-                  i = this.user.following.length;
-                } else if (this.follower._id == this.idMe) {
-                } else {
-                  this.checkFollow = false;
-                }
-              }
-            } else {
-              this.checkFollow = false;
-            }
-          })
       })
   }  
 

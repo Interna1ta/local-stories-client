@@ -22,7 +22,6 @@ export class IndexComponent implements OnInit {
   idUsers: object;
   checkFollow: boolean;
 
-
   constructor(
     private storiesService: StoriesService, 
     private usersService: UsersService, 

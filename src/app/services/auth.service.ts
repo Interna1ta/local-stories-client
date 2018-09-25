@@ -12,7 +12,6 @@ export class AuthService {
   private userChange: Subject<any> = new Subject();
 
   private API_URL = environment.apiUrl + '/auth';
-  private baseUrl = environment.apiUrl;
   private options = {
     withCredentials: true
   };

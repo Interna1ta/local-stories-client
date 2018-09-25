@@ -50,16 +50,13 @@ export class UserPageComponent implements OnInit {
   }
 
   _checkFollowUser() {
-    this.authService.me()
+    this.authService.me() 
       .then((data) => {
         this.idMe = data._id;
         (this.idMe == this.idUser) ? this.editButton = true : this.editButton = false;
-        this.idUsers = {
-          idUser: this.idUser,
-          idMe: this.idMe
-        }
-        this.usersService.checkFollow(this.idUsers)
+        this.usersService.getOne(this.idMe)
           .then((data) => {            
+            this.checkFollow = false;
             for (var i=0; i<data.following.length; i++) {
               if (data.following[i] == this.idUser) {
                 this.checkFollow = true;
