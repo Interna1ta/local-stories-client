@@ -7,7 +7,7 @@
 .profile {
 
   &__info {
-    padding-top: 20px;
+    padding: 20px 40px;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -25,4 +25,23 @@
 .profile-nav {
   text-align: center;
   align-items: center;
+}
+
+.field-edit {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+
+  .field__label {
+    text-align: right;
+    line-height: 32px;
+    width: 120px;
+    margin-right: 20px;
+    font-weight: 700;
+  }
+  .field__input {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+  }
 }

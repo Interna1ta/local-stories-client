@@ -5,7 +5,7 @@
     <div class="info">
       <div class="container content">
 
-        <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+        <form class="mother-forms" (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
           <div class="feed-actions">
             <h3>Write an Article</h3>
 
@@ -33,17 +33,19 @@
 
             <div class="field-text">
               <div class="field__article__text" [ngClass]="{'has-error': feedbackEnabled && textField.errors}">
-                <input type="text" class="article-text" placeholder="Write a text" name="text" [(ngModel)]="text" #textField="ngModel" maxlength="10000"
-                  [disabled]="processing" />
+                <textarea type="textarea" rows="10" cols="40" class="article-text" placeholder="Write a text" name="text" [(ngModel)]="text" #textField="ngModel" maxlength="10000"
+                  [disabled]="processing"></textarea>
                 <div *ngIf="feedbackEnabled && titleField.errors">
                   <p *ngIf="titleField.errors.maxlength" class="validation">title is too long</p>
                 </div>
+
               </div>
             </div>
           </div>
         </form>
       </div>
     </div>
+    <div class="no-info"><p></p></div>
   </div>
 </div>
 

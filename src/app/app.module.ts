@@ -49,6 +49,7 @@ import { InitAuthGuardService } from './guards/init-auth-guard.service';
 import { RequireAnonGuardService } from './guards/require-anon-guard.service';
 import { RequireUserGuardService } from './guards/require-user-guard.service';
 import { WriteArticleComponent } from './components/write-article/write-article.component';
+import { SingleUserDescriptionComponent } from './components/users/single-user-description/single-user-description.component';
 
 // -- Routes
 
@@ -98,7 +99,8 @@ const routes: Routes = [
     ArticleCardComponent,
     SingleArticlePageComponent,
     AddFriendsComponent,
-    WriteArticleComponent
+    WriteArticleComponent,
+    SingleUserDescriptionComponent
   ],
   imports: [
     BrowserModule,

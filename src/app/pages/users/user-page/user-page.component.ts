@@ -75,6 +75,7 @@ export class UserPageComponent implements OnInit {
   findUserArticles() {
     this.articlesService.userArticles(this.idUser)
       .then((data) => {
+        data.reverse();
         this.stories = [];
         this.articles = data;
       })
@@ -83,6 +84,7 @@ export class UserPageComponent implements OnInit {
   findUserStories() {
     this.storiesService.userStories(this.idUser)
       .then((data) => {
+        data.reverse();
         this.articles = [];
         this.stories = data;
       })

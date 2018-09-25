@@ -212,6 +212,10 @@ button {
   font-size: 15px;
 }
 
+.btn-secondary:hover {
+  text-decoration: underline;
+}
+
 .btn-terciary {
   padding: 3px 10px;
   border: 1px solid $color-border;
@@ -346,13 +350,13 @@ ul {
     font-size: 15px;
   }
 
-  .field-text {
-    height: 100%;
+  .article-text {
+    height: 65vh;
+    resize: none;
   }
 
   .field__article__text {
     padding-top: 10px;
-    height: 100%;
   }
 
   #tweet:hover {
