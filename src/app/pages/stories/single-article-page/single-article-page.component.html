@@ -17,8 +17,9 @@
     <div class="article__content">
       <p class="article__content__title">{{article.title}}</p>
       <p class="article__content__text">{{article.text}}</p>
+      <button *ngIf="editButton" class="btn-secondary" (click)="deleteArticle()">Delete</button>
     </div>
   </div>
-</div>
+</div> 
 
 <app-bottom-nav></app-bottom-nav>

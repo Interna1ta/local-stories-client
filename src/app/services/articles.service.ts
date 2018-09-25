@@ -38,4 +38,9 @@ export class ArticlesService {
       .toPromise();
   }
 
+  deleteArticle(id: string): Promise<any> {
+    return this.httpClient.put(`${this.baseUrl}/articles/${id}/delete`, this.options)
+      .toPromise();
+  }
+
 }

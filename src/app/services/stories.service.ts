@@ -41,7 +41,6 @@ export class StoriesService {
   }
 
   deleteStory(id: string): Promise<any> {
-    console.log('inside the service');
     return this.httpClient.put(`${this.baseUrl}/stories/${id}/delete`, this.options)
       .toPromise();
   }
