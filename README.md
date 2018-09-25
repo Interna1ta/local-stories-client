@@ -14,7 +14,10 @@ User can:
 * Login
 * Logout
 * Write a tweet
+* Delete a tweet
 * See all the tweets written before
+* Write an article
+* See all the articles written before
 * Follow/unfollow other users
 
 ## Technologies

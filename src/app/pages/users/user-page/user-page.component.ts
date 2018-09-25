@@ -53,9 +53,7 @@ export class UserPageComponent implements OnInit {
     this.authService.me()
       .then((data) => {
         this.idMe = data._id;
-        if (this.idMe == this.idUser) {
-          this.editButton = true;
-        }
+        (this.idMe == this.idUser) ? this.editButton = true : this.editButton = false;
         this.idUsers = {
           idUser: this.idUser,
           idMe: this.idMe

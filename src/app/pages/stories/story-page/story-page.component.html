@@ -15,6 +15,10 @@
             <p class="story__content__text">{{story.text}}</p>
           </div>
         </div>
+        <div class="story-actions">
+          <button *ngIf="editButton" class="btn-secondary" (click)="deleteStory()">Delete</button>
+          <button class="btn-secondary" (click)="likeStory()">Like</button>
+        </div>
       </div>
     </div>
 

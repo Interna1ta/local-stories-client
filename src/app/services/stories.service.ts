@@ -40,6 +40,12 @@ export class StoriesService {
       .toPromise();
   }
 
+  deleteStory(id: string): Promise<any> {
+    console.log('inside the service');
+    return this.httpClient.put(`${this.baseUrl}/stories/${id}/delete`, this.options)
+      .toPromise();
+  }
+
   // listTweets(): Promise<any> {
   //   return this.httpClient.get(`${this.baseUrl}/stories/tweets`, this.options)
   //     .toPromise();
