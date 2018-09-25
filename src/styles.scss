@@ -13,13 +13,13 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #e6ecf0;
+  background-color: $color-background-website;
 }
 
 // -- TYPOGRAPHY
 
 body {
-  color: #111;
+  color: #111; 
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-family: 'Lato', sans-serif;
@@ -70,21 +70,19 @@ button {
     padding: 0;
   }
 
-  .content {
-    background-color: white;
-    // padding-bottom: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  .container {
+    background-color: $color-background-content;
+    margin: 10px 0;
   }
 
-  .content2 {
+  .display-or-not {
     display: none;
   }
 }
 
 #site-login {
   width: 100%;
-  background-color: white;
+  background-color: $color-background-content;
   padding: 0px;
   
   .title {
@@ -94,22 +92,17 @@ button {
 }
 
 @media (min-width: 768px) {
-  .container {
-    max-width: 568px;
-  }
 
   #site-body {
-    
-    .content {
+    .container {
+      max-width: 568px;
       margin-top: 15px;
-      max-width: 568;
     }
 
-    .content2 {
+    .display-or-not {
       display: block;
       margin: 15px 0;
       width: 280px;
-      background-color: white;
     }
   }
 
@@ -185,8 +178,7 @@ button {
 }
 
 .btn {
-  background-color: #1487fe;
-  // padding: 3px 10px;
+  background-color: $color-btn;
   color: #ffffff;
   text-decoration: none;
   font-size: 12px;
@@ -234,13 +226,6 @@ button {
   padding: 5px 10px;
 }
 
-.btn-navbar {
-  background-color: $color-white;
-  color: $color-btn-primary;
-  font-weight: 400;
-  border-radius: 50px;
-}
-
 .btn-profile {
   font-size: 15px;
   line-height: 18px;
@@ -248,13 +233,6 @@ button {
   color: $color-icon;
   background-color: $color-white;
   border: none;
-}
-
-.btn-actions {
-  margin: 0;
-  font-size: 20px;
-  line-height: 30px;
-  padding-bottom: 5px;
 }
 
 .feed-title, .feed-actions {
@@ -273,7 +251,6 @@ button {
     display: flex;
     flex-direction: row;
   }
-
 }
 
 .feed-actions-profile {

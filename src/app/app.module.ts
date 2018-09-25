@@ -10,12 +10,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TopNavComponent } from './components/nav/top-nav/top-nav.component';
-import { StoryCardComponent } from './components/stories/story-card/story-card.component';
 import { NotificationCardComponent } from './components/notifications/notification-card/notification-card.component';
-import { SingleUserCardComponent } from './components/users/single-user-card/single-user-card.component';
+import { StoryCardComponent } from './components/stories/story-card/story-card.component';
 import { ArticleCardComponent } from './components/stories/article-card/article-card.component';
-import { AddFriendsComponent } from './components/users/add-friends/add-friends.component';
 import { WriteArticleComponent } from './components/stories/write-article/write-article.component';
+import { AddFriendsComponent } from './components/users/add-friends/add-friends.component';
+import { SingleUserCardComponent } from './components/users/single-user-card/single-user-card.component';
+import { SingleUserDescriptionComponent } from './components/users/single-user-description/single-user-description.component';
 
 // -- Pages
 
@@ -49,7 +50,6 @@ import { StoriesService } from './services/stories.service';
 import { InitAuthGuardService } from './guards/init-auth-guard.service';
 import { RequireAnonGuardService } from './guards/require-anon-guard.service';
 import { RequireUserGuardService } from './guards/require-user-guard.service';
-import { SingleUserDescriptionComponent } from './components/users/single-user-description/single-user-description.component';
 
 // -- Routes
 
