@@ -1,8 +1,7 @@
 <div class="card" *ngIf="article">
   <div class="article">
     <div class="article__info">
-      <p class="article__info__title" [routerLink]="['/articles', article._id]">{{article.title}}</p>
-      <!-- <p class="article__info__text">{{article.text}}</p> -->
+      <a class="article__info__title" [routerLink]="['/articles', article._id]">{{article.title}}</a>
       <a class="article__info__user" [routerLink]="['/users', article.user._id]">
         <p class="article__info__user__name" *ngIf="article.user.name">{{article.user.name}}</p>
         <p class="article__info__user__username" *ngIf="!article.user.name">@{{article.user.username}}</p>
@@ -11,5 +10,3 @@
     </div>
   </div>
 </div>
-
-<!-- {{article | json}} -->

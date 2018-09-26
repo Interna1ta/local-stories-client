@@ -53,7 +53,6 @@ export class StoryCreatePageComponent implements OnInit {
             lat: position.coords.latitude,
             lon: position.coords.longitude
           };
-          console.log('location :', userPosition)
           resolve(userPosition);
           this.position = userPosition;
         }, () => {

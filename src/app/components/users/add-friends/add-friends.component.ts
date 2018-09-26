@@ -23,7 +23,6 @@ export class AddFriendsComponent implements OnInit {
       this.idUser = params.id;
       this.usersService.addFollowers(this.idUser)
         .then((data) => {
-          console.log(data);
           this.users = data;
           this.user = this.users[0];
           // this._getEveryFollower();

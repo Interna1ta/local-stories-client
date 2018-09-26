@@ -17,6 +17,7 @@ import { WriteArticleComponent } from './components/stories/write-article/write-
 import { AddFriendsComponent } from './components/users/add-friends/add-friends.component';
 import { SingleUserCardComponent } from './components/users/single-user-card/single-user-card.component';
 import { SingleUserDescriptionComponent } from './components/users/single-user-description/single-user-description.component';
+import { CreateButtonComponent } from './components/nav/create-button/create-button.component';
 
 // -- Pages
 
@@ -97,7 +98,8 @@ const routes: Routes = [
     SingleArticlePageComponent,
     AddFriendsComponent,
     WriteArticleComponent,
-    SingleUserDescriptionComponent
+    SingleUserDescriptionComponent,
+    CreateButtonComponent
   ],
   imports: [
     BrowserModule,

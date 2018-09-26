@@ -6,41 +6,42 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class ArticlesService {
 
-  private baseUrl = environment.apiUrl;
+  private baseUrl = environment.apiUrl + '/articles';
   private options = {
     withCredentials: true
   };
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private httpClient: HttpClient
+  ) { }
 
   getOne(id: string): Promise<any> {
-    return this.httpClient.get(`${this.baseUrl}/articles/${id}`, this.options)
+    return this.httpClient.get(`${this.baseUrl}/${id}`, this.options)
       .toPromise();
   }
 
   listAll(): Promise<any> {
-    return this.httpClient.get(`${this.baseUrl}/articles`, this.options)
+    return this.httpClient.get(`${this.baseUrl}`, this.options)
       .toPromise();
   }
 
   create(article): Promise<any> {
-    return this.httpClient.post(`${this.baseUrl}/articles`, article, this.options)
-      .toPromise();
-  }
-
-  tweet(article) {
-    return this.httpClient.post(`${this.baseUrl}/twitter`, article, this.options)
+    return this.httpClient.post(`${this.baseUrl}`, article, this.options)
       .toPromise();
   }
 
   userArticles(id): Promise<any> {
-    return this.httpClient.get(`${this.baseUrl}/articles/users/${id}`, this.options)
-      .toPromise();
+    return this.httpClient.get(`${this.baseUrl}/users/${id}`, this.options)
+    .toPromise();
   }
-
+  
   deleteArticle(id: string): Promise<any> {
-    return this.httpClient.put(`${this.baseUrl}/articles/${id}/delete`, this.options)
-      .toPromise();
+    return this.httpClient.put(`${this.baseUrl}/${id}/delete`, this.options)
+    .toPromise();
   }
-
+  
+  // tweet(article) {
+  //   return this.httpClient.post(`${this.baseUrl}/twitter`, article, this.options)
+  //     .toPromise();
+  // }
 }

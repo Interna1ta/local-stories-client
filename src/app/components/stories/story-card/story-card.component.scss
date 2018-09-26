@@ -39,6 +39,7 @@
           color: $color-name;
           text-decoration: none;
           margin-right: 5px;
+          line-height: 23px;
         }
 
         &__name:hover {
@@ -47,6 +48,7 @@
 
         &__username {
           margin-right: 10px;
+          line-height: 23px;
           text-decoration: none;
           font-weight: lighter;
           color: $color-name;

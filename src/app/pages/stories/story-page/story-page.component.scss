@@ -45,7 +45,7 @@
     width: 100%;
     
     &__title {
-      color: black;
+      color: $color-black;
       font-size: 30px;
       line-height: 40px;
     }
@@ -58,5 +58,9 @@
       font-size: 17px;
       line-height: 20px;
     }
+  }
+
+  &__actions {
+    margin: 0 10px;
   }
 }

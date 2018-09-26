@@ -17,7 +17,7 @@ export class SingleUserDescriptionComponent implements OnInit {
   idMe: string;
   idUsers: object;
   checkFollow: boolean;
-  editButton: boolean = false;
+  editButton: boolean;
 
   constructor(
     private usersService: UsersService,
@@ -26,6 +26,7 @@ export class SingleUserDescriptionComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.editButton = false;
     this.userVisited();
   }
 

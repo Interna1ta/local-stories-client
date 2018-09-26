@@ -38,9 +38,7 @@ export class SignupPageComponent implements OnInit {
       }
       this.authService.signup(user)
         .then((data) => {
-          console.log('im the data: ', data);
           this.idUser = data._id;
-          console.log('signup-page: ', this.idUser)
           this.usersService.signUpNotification(this.idUser);
           this.router.navigate(['/stories']);
         })

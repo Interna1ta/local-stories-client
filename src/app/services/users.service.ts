@@ -27,12 +27,12 @@ export class UsersService {
     return this.httpClient.get(`${this.baseUrl}/${id}/addfollowers`, this.options)
       .toPromise();
   }
-
+  
   getNotifications(id: string): Promise<any> {
     return this.httpClient.get(`${this.baseUrl}/${id}/notifications`, this.options)
       .toPromise();
   }
-  
+
   followOne(idUsers: any): Promise<any> {
     return this.httpClient.put(`${this.baseUrl}/${idUsers.idMe}/follow`, idUsers, this.options)
     .toPromise();

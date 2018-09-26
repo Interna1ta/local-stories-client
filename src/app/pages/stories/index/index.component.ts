@@ -61,18 +61,12 @@ export class IndexComponent implements OnInit {
   }
 
   listStoriesUsersFollowing() {
-    // this.checkAuthUser();
     this.stories = [];
     for (let i = 0; i < this.user.following.length; i++) {
-      // console.log(this.stories);
-      console.log(this.user.following.length);
-      console.log(this.user.following[i]);
       this.idUser = this.user.following[i];
       this.storiesService.userStories(this.idUser)
         .then((result) => {
-          console.log(result);
           for (let j = 0; j < result.length; j++) {
-            // console.log(this.stories);
             this.stories.unshift(result[j]);
           }
         })

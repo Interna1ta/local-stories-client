@@ -44,12 +44,12 @@ export class UserPageComponent implements OnInit {
         .then((data) => {
           this.user = data;
           this.idUser = data._id;
-          this._checkFollowUser();
+          this._checkFollowingUser();
         })
     })
   }
 
-  _checkFollowUser() {
+  _checkFollowingUser() {
     this.authService.me() 
       .then((data) => {
         this.idMe = data._id;
@@ -73,6 +73,8 @@ export class UserPageComponent implements OnInit {
   }
 
   findUserArticles() {
+    document.getElementById('btn-tweets').style.fontWeight = '400';
+    document.getElementById('btn-news').style.fontWeight = '700';
     this.articlesService.userArticles(this.idUser)
       .then((data) => {
         data.reverse();
@@ -82,6 +84,8 @@ export class UserPageComponent implements OnInit {
   }
 
   findUserStories() {
+    document.getElementById('btn-tweets').style.fontWeight = '700';
+    document.getElementById('btn-news').style.fontWeight = '400';
     this.storiesService.userStories(this.idUser)
       .then((data) => {
         data.reverse();

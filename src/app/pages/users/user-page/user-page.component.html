@@ -1,8 +1,9 @@
+<app-top-nav></app-top-nav>
+
 <div id="site-body">
   <div class="columns">
   
     <div class="info">
-
       <div class="container profile" *ngIf="user">
         <div class="feed-actions">
           <h3>Profile</h3>
@@ -31,8 +32,8 @@
         </div>
 
         <div class="feed-actions feed-actions-profile">
-          <button class="btn-profile" (click)="listAllStories()"><strong>Tweets</strong></button>
-          <button class="btn-profile" (click)="findUserArticles()">News</button>
+          <button id="btn-tweets" class="btn-profile" (click)="listAllStories()">Tweets</button>
+          <button id="btn-news" class="btn-profile" (click)="findUserArticles()">News</button>
           <a [routerLink]="['/users', user._id, 'followers']" class="btn-profile">
             Followers
           </a>
@@ -59,10 +60,5 @@
       </div>
     </div>
 
-    <!-- <div class="add-people">
-      <app-add-friends></app-add-friends>
-    </div> -->
   </div>
 </div>
-
-<app-top-nav></app-top-nav>

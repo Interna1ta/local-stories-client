@@ -1,21 +1,22 @@
 <div class="card" *ngIf="story">
   <div class="story">
-    <div class="story__box" [routerLink]="['/users', story.user._id]">
-      <img *ngIf="!story.user.profile_image_url" class="story__box__image" src="../../../../assets/images/male-icon.png"
+    <div class="story__box">
+      <a [routerLink]="['/users', story.user._id]">
+        <img *ngIf="!story.user.profile_image_url" class="story__box__image" src="../../../../assets/images/male-icon.png"
               alt="image-icon">
-      <img *ngIf="story.user.profile_image_url" class="story__box__image" src="{{story.user.profile_image_url}}" alt="image-icon">
+      </a>
+      <a [routerLink]="['/users', story.user._id]">
+        <img *ngIf="story.user.profile_image_url" class="story__box__image" src="{{story.user.profile_image_url}}" alt="image-icon">
+      </a>
     </div>
     <div class="story__info">
-        <a class="story__info__user" [routerLink]="['/users', story.user._id]">
-          <p class="story__info__user__name" *ngIf="story.user.name">{{story.user.name}}</p>
-          <p class="story__info__user__username">@{{story.user.username}} · {{story.created_at | date : 'shortDate' }}</p>
-        </a>
+        <div class="story__info__user">
+          <a [routerLink]="['/users', story.user._id]" class="story__info__user__name" *ngIf="story.user.name">{{story.user.name}}</a>
+          <a [routerLink]="['/users', story.user._id]" class="story__info__user__username">@{{story.user.username}} · {{story.created_at | date : 'shortDate' }}</a>
+        </div>
       <a class="story__info__text" [routerLink]="['/stories', story._id]">
         <p>{{story.text}}</p> 
       </a>
     </div>
   </div>
 </div>
-
-
-<!-- {{story.user | json}} --> 

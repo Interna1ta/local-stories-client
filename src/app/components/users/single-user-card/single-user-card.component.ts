@@ -35,7 +35,6 @@ export class SingleUserCardComponent implements OnInit {
       this.usersService.getOne(this.idUser)
         .then(() => {
           this._checkAuthUser();
-          // this._checkFollowUser();
         })
     })
   }

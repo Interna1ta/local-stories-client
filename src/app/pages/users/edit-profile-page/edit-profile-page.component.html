@@ -1,3 +1,5 @@
+<app-top-nav></app-top-nav>
+
 <div id="site-body">
   <div class="columns">
     <div class="info">
@@ -21,12 +23,6 @@
                   <button type="button" (click)="onUpload()" class="btn btn-terciary">Change Profile Image</button>
                 </div>
               </div>
-              <!-- <div class="field">
-                <input type="file" name="image" (change)="onFileSelected($event)" class="file-input">
-                <div class="field submit">
-                  <button type="button" (click)="onFileSelected($event)" class="btn btn-terciary">Change Profile Image</button>
-                </div>
-              </div> -->
             </form> 
 
             <form class="field-form" (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
@@ -80,5 +76,3 @@
     </div>
   </div>
 </div>
-
-<app-top-nav></app-top-nav>
