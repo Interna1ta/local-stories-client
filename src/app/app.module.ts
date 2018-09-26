@@ -26,7 +26,6 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
 import { LoginPageComponent } from './pages/users/login-page/login-page.component';
 import { SignupPageComponent } from './pages/users/signup-page/signup-page.component';
 import { StoryCreatePageComponent } from './pages/stories/story-create-page/story-create-page.component';
-import { ProfilePageComponent } from './pages/users/profile-page/profile-page.component';
 import { UserPageComponent } from './pages/users/user-page/user-page.component';
 import { FollowersPageComponent } from './pages/users/followers-page/followers-page.component';
 import { FollowingPageComponent } from './pages/users/following-page/following-page.component';
@@ -63,7 +62,6 @@ const routes: Routes = [
   { path: 'stories/:id', component: StoryPageComponent },
   { path: 'articles/create', component: ArticleCreatePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'articles/:id', component: SingleArticlePageComponent },
-  { path: 'profile', component: ProfilePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'profile/edit', component: EditProfilePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'notifications', component: NotificationsPageComponent, canActivate: [RequireUserGuardService] },
   { path: 'profile/:id/addfollowers', component: AddFollowersPageComponent, canActivate: [RequireUserGuardService] },
@@ -84,7 +82,6 @@ const routes: Routes = [
     TopNavComponent,
     StoryCreatePageComponent,
     StoryCardComponent,
-    ProfilePageComponent,
     UserPageComponent,
     FollowersPageComponent,
     SingleUserCardComponent,

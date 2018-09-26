@@ -1,3 +1,5 @@
+<app-top-nav></app-top-nav>
+
 <div id="site-body">
   <div class="container article">
     <div class="article__user">
@@ -6,20 +8,17 @@
         <img *ngIf="article.user.profile_image_url" class="article__user__image" src="{{article.user.profile_image_url}}" alt="image-icon">
       </div>
       <div class="article__user__info" [routerLink]="['/users', article.user._id]">
-        <p>{{article.user.name}} @{{article.user.username}}</p>
-        <p class="article__info__time">{{article.created_at | date : 'shortDate' }}</p>
-      </div>
-      <div class="profile__info__action">
-        <button *ngIf="checkFollow == false" class="btn-terciary" (click)="followUser()">Follow</button>
-        <button *ngIf="checkFollow == true" class="btn-terciary" (click)="unfollowUser()">Not follow</button>
+        <p class="article__user__info__name"><strong>{{article.user.name}}</strong></p>
+        <p>@{{article.user.username}}</p>
+        <p class="article__user__info__time">{{article.created_at | date : 'longDate' }}</p>
       </div>
     </div>
     <div class="article__content">
-      <p class="article__content__title">{{article.title}}</p>
+      <h2 class="article__content__title">{{article.title}}</h2>
       <p class="article__content__text">{{article.text}}</p>
-      <button *ngIf="editButton" class="btn-secondary" (click)="deleteArticle()">Delete</button>
+    </div>
+    <div class="article__actions">
+      <button *ngIf="editButton" class="btn-secondary" (click)="deleteArticle()">Delete article</button>
     </div>
   </div>
 </div> 
-
-<app-top-nav></app-top-nav>

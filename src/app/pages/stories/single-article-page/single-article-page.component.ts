@@ -38,8 +38,6 @@ export class SingleArticlePageComponent implements OnInit {
           this.idUser = this.article.user._id;
           this._checkEditCredentials();
         })
-        .then(() => {
-        })
     })
   }
 
@@ -50,49 +48,6 @@ export class SingleArticlePageComponent implements OnInit {
         (this.idMe == this.idUser) ? this.editButton = true : this.editButton = false;
       })
   } 
- 
-  // _checkFollowUser() {
-  //   this.authService.me()
-  //     .then((data) => {
-  //       this.idMe = data._id;
-  //       this.idUser = this.article.user._id
-  //       this.idUsers = {
-  //         idUser: this.idUser,
-  //         idMe: this.idMe
-  //       }
-  //       this.usersService.userFollowing(this.idMe)
-  //         .then((data) => {
-  //           this.user = data;
-  //           if (this.user.following.length !== 0) {
-  //             for (let i = 0; i < this.user.following.length; i++) {
-  //               if (this.user.following[i]._id == this.idUser) {
-  //                 this.checkFollow = true
-  //                 i = this.user.following.length;
-  //               } else if (this.idUser == this.idMe) {
-  //               } else {
-  //                 this.checkFollow = false;
-  //               }
-  //             }
-  //           } else {
-  //             this.checkFollow = false;
-  //           }
-  //         })
-  //     })
-  // } 
-
-  // followUser() {
-  //   this.checkFollow = true;
-  //   this.usersService.followOne(this.idUsers)
-  //     .then(() => {
-  //       this.usersService.followOneNotification(this.idUsers);
-  //     })
-  // }
-
-  // unfollowUser() {
-  //   this.checkFollow = false;
-  //   this.usersService.unfollowOne(this.idUsers)
-  //     .then(() => { })
-  // }
 
   deleteArticle() {
     this.articlesService.deleteArticle(this.idArticle)
@@ -100,5 +55,6 @@ export class SingleArticlePageComponent implements OnInit {
         this.router.navigate(['/stories']);
       })
   }
+
 }
  
