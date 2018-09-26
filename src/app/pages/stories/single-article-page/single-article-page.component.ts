@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ArticlesService } from '../../../services/articles.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
-import { UsersService } from '../../../services/users.service';
 
 @Component({
   selector: 'app-single-article-page',
@@ -25,7 +24,6 @@ export class SingleArticlePageComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     private articlesService: ArticlesService,
     private authService: AuthService,
-    private usersService: UsersService,
     private router: Router
   ) { }
 

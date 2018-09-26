@@ -83,4 +83,8 @@ export class IndexComponent implements OnInit {
     this.router.navigate(['/news']);
   }
 
+  listAllUsers() {
+    this.router.navigate(['/profile', this.idMe, 'addfollowers']);
+  }
+
 }

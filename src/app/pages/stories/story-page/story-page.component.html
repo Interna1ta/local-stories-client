@@ -1,23 +1,24 @@
+<app-top-nav></app-top-nav> 
+
 <div id="site-body">
   <div class="columns">
 
     <div class="info">
       <div class="container story">
 
-        <div class="story__user" *ngIf="story">
+        <div class="story__user">
           <div [routerLink]="['/users', story.user._id]">
             <img *ngIf="!story.user.profile_image_url" class="story__user__image" src="../../../../assets/images/male-icon.png" alt="image-icon">
             <img *ngIf="story.user.profile_image_url" class="story__user__image" src="{{story.user.profile_image_url}}" alt="image-icon">
           </div>
           <div class="story__user__info" [routerLink]="['/users', story.user._id]">
-            <p>{{story.user.name}} @{{story.user.username}}</p>
-            <div *ngIf="editButton == false">
-              <button *ngIf="checkFollow == false" class="btn-secondary" (click)="followUser()">Follow</button>
-              <button *ngIf="checkFollow == true" class="btn-secondary" (click)="unfollowUser()">Not follow</button>
-            </div>
-            <p class="story__info__time">{{story.created_at | date : 'shortDate' }}</p>
-            <p class="story__content__text">{{story.text}}</p>
+            <p class="story__user__info__name"><strong>{{story.user.name}}</strong></p>
+            <p>@{{story.user.username}}</p>
+            <p class="story__user__info__time">{{story.created_at | date : 'longDate' }}</p>
           </div>
+        </div>
+        <div class="story__content">
+          <p class="story__content__text">{{story.text}}</p>
         </div>
 
         <div class="story-actions">
@@ -27,9 +28,7 @@
       </div>
     </div>
 
-  </div>
+  </div> 
 </div>
 
 <!-- {{ story | json}} -->
-
-<app-top-nav></app-top-nav> 
