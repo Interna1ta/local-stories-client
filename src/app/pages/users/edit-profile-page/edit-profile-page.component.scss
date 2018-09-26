@@ -7,7 +7,7 @@
 .profile {
 
   &__info {
-    padding: 20px 40px;
+    padding: 20px 20px;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -19,29 +19,40 @@
     img {
       width: 100px;
     }
+  }  
+}
+
+@media (min-width: 568px) {
+  .profile__info {
+    padding: 20px 40px;
   }
 }
 
-.profile-nav {
-  text-align: center;
-  align-items: center;
-}
+.field-form {
+  padding: 30px 0 10px 0;
 
-.field-edit {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 15px;
+  .field-edit {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
 
-  .field__label {
-    text-align: right;
-    line-height: 32px;
-    width: 120px;
-    margin-right: 20px;
-    font-weight: 700;
-  }
-  .field__input {
-    width: 100%;
-    padding: 5px;
-    font-size: 16px;
+    .field__label {
+      text-align: right;
+      line-height: 32px;
+      width: 120px;
+      margin-right: 20px;
+      font-weight: 700;
+    }
+    .field__input, .field__textarea {
+      width: 100%;
+      padding: 5px;
+      font-size: 16px;
+      border: 1px solid $color-border;
+    }
+
+    .field__textarea {
+      height: 56px;
+      resize: none;
+    }
   }
 }

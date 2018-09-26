@@ -4,8 +4,8 @@
     <div class="info">
       <div class="container">
         <div class="feed-actions">
-          <h3>Local News</h3>
-          <button class="btn-secondary" (click)="readAllNews()">Show more</button>
+          <h3>News</h3>
+          <button class="btn-secondary" (click)="listAllNews()">Show more</button>
         </div>
         <ul *ngFor="let article of articles">
           <li>
@@ -18,8 +18,8 @@
 
       <div class="container">
         <div class="feed-actions">
-          <h3>Local Tweets</h3>
-          <button class="btn-secondary" (click)="followingUserStories()">Following users</button>
+          <h3>Last Tweets</h3>
+          <button class="btn-secondary" (click)="listStoriesUsersFollowing()">Following users</button>
         </div>
         <ul *ngFor="let story of stories">
           <li>
@@ -29,9 +29,9 @@
       </div>
     </div>
 
-    <div class="add-people">
+    <!-- <div class="add-people">
       <app-add-friends></app-add-friends>
-    </div>
+    </div> -->
 
   </div>
 </div>

@@ -4,15 +4,16 @@
     <div class="info">
 
       <div class="container profile" *ngIf="user">
-        <div class="feed-title">
+        <div class="feed-actions">
           <h3>Profile</h3>
-        </div> 
+          <button class="btn-secondary" (click)="listAllUsers()">Who to follow</button>
+        </div>
         <div class="profile__info">
           <div>
             <img *ngIf="!user.profile_image_url == true" src="../../../../assets/images/male-icon.png" alt="male-icon">
             <img *ngIf="user.profile_image_url" src="{{user.profile_image_url}}" alt="image-icon">
           </div>
-          <p class="profile__username" *ngIf="user.name">{{user.name}}</p>
+          <p class="profile__username" *ngIf="user.name"><strong>{{user.name}}</strong></p>
           <p class="profile__username" *ngIf="user">@{{user.username}}</p>
           <div class="profile__info__follow-btn" *ngIf="editButton == false">
             <button class="btn-terciary" *ngIf="checkFollow == false" (click)="followUser()">Follow</button>
@@ -24,10 +25,10 @@
           </div>
         </div>
 
-        <!-- <div>
-          <p>Biography</p>
-          <p class="profile__username" *ngIf="user">{{user.description}}</p>
-        </div> -->
+        <div class="profile__description" *ngIf="user.description">
+          <p class="profile__description__title">Biography</p>
+          <p class="profile__description__text">{{user.description}}</p>
+        </div>
 
         <div class="feed-actions feed-actions-profile">
           <button class="btn-profile" (click)="listAllStories()"><strong>Tweets</strong></button>
@@ -58,9 +59,9 @@
       </div>
     </div>
 
-    <div class="add-people">
+    <!-- <div class="add-people">
       <app-add-friends></app-add-friends>
-    </div>
+    </div> -->
   </div>
 </div>
 

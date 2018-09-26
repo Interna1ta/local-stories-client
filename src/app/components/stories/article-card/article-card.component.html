@@ -3,10 +3,11 @@
     <div class="article__info">
       <p class="article__info__title" [routerLink]="['/articles', article._id]">{{article.title}}</p>
       <!-- <p class="article__info__text">{{article.text}}</p> -->
-      <a class="article__info__name" [routerLink]="['/users', article.user._id]">
-        <p>{{article.user.name}}</p>
+      <a class="article__info__user" [routerLink]="['/users', article.user._id]">
+        <p class="article__info__user__name" *ngIf="article.user.name">{{article.user.name}}</p>
+        <p class="article__info__user__username" *ngIf="!article.user.name">@{{article.user.username}}</p>
+        <p class="article__info__time">· {{article.created_at | date : 'longDate' }}</p>
       </a>
-      <p class="article__info__time">{{article.created_at | date : 'shortDate' }}</p>
     </div>
   </div>
 </div>

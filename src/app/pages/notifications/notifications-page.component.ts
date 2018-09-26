@@ -28,6 +28,7 @@ export class NotificationsPageComponent implements OnInit {
         this.idMe = data._id;
         this.usersService.getNotifications(this.idMe)
           .then((data) => {
+            data.reverse();
             this.notifications = data;
           })
     })

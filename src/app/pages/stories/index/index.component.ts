@@ -15,7 +15,6 @@ export class IndexComponent implements OnInit {
 
   articles: Array<any> = []; 
   stories: Array<any>;
-  tweets: any;
   user: any;
   idUser: string;
   idMe: string;
@@ -34,6 +33,7 @@ export class IndexComponent implements OnInit {
     this.checkFollow = false;
     this.listAllStories();
     this.listLastArticle();
+    this.checkAuthUser();
   }
 
   listAllStories() {
@@ -52,32 +52,34 @@ export class IndexComponent implements OnInit {
       })
   }
 
-  followingUserStories() {
-    this.stories = [];
-    this.authService.me() 
+  checkAuthUser() {
+    this.authService.me()
       .then((data) => {
-        this.tweets = [];
         this.user = data;
         this.idMe = data._id;
-        this.usersService.userFollowing(this.idMe)
-          .then((data) => {
-            this.user = data
-            for (let i = 0; i < this.user.following.length; i++) {
-              this.idUser = this.user.following[i]._id;
-              this.storiesService.userStories(this.idUser)
-                .then((result) => {
-                  for (let j = 0; j < this.user.following.length; j++) {
-                    if (result[j] !== undefined) {
-                      this.stories.unshift(result[j]);
-                    }
-                  }
-                })
-            }        
-          })
       })
   }
 
-  readAllNews() {
+  listStoriesUsersFollowing() {
+    // this.checkAuthUser();
+    this.stories = [];
+    for (let i = 0; i < this.user.following.length; i++) {
+      // console.log(this.stories);
+      console.log(this.user.following.length);
+      console.log(this.user.following[i]);
+      this.idUser = this.user.following[i];
+      this.storiesService.userStories(this.idUser)
+        .then((result) => {
+          console.log(result);
+          for (let j = 0; j < result.length; j++) {
+            // console.log(this.stories);
+            this.stories.unshift(result[j]);
+          }
+        })
+    }
+  }
+
+  listAllNews() {
     this.router.navigate(['/news']);
   }
 

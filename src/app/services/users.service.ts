@@ -59,17 +59,17 @@ export class UsersService {
   }
 
   editProfile(user: any): Promise<any> {
-    return this.httpClient.put(`${this.baseUrl}/users/${user.id}/edit`, user, this.options)
+    return this.httpClient.put(`${this.baseUrl}/${user.id}/edit`, user, this.options)
       .toPromise();
   }
 
   uploadPicture(user: any) {
-    return this.httpClient.put(`${this.baseUrl}/users/${user.id}/image`, user.fd, this.options)
+    return this.httpClient.put(`${this.baseUrl}/${user.id}/image`, user.fd, this.options)
       .toPromise();
   }
 
   signUpNotification(id: any): Promise<any> {
-    return this.httpClient.post(`${this.baseUrl}/users/${id}/signup`, id, this.options)
+    return this.httpClient.post(`${this.baseUrl}/${id}/signup`, id, this.options)
       .toPromise();
   }
 }

@@ -35,6 +35,7 @@ export class SingleUserCardComponent implements OnInit {
       this.usersService.getOne(this.idUser)
         .then(() => {
           this._checkAuthUser();
+          // this._checkFollowUser();
         })
     })
   }
@@ -43,6 +44,10 @@ export class SingleUserCardComponent implements OnInit {
     this.authService.me()
       .then((data) => {
         this.idMe = data._id;
+        this.idUsers = {
+          idUser: this.follower._id,
+          idMe: this.idMe
+        }
         this._checkFollowingUser();
       })
   }
@@ -61,7 +66,7 @@ export class SingleUserCardComponent implements OnInit {
           }
         }
       })
-  }  
+  } 
 
   followUser() {
     this.checkFollow = true;

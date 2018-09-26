@@ -16,17 +16,33 @@
       &__title {
         color: $color-name;
         text-decoration: none;
-        font-size: 18px;
+        font-size: 17px;
+        font-weight: bold;
+        line-height: 25px;
+        margin-bottom: 3px;
       }
 
-      &__name {
-        color: $color-name;
+      &__user {
+        display: flex;
+        flex-direction: row;
         text-decoration: none;
+
+        &__name, &__username {
+          color: $color-name;
+          text-decoration: none;
+          margin-right: 5px;
+        }
+  
+        &__name:hover {
+          text-decoration: underline;
+        }
       }
 
-      &__name:hover {
-        text-decoration: underline;
+      &__time {
+        color: $color-name;
+        font-weight: lighter;
       }
+
     }
   }
 }

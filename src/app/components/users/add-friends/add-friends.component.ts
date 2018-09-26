@@ -11,7 +11,6 @@ export class AddFriendsComponent implements OnInit {
 
   users: Array<any>;
   user: any;
-  checkFollow: boolean;
   idUser: string;
 
   constructor(
@@ -24,16 +23,18 @@ export class AddFriendsComponent implements OnInit {
       this.idUser = params.id;
       this.usersService.addFollowers(this.idUser)
         .then((data) => {
+          console.log(data);
           this.users = data;
-          this._getEveryFollower();
+          this.user = this.users[0];
+          // this._getEveryFollower();
         })
     })
   }
 
-  _getEveryFollower() {
-    for (let i = 0; i < this.users.length; i++) {
-      this.user = this.users[i];
-    }
-  }
+  // _getEveryFollower() {
+  //   for (let i = 0; i < this.users.length; i++) {
+  //     this.user = this.users[i];
+  //   }
+  // }
 
 }

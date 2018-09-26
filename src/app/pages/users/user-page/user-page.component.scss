@@ -16,11 +16,22 @@
     img {
       width: 100px;
     }
+
   }
 }
 
-.profile-nav {
-  text-align: center;
-  align-items: center;
+.profile__description {
+  padding: 15px;
+  text-align: left;
+  
+  &__title {
+    font-weight: bold;
+    // margin-bottom: 5px;
+  }
+
+  &__text {
+
+  }
 }
+
  

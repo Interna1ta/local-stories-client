@@ -264,18 +264,6 @@ button {
   border-top: 1px solid $color-border;
   text-align: left;
 }
- 
-.more-actions:hover {
-  background-color: $color-card-hover;
-
-  a {
-    background-color: $color-card-hover;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-}
 
 .bottom-actions {
   display: flex;

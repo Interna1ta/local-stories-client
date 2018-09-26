@@ -53,7 +53,12 @@ export class UserPageComponent implements OnInit {
     this.authService.me() 
       .then((data) => {
         this.idMe = data._id;
-        (this.idMe == this.idUser) ? this.editButton = true : this.editButton = false;
+        (this.idMe == this.idUser) ? this.editButton = true 
+          : this.editButton = false;
+        this.idUsers = {
+          idUser: this.idUser,
+          idMe: this.idMe
+        }
         this.usersService.getOne(this.idMe)
           .then((data) => {            
             this.checkFollow = false;
@@ -106,6 +111,10 @@ export class UserPageComponent implements OnInit {
 
   editProfile() {
     this.router.navigate(['/profile/edit']);
+  }
+
+  listAllUsers() {
+    this.router.navigate(['/profile', this.idMe, 'addfollowers']);
   }
 
   logout() {

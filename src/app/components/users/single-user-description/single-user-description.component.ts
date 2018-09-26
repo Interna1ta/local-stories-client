@@ -43,6 +43,10 @@ export class SingleUserDescriptionComponent implements OnInit {
     this.authService.me()
       .then((data) => {
         this.idMe = data._id;
+        this.idUsers = {
+          idUser: this.follower._id,
+          idMe: this.idMe
+        }
         this._checkFollowingUser();
       })
   }
@@ -50,7 +54,7 @@ export class SingleUserDescriptionComponent implements OnInit {
   _checkFollowingUser() {
     this.usersService.getOne(this.idMe)
       .then((data) => {
-        this.user = data;
+        this.user = data; 
         this.checkFollow = false;
         for (let i = 0; i < this.user.following.length; i++) {
           if (this.user.following[i] == this.follower._id) {

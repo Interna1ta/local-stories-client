@@ -29,9 +29,7 @@
               </div> -->
             </form> 
 
-            <br><br>
-
-            <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+            <form class="field-form" (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
               <div class="field_inputs">
               
                 <div class="field-edit" [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
@@ -56,10 +54,10 @@
 
                 <div class="field-edit" [ngClass]="{'has-error': feedbackEnabled && descriptionField.errors}">
                   <label class="field__label">Biography</label>
-                  <input type="text" class="field__input" value="{{user.description}}" name="description" [(ngModel)]="description" #descriptionField="ngModel"
-                    maxlength="400" [disabled]="processing" />
+                  <textarea type="text" class="field__textarea" value="{{user.description}}" name="description" [(ngModel)]="description" #descriptionField="ngModel"
+                    maxlength="400" [disabled]="processing"></textarea>
                   <div *ngIf="feedbackEnabled && descriptionField.errors">
-                    <!-- <p *ngIf="descriptionField.errors.maxlength" class="validation">description is too long</p> -->
+                    <p *ngIf="descriptionField.errors.maxlength" class="validation">description is too long</p>
                   </div>
                 </div>
 

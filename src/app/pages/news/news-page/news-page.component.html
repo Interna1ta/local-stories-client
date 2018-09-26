@@ -1,13 +1,11 @@
 <div id="site-body">
   
   <div class="columns">
-  
     <div class="info">
       <div class="container">
         <div class="feed-title">
           <h3>All News</h3>
         </div>
-
         <ul *ngFor="let article of articles">
           <li>
             <!-- <a [routerLink]="['/articles', article._id]"> -->
@@ -16,13 +14,16 @@
           </li>
         </ul>
       </div>
-    </div>
-
-    <div class="add-people">
-      <div class="container display-or-not">
+      <div class="container">
         <app-write-article></app-write-article>
       </div>
     </div>
+
+    <!-- <div class="add-people">
+      <div class="container display-or-not">
+        <app-write-article></app-write-article>
+      </div>
+    </div> -->
   </div>
 
 </div> 
