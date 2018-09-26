@@ -178,7 +178,7 @@ button {
 
 .btn {
   background-color: $color-btn;
-  color: #ffffff;
+  color: $color-white;
   text-decoration: none;
   font-size: 12px;
   font-weight: 400;
@@ -186,19 +186,20 @@ button {
 
 .btn-primary {
   padding: 10px;
+  margin-bottom: 15px;
   width: 100%;
   border: none;
   line-height: 20px;
   border-radius: 25px;
   font-size: 16px;
   font-weight: 400;
-  margin-bottom: 15px;
 }
 
 .btn-secondary {
-  text-decoration: none;
-  color: $color-btn-primary;
   background-color: $color-white;
+  color: $color-btn-primary;
+  text-decoration: none;
+  line-height: 23px;
   border: 0px;
   font-size: 15px;
 }
