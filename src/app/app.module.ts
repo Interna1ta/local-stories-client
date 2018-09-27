@@ -33,7 +33,7 @@ import { EditProfilePageComponent } from './pages/users/edit-profile-page/edit-p
 import { NotificationsPageComponent } from './pages/notifications/notifications-page.component';
 import { AddFollowersPageComponent } from './pages/users/add-followers-page/add-followers-page.component';
 import { ArticleCreatePageComponent } from './pages/stories/article-create-page/article-create-page.component';
-import { StoryPageComponent } from './pages/stories/story-page/story-page.component';
+import { SingleStoryPageComponent } from './pages/stories/single-story-page/single-story-page.component';
 import { SingleArticlePageComponent } from './pages/stories/single-article-page/single-article-page.component';
 import { NewsPageComponent } from './pages/news/news-page/news-page.component';
 
@@ -60,7 +60,7 @@ const routes: Routes = [
   { path: 'news', component: NewsPageComponent, canActivate: [RequireUserGuardService] },
   { path: 'stories', component: IndexComponent, canActivate: [RequireUserGuardService] },
   { path: 'stories/create', component: StoryCreatePageComponent, canActivate: [RequireUserGuardService] },
-  { path: 'stories/:id', component: StoryPageComponent },
+  { path: 'stories/:id', component: SingleStoryPageComponent },
   { path: 'articles/create', component: ArticleCreatePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'articles/:id', component: SingleArticlePageComponent },
   { path: 'profile/edit', component: EditProfilePageComponent, canActivate: [RequireUserGuardService] },
@@ -93,7 +93,7 @@ const routes: Routes = [
     AddFollowersPageComponent,
     NewsPageComponent,
     ArticleCreatePageComponent,
-    StoryPageComponent,
+    SingleStoryPageComponent,
     ArticleCardComponent,
     SingleArticlePageComponent,
     AddFriendsComponent,

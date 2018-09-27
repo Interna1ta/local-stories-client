@@ -5,11 +5,11 @@ import { AuthService } from '../../../services/auth.service';
 import { UsersService } from '../../../services/users.service';
 
 @Component({
-  selector: 'app-story-page',
-  templateUrl: './story-page.component.html',
-  styleUrls: ['./story-page.component.scss']
+  selector: 'app-single-story-page',
+  templateUrl: './single-story-page.component.html',
+  styleUrls: ['./single-story-page.component.scss']
 })
-export class StoryPageComponent implements OnInit {
+export class SingleStoryPageComponent implements OnInit {
 
   story: any;
   idStory: string;

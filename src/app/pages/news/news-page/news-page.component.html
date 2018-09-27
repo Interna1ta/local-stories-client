@@ -8,9 +8,7 @@
         </div>
         <ul *ngFor="let article of articles">
           <li>
-            <!-- <a [routerLink]="['/articles', article._id]"> -->
-              <app-article-card [article]="article"></app-article-card>
-            <!-- </a> -->
+            <app-article-card [article]="article"></app-article-card>
           </li>
         </ul>
       </div>
@@ -18,12 +16,6 @@
         <app-write-article></app-write-article>
       </div>
     </div>
-
-    <!-- <div class="add-people">
-      <div class="container display-or-not">
-        <app-write-article></app-write-article>
-      </div>
-    </div> -->
   </div>
 
 </div> 
