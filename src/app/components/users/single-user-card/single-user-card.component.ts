@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { UsersService } from '../../../services/users.service';
+import { NotificationsService } from '../../../services/notifications.service';
 
 @Component({
   selector: 'app-single-user-card',
@@ -20,9 +21,10 @@ export class SingleUserCardComponent implements OnInit {
   editButton: boolean = false;
 
   constructor(
-    private usersService: UsersService,
     private authService: AuthService,
-    private activateRoute: ActivatedRoute
+    private usersService: UsersService,
+    private activateRoute: ActivatedRoute,
+    private notificationsService: NotificationsService
   ) { }
 
   ngOnInit() {
@@ -71,7 +73,7 @@ export class SingleUserCardComponent implements OnInit {
     this.checkFollow = true;
     this.usersService.followOne(this.idUsers)
       .then(() => {
-        this.usersService.followOneNotification(this.idUsers);
+        this.notificationsService.followOneNotification(this.idUsers);
       })
   }
 

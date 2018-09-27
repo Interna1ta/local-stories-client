@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../../services/users.service';
+import { NotificationsService } from '../../services/notifications.service';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -14,19 +14,19 @@ export class NotificationsPageComponent implements OnInit {
   idMe: string;
   
   constructor(
-    private usersService: UsersService, 
-    private authService: AuthService
+    private authService: AuthService,
+    private notificationsService: NotificationsService 
   ) { }
 
   ngOnInit() {
-    this.ListAllNotifications();
+    this.listAllNotifications();
   }
 
-  ListAllNotifications() {
+  listAllNotifications() {
     this.authService.me()
       .then((data) => {
         this.idMe = data._id;
-        this.usersService.getNotifications(this.idMe)
+        this.notificationsService.getNotifications(this.idMe)
           .then((data) => {
             data.reverse();
             this.notifications = data;

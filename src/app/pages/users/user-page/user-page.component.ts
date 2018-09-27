@@ -5,6 +5,7 @@ import { StoriesService } from '../../../services/stories.service';
 import { UsersService } from '../../../services/users.service';
 import { AuthService } from '../../../services/auth.service';
 import { ArticlesService } from '../../../services/articles.service';
+import { NotificationsService } from '../../../services/notifications.service';
 
 @Component({
   selector: 'app-user-page',
@@ -28,6 +29,7 @@ export class UserPageComponent implements OnInit {
     private articlesService: ArticlesService,
     private router: Router,
     private activateRoute: ActivatedRoute,
+    private notificationsService: NotificationsService,
     private authService: AuthService
   ) { }
 
@@ -98,7 +100,7 @@ export class UserPageComponent implements OnInit {
     this.checkFollow = true;
     this.usersService.followOne(this.idUsers)
       .then(() => {
-        this.usersService.followOneNotification(this.idUsers);
+        this.notificationsService.followOneNotification(this.idUsers);
       })
   } 
 

@@ -7,7 +7,7 @@
     <div class="profile__info__user" [routerLink]="['/users', follower._id]">
       <p class="profile__info__user__name">{{follower.name}}</p>
       <p class="profile__info__user__username">@{{follower.username}}</p>
-      <!-- <p class="profile__info__user__username">{{follower.description}}</p> -->
+      <!-- <p class="profile__info__user__description">{{follower.description}}</p> -->
     </div>
     <div class="profile__info__action" *ngIf="editButton == false">
       <button *ngIf="checkFollow == false" class="btn-terciary" (click)="followUser()">Follow</button>

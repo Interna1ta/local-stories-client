@@ -27,20 +27,10 @@ export class UsersService {
     return this.httpClient.get(`${this.baseUrl}/${id}/addfollowers`, this.options)
       .toPromise();
   }
-  
-  getNotifications(id: string): Promise<any> {
-    return this.httpClient.get(`${this.baseUrl}/${id}/notifications`, this.options)
-      .toPromise();
-  }
 
   followOne(idUsers: any): Promise<any> {
     return this.httpClient.put(`${this.baseUrl}/${idUsers.idMe}/follow`, idUsers, this.options)
     .toPromise();
-  }
-
-  followOneNotification(idUsers: any): Promise<any> {
-    return this.httpClient.post(`${this.baseUrl}/${idUsers.idMe}/follow`, idUsers, this.options)
-      .toPromise();
   }
   
   unfollowOne(idUsers: any): Promise<any> {
@@ -65,11 +55,6 @@ export class UsersService {
 
   uploadPicture(user: any) {
     return this.httpClient.put(`${this.baseUrl}/${user.id}/image`, user.fd, this.options)
-      .toPromise();
-  }
-
-  signUpNotification(id: any): Promise<any> {
-    return this.httpClient.post(`${this.baseUrl}/${id}/signup`, id, this.options)
       .toPromise();
   }
 }

@@ -11,7 +11,7 @@
         <div *ngIf="checkFollow">
           <ul *ngFor="let follower of user.following">
             <li>
-              <app-single-user-description [follower]="follower"></app-single-user-description>
+              <app-single-user-card [follower]="follower"></app-single-user-card>
             </li>
           </ul>
         </div>

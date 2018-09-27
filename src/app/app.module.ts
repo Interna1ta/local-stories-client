@@ -16,7 +16,6 @@ import { ArticleCardComponent } from './components/stories/article-card/article-
 import { WriteArticleComponent } from './components/stories/write-article/write-article.component';
 import { AddFriendsComponent } from './components/users/add-friends/add-friends.component';
 import { SingleUserCardComponent } from './components/users/single-user-card/single-user-card.component';
-import { SingleUserDescriptionComponent } from './components/users/single-user-description/single-user-description.component';
 import { CreateButtonComponent } from './components/nav/create-button/create-button.component';
 
 // -- Pages
@@ -44,6 +43,7 @@ import { AuthService } from './services/auth.service';
 import { UsersService } from './services/users.service';
 import { ArticlesService } from './services/articles.service';
 import { StoriesService } from './services/stories.service';
+import { NotificationsService } from './services/notifications.service';
 
 // -- Guards
 
@@ -98,7 +98,6 @@ const routes: Routes = [
     SingleArticlePageComponent,
     AddFriendsComponent,
     WriteArticleComponent,
-    SingleUserDescriptionComponent,
     CreateButtonComponent
   ],
   imports: [
@@ -114,7 +113,8 @@ const routes: Routes = [
     RequireAnonGuardService,
     RequireUserGuardService,
     UsersService,
-    ArticlesService
+    ArticlesService,
+    NotificationsService
   ],
   bootstrap: [AppComponent]
 })

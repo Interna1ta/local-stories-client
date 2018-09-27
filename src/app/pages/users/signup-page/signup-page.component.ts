@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../../services/auth.service';
-import { UsersService } from '../../../services/users.service';
+import { NotificationsService } from '../../../services/notifications.service';
 
 @Component({
   selector: 'app-signup-page',
@@ -20,7 +20,7 @@ export class SignupPageComponent implements OnInit {
 
   constructor(
     private authService: AuthService, 
-    private usersService: UsersService, 
+    private notificationsService: NotificationsService, 
     private router: Router
   ) { }
 
@@ -39,7 +39,7 @@ export class SignupPageComponent implements OnInit {
       this.authService.signup(user)
         .then((data) => {
           this.idUser = data._id;
-          this.usersService.signUpNotification(this.idUser);
+          this.notificationsService.signUpNotification(this.idUser);
           this.router.navigate(['/stories']);
         })
         .catch((err) => {
