@@ -19,11 +19,11 @@ User can:
 
 For the frontend (this repository) I used Angular CLI as a project generator and [SASS](https://sass-lang.com/) to style.
 
-For the backend [Local-Stories-Server](https://github.com/Interna1ta/local-stories-server) I used Express generator, and some packages.
+For the backend [Server](https://github.com/Interna1ta/local-stories-server) I used Express generator, and some packages.
 
 The local database was [MongoDB](https://docs.mongodb.com/), and [NodeJs](https://nodejs.org/en/) as a local server.
 And [Heroku](https://www.heroku.com/home) as a cloud platform for the deployment.
 
-## Try the app
+## Try the app on Chrome and Mozilla Firefox(not available on Safari, yet...)
 
 [Agora](https://agoranews.herokuapp.com/)
