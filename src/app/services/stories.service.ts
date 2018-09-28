@@ -44,9 +44,4 @@ export class StoriesService {
   //   return this.httpClient.post(`${this.baseUrl}/twitter`, story, this.options)
   //     .toPromise();
   // }
-
-  // listTweets(): Promise<any> {
-  //   return this.httpClient.get(`${this.baseUrl}/tweets`, this.options)
-  //     .toPromise();
-  // }
 }

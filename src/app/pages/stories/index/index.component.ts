@@ -39,7 +39,6 @@ export class IndexComponent implements OnInit {
   listAllStories() {
     this.storiesService.listAll()
       .then((data) => {
-        data.reverse();
         this.stories = data;
       })
   }
@@ -47,8 +46,8 @@ export class IndexComponent implements OnInit {
   listLastArticle() {
     this.articlesService.listAll()
       .then((data) => {
-        this.articles.push(data[data.length - 1]);
-        this.articles.push(data[data.length - 2]);
+        this.articles.push(data[0]);
+        this.articles.push(data[1]);
       })
   }
 
