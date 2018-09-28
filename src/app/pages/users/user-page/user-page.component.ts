@@ -17,7 +17,6 @@ export class UserPageComponent implements OnInit {
   user: any;
   idUser: string;
   idMe: string;
-  idUsers: object;
   stories: Array<any>;
   articles: Array<any>;
   checkFollow: boolean;
@@ -45,32 +44,31 @@ export class UserPageComponent implements OnInit {
       this.usersService.getOne(this.idUser)
         .then((data) => {
           this.user = data;
-          this._checkFollowingUser();
+          this._checkEditCredentials();
         })
     })
   }
 
-  _checkFollowingUser() {
-    this.authService.me() 
+  _checkEditCredentials() {
+    this.authService.me()
       .then((data) => {
         this.idMe = data._id;
-        (this.idMe == this.idUser) ? this.editButton = true 
-          : this.editButton = false;
-        this.idUsers = {
-          idUser: this.idUser,
-          idMe: this.idMe
+        (this.idMe == this.idUser) ? this.editButton = true : this.editButton = false;
+        this._checkFollowingUser();
+      })
+  }
+
+  _checkFollowingUser() {
+    this.usersService.getOne(this.idMe)
+      .then((data) => {            
+        this.checkFollow = false;
+        for (var i=0; i<data.following.length; i++) {
+          if (data.following[i] == this.idUser) {
+            this.checkFollow = true;
+          }
         }
-        this.usersService.getOne(this.idMe)
-          .then((data) => {            
-            this.checkFollow = false;
-            for (var i=0; i<data.following.length; i++) {
-              if (data.following[i] == this.idUser) {
-                this.checkFollow = true;
-              }
-            }
-            this.findUserStories();
-          })
-      }) 
+        this.findUserStories();
+      })
   }
 
   findUserArticles() {
@@ -97,15 +95,15 @@ export class UserPageComponent implements OnInit {
 
   followUser() {
     this.checkFollow = true;
-    this.usersService.followOne(this.idUsers)
+    this.usersService.followOne(this.idUser)
       .then(() => {
-        this.notificationsService.followOneNotification(this.idUsers);
+        this.notificationsService.followOneNotification(this.idUser);
       })
   } 
 
   unfollowUser() {
     this.checkFollow = false;
-    this.usersService.unfollowOne(this.idUsers)
+    this.usersService.unfollowOne(this.idUser)
       .then(() => {})
   }
   

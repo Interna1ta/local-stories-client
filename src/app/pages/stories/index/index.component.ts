@@ -17,7 +17,6 @@ export class IndexComponent implements OnInit {
   user: any;
   idUser: string;
   idMe: string;
-  idUsers: object;
   checkFollow: boolean;
 
   constructor(

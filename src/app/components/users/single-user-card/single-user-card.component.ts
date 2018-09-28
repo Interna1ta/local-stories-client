@@ -16,7 +16,6 @@ export class SingleUserCardComponent implements OnInit {
   user: any;
   idUser: string;
   idMe: string;
-  idUsers: object;
   checkFollow: boolean;
   editButton: boolean = false;
 
@@ -45,10 +44,7 @@ export class SingleUserCardComponent implements OnInit {
     this.authService.me()
       .then((data) => {
         this.idMe = data._id;
-        this.idUsers = {
-          idUser: this.follower._id,
-          idMe: this.idMe
-        }
+        this.idUser = this.follower._id;
         this._checkFollowingUser();
       })
   }
@@ -71,15 +67,15 @@ export class SingleUserCardComponent implements OnInit {
 
   followUser() {
     this.checkFollow = true;
-    this.usersService.followOne(this.idUsers)
+    this.usersService.followOne(this.idUser)
       .then(() => {
-        this.notificationsService.followOneNotification(this.idUsers);
+        this.notificationsService.followOneNotification(this.idUser);
       })
   }
 
   unfollowUser() {
     this.checkFollow = false;
-    this.usersService.unfollowOne(this.idUsers)
+    this.usersService.unfollowOne(this.idUser)
       .then(() => {})
   }
 }

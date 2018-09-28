@@ -20,13 +20,13 @@ export class NotificationsService {
       .toPromise();
   }
 
-  signUpNotification(id: any): Promise<any> {
+  signUpNotification(id: string): Promise<any> {
     return this.httpClient.post(`${this.baseUrl}/${id}/signup`, id, this.options)
       .toPromise();
   }
 
-  followOneNotification(idUsers: any): Promise<any> {
-    return this.httpClient.post(`${this.baseUrl}/${idUsers.idMe}/follow`, idUsers, this.options)
+  followOneNotification(id: string): Promise<any> {
+    return this.httpClient.post(`${this.baseUrl}/${id}/follow`, id, this.options)
       .toPromise();
   }
 }

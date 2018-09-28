@@ -12,8 +12,6 @@ export class SingleArticlePageComponent implements OnInit {
 
   idArticle: string;
   article: any;
-
-  user: any;
   idUser: string;
   idMe: string;
   editButton: boolean = false;
@@ -40,7 +38,6 @@ export class SingleArticlePageComponent implements OnInit {
   _checkEditCredentials() {
     this.authService.me()
       .then((data) => {
-        this.user = data;
         this.idMe = data._id;
         (this.idMe == this.idUser) ? this.editButton = true : this.editButton = false;
       })

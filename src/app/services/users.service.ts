@@ -28,22 +28,22 @@ export class UsersService {
       .toPromise();
   }
 
-  followOne(idUsers: any): Promise<any> {
-    return this.httpClient.put(`${this.baseUrl}/${idUsers.idMe}/follow`, idUsers, this.options)
+  followOne(id: string): Promise<any> {
+    return this.httpClient.put(`${this.baseUrl}/${id}/follow`, id, this.options)
     .toPromise();
   }
   
-  unfollowOne(idUsers: any): Promise<any> {
-    return this.httpClient.put(`${this.baseUrl}/${idUsers.idMe}/unfollow`, idUsers, this.options)
+  unfollowOne(id: string): Promise<any> {
+    return this.httpClient.put(`${this.baseUrl}/${id}/unfollow`, id, this.options)
     .toPromise();
   }
   
-  userFollowers(id): Promise<any> {
+  userFollowers(id: string): Promise<any> {
     return this.httpClient.get(`${this.baseUrl}/${id}/followers`, this.options)
       .toPromise();
   }
 
-  userFollowing(id): Promise<any> {
+  userFollowing(id: string): Promise<any> {
     return this.httpClient.get(`${this.baseUrl}/${id}/following`, this.options)
       .toPromise();
   }

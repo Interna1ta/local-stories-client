@@ -7,9 +7,9 @@
       <div class="container story">
 
         <div class="story__user">
-          <a>
-            <img [routerLink]="['/users', story.user._id]" *ngIf="!story.user.profile_image_url" class="story__user__image" src="../../../../assets/images/male-icon.png" alt="image-icon">
-            <img [routerLink]="['/users', story.user._id]" *ngIf="story.user.profile_image_url" class="story__user__image" src="{{story.user.profile_image_url}}" alt="image-icon">
+          <a [routerLink]="['/users', story.user._id]">
+            <img *ngIf="!story.user.profile_image_url" class="story__user__image" src="../../../../assets/images/male-icon.png" alt="image-icon">
+            <img *ngIf="story.user.profile_image_url" class="story__user__image" src="{{story.user.profile_image_url}}" alt="image-icon">
           </a>
           <div class="story__user__info">
             <a class="story__user__info__name" [routerLink]="['/users', story.user._id]">{{story.user.name}}</a>

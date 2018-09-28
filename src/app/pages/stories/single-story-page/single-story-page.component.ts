@@ -10,12 +10,11 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class SingleStoryPageComponent implements OnInit {
 
-  story: any;
   idStory: string;
+  story: any;
   idMe: string;
   idUser: string;
   editButton: boolean = false;
-  user: any;
 
   constructor(
     private storiesService: StoriesService,
@@ -39,7 +38,6 @@ export class SingleStoryPageComponent implements OnInit {
   _checkEditCredentials() {
     this.authService.me()
       .then((data) => {
-        this.user = data;
         this.idMe = data._id;
         (this.idMe == this.idUser) ? this.editButton = true : this.editButton = false;
       })
