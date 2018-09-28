@@ -64,11 +64,11 @@ const routes: Routes = [
   { path: 'articles/create', component: ArticleCreatePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'articles/:id', component: SingleArticlePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'profile/edit', component: EditProfilePageComponent, canActivate: [RequireUserGuardService] },
-  { path: 'notifications', component: NotificationsPageComponent, canActivate: [RequireUserGuardService] },
   { path: 'profile/:id/addfollowers', component: AddFollowersPageComponent, canActivate: [RequireUserGuardService] },
   { path: 'users/:id/followers', component: FollowersPageComponent, canActivate: [RequireUserGuardService] },
   { path: 'users/:id/following', component: FollowingPageComponent, canActivate: [RequireUserGuardService] },
   { path: 'users/:id', component: UserPageComponent, canActivate: [RequireUserGuardService] },
+  { path: 'notifications', component: NotificationsPageComponent, canActivate: [RequireUserGuardService] },
   { path: '**', component: Error404Component }
 ];
 

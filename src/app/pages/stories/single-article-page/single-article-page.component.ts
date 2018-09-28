@@ -15,9 +15,7 @@ export class SingleArticlePageComponent implements OnInit {
 
   user: any;
   idUser: string;
-  idUsers: any;
   idMe: string;
-  checkFollow: boolean;
   editButton: boolean = false;
 
   constructor(
@@ -42,6 +40,7 @@ export class SingleArticlePageComponent implements OnInit {
   _checkEditCredentials() {
     this.authService.me()
       .then((data) => {
+        this.user = data;
         this.idMe = data._id;
         (this.idMe == this.idUser) ? this.editButton = true : this.editButton = false;
       })

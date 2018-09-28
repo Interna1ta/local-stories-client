@@ -26,10 +26,17 @@
 
       &__name {
         text-decoration: none;
+        font-weight: bold;
+        color: $color-name;
       }
 
       &__name:hover {
         text-decoration: underline;
+      }
+
+      &__username {
+        text-decoration: none;
+        color: $color-name;
       }
     }
   }

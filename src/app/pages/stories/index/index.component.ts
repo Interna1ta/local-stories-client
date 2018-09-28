@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { StoriesService } from '../../../services/stories.service';
-import { UsersService } from '../../../services/users.service';
 import { AuthService } from '../../../services/auth.service';
 import { ArticlesService } from '../../../services/articles.service';
 import { Router } from '@angular/router';
@@ -23,7 +22,6 @@ export class IndexComponent implements OnInit {
 
   constructor(
     private storiesService: StoriesService, 
-    private usersService: UsersService, 
     private authService: AuthService,
     private router: Router,
     private articlesService: ArticlesService

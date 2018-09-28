@@ -45,7 +45,6 @@ export class UserPageComponent implements OnInit {
       this.usersService.getOne(this.idUser)
         .then((data) => {
           this.user = data;
-          this.idUser = data._id;
           this._checkFollowingUser();
         })
     })
