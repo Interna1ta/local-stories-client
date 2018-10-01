@@ -6,11 +6,11 @@ import { ArticlesService } from '../../../services/articles.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss']
+  selector: 'app-stories-page',
+  templateUrl: './stories-page.component.html',
+  styleUrls: ['./stories-page.component.scss']
 })
-export class IndexComponent implements OnInit {
+export class StoriesPageComponent implements OnInit {
 
   articles: Array<any> = []; 
   stories: Array<any>;

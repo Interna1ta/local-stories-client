@@ -20,21 +20,21 @@ import { CreateButtonComponent } from './components/nav/create-button/create-but
 
 // -- Pages
 
-import { IndexComponent } from './pages/stories/index/index.component';
-import { Error404Component } from './pages/errors/error404/error404.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
+import { Error404Component } from './pages/errors/error404/error404.component';
 import { LoginPageComponent } from './pages/users/login-page/login-page.component';
 import { SignupPageComponent } from './pages/users/signup-page/signup-page.component';
+import { StoriesPageComponent } from './pages/stories/stories-page/stories-page.component';
 import { StoryCreatePageComponent } from './pages/stories/story-create-page/story-create-page.component';
+import { SingleStoryPageComponent } from './pages/stories/single-story-page/single-story-page.component';
 import { UserPageComponent } from './pages/users/user-page/user-page.component';
 import { FollowersPageComponent } from './pages/users/followers-page/followers-page.component';
 import { FollowingPageComponent } from './pages/users/following-page/following-page.component';
 import { EditProfilePageComponent } from './pages/users/edit-profile-page/edit-profile-page.component';
-import { NotificationsPageComponent } from './pages/notifications/notifications-page.component';
 import { AddFollowersPageComponent } from './pages/users/add-followers-page/add-followers-page.component';
-import { ArticleCreatePageComponent } from './pages/stories/article-create-page/article-create-page.component';
-import { SingleStoryPageComponent } from './pages/stories/single-story-page/single-story-page.component';
-import { SingleArticlePageComponent } from './pages/stories/single-article-page/single-article-page.component';
+import { NotificationsPageComponent } from './pages/notifications/notifications-page.component';
+import { ArticleCreatePageComponent } from './pages/news/article-create-page/article-create-page.component';
+import { SingleArticlePageComponent } from './pages/news/single-article-page/single-article-page.component';
 import { NewsPageComponent } from './pages/news/news-page/news-page.component';
 
 // -- Services
@@ -58,7 +58,7 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent, canActivate: [RequireAnonGuardService] },
   { path: 'signup', component: SignupPageComponent, canActivate: [RequireAnonGuardService] },
   { path: 'news', component: NewsPageComponent, canActivate: [RequireUserGuardService] },
-  { path: 'stories', component: IndexComponent, canActivate: [RequireUserGuardService] },
+  { path: 'stories', component: StoriesPageComponent, canActivate: [RequireUserGuardService] },
   { path: 'stories/create', component: StoryCreatePageComponent, canActivate: [RequireUserGuardService] },
   { path: 'stories/:id', component: SingleStoryPageComponent, canActivate: [RequireUserGuardService] },
   { path: 'articles/create', component: ArticleCreatePageComponent, canActivate: [RequireUserGuardService] },
@@ -77,7 +77,7 @@ const routes: Routes = [
     AppComponent,
     HomepageComponent,
     Error404Component,
-    IndexComponent,
+    StoriesPageComponent,
     LoginPageComponent,
     SignupPageComponent,
     TopNavComponent,
