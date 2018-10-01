@@ -1,6 +1,6 @@
 @import './../../../../app/scss/variables.scss';
 
-#site-footer {
+#site-header {
   color: #111;
   background: $color-white;
   padding: 10px 0;
@@ -20,7 +20,7 @@
    max-width: 568px; 
   }
 
-  .nav-footer {
+  .nav-header {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
